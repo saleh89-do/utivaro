@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Percentage Calculator – Free Online Percentage Tool | Utivaro</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Percentage Calculator – Calculate Percentages Online Free | Utivaro
+  </title>
 
   <meta
     name="description"
-    content="Free online percentage calculator for percentage of a number, percentage ratio, and percentage increase or decrease."
+    content="Free percentage calculator to find a percentage of a number, calculate what percent one number is of another, and calculate percentage increase or decrease."
   >
 
   <link
@@ -16,22 +22,140 @@
     href="https://utivaro.com/tools/percentage-calculator.html"
   >
 
-  <link rel="stylesheet" href="../styles.css">
+  <meta
+    name="robots"
+    content="index,follow"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Percentage Calculator – Free Online Calculator"
+  >
+
+  <meta
+    property="og:description"
+    content="Calculate percentages, percentage ratios, increases and decreases instantly with Utivaro."
+  >
+
+  <meta
+    property="og:url"
+    content="https://utivaro.com/tools/percentage-calculator.html"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Utivaro"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Percentage Calculator",
+    "url": "https://utivaro.com/tools/percentage-calculator.html",
+    "description": "Free online percentage calculator for percentage values, ratios, increases and decreases.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Utivaro",
+      "url": "https://utivaro.com/"
+    }
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate a percentage of a number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the number by the percentage and divide the result by 100. For example, 25 percent of 200 is 50."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate what percentage one number is of another?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the first number by the second number and multiply the result by 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate percentage increase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract the original value from the new value, divide the difference by the original value, and multiply by 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Utivaro Percentage Calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Utivaro Percentage Calculator is free to use and does not require an account."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
 
 <header class="site-header">
+
   <nav class="nav">
 
-    <a href="/" class="logo">
+    <a
+      href="/"
+      class="logo"
+    >
       UTIVARO<span>.</span>
     </a>
 
     <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/#tools">Tools</a>
-      <a href="/#categories">Categories</a>
+
+      <a href="/">
+        Home
+      </a>
+
+      <a href="/#tools">
+        Tools
+      </a>
+
+      <a href="/#categories">
+        Categories
+      </a>
+
     </div>
 
     <div class="nav-badge">
@@ -39,6 +163,7 @@
     </div>
 
   </nav>
+
 </header>
 
 
@@ -47,11 +172,21 @@
   <div class="container">
 
     <div class="breadcrumb">
-      <a href="/">Home</a>
+
+      <a href="/">
+        Home
+      </a>
+
       →
-      <a href="/#tools">Calculators</a>
+
+      <a href="/#tools">
+        Calculators
+      </a>
+
       →
+
       Percentage Calculator
+
     </div>
 
 
@@ -62,8 +197,10 @@
       </h1>
 
       <p>
-        Calculate percentages, percentage ratios,
-        and percentage increase or decrease instantly.
+        Calculate percentages instantly.
+        Find a percentage of a number,
+        determine what percent one number is of another,
+        or calculate percentage increase and decrease.
       </p>
 
     </div>
@@ -75,7 +212,14 @@
         What is X% of Y?
       </h2>
 
+      <p>
+        Enter a percentage and a number
+        to calculate the percentage value.
+      </p>
+
+
       <div class="field">
+
         <label for="percentageRate">
           Percentage
         </label>
@@ -87,10 +231,12 @@
           inputmode="decimal"
           placeholder="Example: 25"
         >
+
       </div>
 
 
       <div class="field">
+
         <label for="percentageValue">
           Number
         </label>
@@ -102,6 +248,7 @@
           inputmode="decimal"
           placeholder="Example: 200"
         >
+
       </div>
 
 
@@ -109,6 +256,7 @@
 
         <button
           class="btn btn-primary"
+          type="button"
           onclick="calculatePercentage()"
         >
           Calculate
@@ -128,11 +276,21 @@
     </div>
 
 
-    <div class="tool-box" style="margin-top: 24px;">
+    <div
+      class="tool-box"
+      style="margin-top:24px;"
+    >
 
       <h2>
-        X is what percentage of Y?
+        X is What Percentage of Y?
       </h2>
+
+      <p>
+        Use this calculator to find what
+        percentage one number represents
+        of another number.
+      </p>
+
 
       <div class="field">
 
@@ -172,6 +330,7 @@
 
         <button
           class="btn btn-primary"
+          type="button"
           onclick="calculatePercentageRatio()"
         >
           Calculate
@@ -191,11 +350,19 @@
     </div>
 
 
-    <div class="tool-box" style="margin-top: 24px;">
+    <div
+      class="tool-box"
+      style="margin-top:24px;"
+    >
 
       <h2>
         Percentage Increase or Decrease
       </h2>
+
+      <p>
+        Compare an original value with a new value
+        to calculate the percentage change.
+      </p>
 
 
       <div class="field">
@@ -236,6 +403,7 @@
 
         <button
           class="btn btn-primary"
+          type="button"
           onclick="calculatePercentageChange()"
         >
           Calculate
@@ -258,46 +426,219 @@
     <div class="content-card">
 
       <h2>
-        How to calculate a percentage
+        Free Online Percentage Calculator
       </h2>
 
       <p>
-        To calculate a percentage of a number,
-        multiply the number by the percentage and divide by 100.
+        Utivaro's Percentage Calculator helps you
+        solve common percentage problems quickly
+        without doing the formulas manually.
       </p>
 
       <p>
-        For example, 25% of 200 is 50.
-      </p>
-
-
-      <h2>
-        How to calculate what percentage one number is of another
-      </h2>
-
-      <p>
-        Divide the first number by the second number,
-        then multiply the result by 100.
+        You can calculate a percentage of a number,
+        find what percentage one value is of another,
+        and measure percentage increases or decreases.
       </p>
 
 
       <h2>
-        How to calculate percentage increase
+        How to Calculate a Percentage of a Number
       </h2>
+
+      <p>
+        To find a percentage of a number,
+        multiply the number by the percentage
+        and divide the result by 100.
+      </p>
+
+      <p>
+        The formula is:
+      </p>
+
+      <p>
+        <strong>
+          Percentage value = Number × Percentage ÷ 100
+        </strong>
+      </p>
+
+      <p>
+        For example, to find 25% of 200:
+      </p>
+
+      <p>
+        <strong>
+          200 × 25 ÷ 100 = 50
+        </strong>
+      </p>
+
+      <p>
+        Therefore, 25% of 200 is 50.
+      </p>
+
+
+      <h2>
+        How to Find What Percentage One Number Is of Another
+      </h2>
+
+      <p>
+        To calculate what percentage X is of Y,
+        divide X by Y and multiply the result by 100.
+      </p>
+
+      <p>
+        The formula is:
+      </p>
+
+      <p>
+        <strong>
+          Percentage = X ÷ Y × 100
+        </strong>
+      </p>
+
+      <p>
+        For example, 50 is what percentage of 200?
+      </p>
+
+      <p>
+        <strong>
+          50 ÷ 200 × 100 = 25%
+        </strong>
+      </p>
+
+
+      <h2>
+        How to Calculate Percentage Increase
+      </h2>
+
+      <p>
+        Percentage increase measures how much
+        a value has grown compared with its
+        original value.
+      </p>
+
+      <p>
+        The formula is:
+      </p>
+
+      <p>
+        <strong>
+          Percentage increase =
+          (New value − Original value)
+          ÷ Original value × 100
+        </strong>
+      </p>
+
+      <p>
+        For example, if a price changes
+        from 100 to 125, the increase is 25%.
+      </p>
+
+
+      <h2>
+        How to Calculate Percentage Decrease
+      </h2>
+
+      <p>
+        The same percentage-change formula can
+        be used when the new value is lower
+        than the original value.
+      </p>
+
+      <p>
+        For example, if a value decreases
+        from 200 to 150, the decrease is 25%.
+      </p>
+
+
+      <h2>
+        Common Uses for Percentage Calculations
+      </h2>
+
+      <p>
+        Percentage calculations are useful
+        for discounts, price changes, sales,
+        grades, statistics, business reports,
+        taxes, budgeting and everyday comparisons.
+      </p>
+
+
+      <h2>
+        Frequently Asked Questions
+      </h2>
+
+
+      <h3>
+        How do you calculate 20% of a number?
+      </h3>
+
+      <p>
+        Multiply the number by 20 and divide by 100.
+        For example, 20% of 150 is 30.
+      </p>
+
+
+      <h3>
+        What percentage is 50 out of 200?
+      </h3>
+
+      <p>
+        Divide 50 by 200 and multiply by 100.
+        The result is 25%.
+      </p>
+
+
+      <h3>
+        How do you calculate a percentage increase?
+      </h3>
 
       <p>
         Subtract the original value from the new value,
-        divide by the original value, then multiply by 100.
+        divide the difference by the original value,
+        and multiply by 100.
+      </p>
+
+
+      <h3>
+        Can percentages be greater than 100%?
+      </h3>
+
+      <p>
+        Yes. A percentage can be greater than 100%
+        when a value is larger than the reference value.
+        For example, 300 is 150% of 200.
+      </p>
+
+
+      <h3>
+        Is this calculator free?
+      </h3>
+
+      <p>
+        Yes. The Utivaro Percentage Calculator
+        is free and requires no signup.
       </p>
 
 
       <h2>
-        Is this percentage calculator free?
+        More Free Utivaro Tools
       </h2>
 
       <p>
-        Yes. The Utivaro Percentage Calculator is free
-        and does not require an account.
+        You can also try the
+        <a href="/tools/unit-converter.html">
+          Unit Converter
+        </a>,
+        <a href="/tools/days-between-dates.html">
+          Days Between Dates Calculator
+        </a>,
+        <a href="/tools/word-counter.html">
+          Word Counter
+        </a>
+        or
+        <a href="/tools/webp-to-jpg.html">
+          WebP to JPG Converter
+        </a>.
       </p>
 
     </div>
@@ -337,11 +678,15 @@
           Tools
         </a>
 
-        <a href="#">
+        <a href="/about.html">
+          About
+        </a>
+
+        <a href="/privacy.html">
           Privacy
         </a>
 
-        <a href="#">
+        <a href="/terms.html">
           Terms
         </a>
 
@@ -354,6 +699,7 @@
 
       © <span id="currentYear">2026</span>
       Utivaro.
+      All rights reserved.
 
     </div>
 
@@ -365,72 +711,172 @@
 <script src="../script.js"></script>
 
 <script>
+
+function cleanNumber(value) {
+
+  return parseFloat(
+    Number(value).toFixed(6)
+  );
+
+}
+
+
+function calculatePercentage() {
+
+  const rate = parseFloat(
+    document.getElementById(
+      "percentageRate"
+    ).value
+  );
+
+  const value = parseFloat(
+    document.getElementById(
+      "percentageValue"
+    ).value
+  );
+
+  const result =
+    document.getElementById(
+      "percentageResult"
+    );
+
+
+  if (
+    Number.isNaN(rate) ||
+    Number.isNaN(value)
+  ) {
+
+    result.textContent =
+      "Enter valid numbers";
+
+    return;
+
+  }
+
+
+  const answer =
+    (rate / 100) * value;
+
+
+  result.textContent =
+    cleanNumber(answer);
+
+}
+
+
 function calculatePercentageRatio() {
+
   const part = parseFloat(
-    document.getElementById("partValue").value
+    document.getElementById(
+      "partValue"
+    ).value
   );
 
   const whole = parseFloat(
-    document.getElementById("wholeValue").value
+    document.getElementById(
+      "wholeValue"
+    ).value
   );
 
-  const result = document.getElementById("ratioResult");
+  const result =
+    document.getElementById(
+      "ratioResult"
+    );
+
 
   if (
     Number.isNaN(part) ||
     Number.isNaN(whole) ||
     whole === 0
   ) {
-    result.textContent = "Enter valid numbers";
+
+    result.textContent =
+      "Enter valid numbers";
+
     return;
+
   }
 
-  const answer = (part / whole) * 100;
+
+  const answer =
+    (part / whole) * 100;
+
 
   result.textContent =
-    parseFloat(answer.toFixed(6)) + "%";
+    cleanNumber(answer) + "%";
+
 }
 
 
 function calculatePercentageChange() {
 
   const oldValue = parseFloat(
-    document.getElementById("oldValue").value
+    document.getElementById(
+      "oldValue"
+    ).value
   );
 
   const newValue = parseFloat(
-    document.getElementById("newValue").value
+    document.getElementById(
+      "newValue"
+    ).value
   );
 
   const result =
-    document.getElementById("changeResult");
+    document.getElementById(
+      "changeResult"
+    );
+
 
   if (
     Number.isNaN(oldValue) ||
     Number.isNaN(newValue) ||
     oldValue === 0
   ) {
-    result.textContent = "Enter valid numbers";
+
+    result.textContent =
+      "Enter valid numbers";
+
     return;
+
   }
+
 
   const change =
-    ((newValue - oldValue) / Math.abs(oldValue)) * 100;
+    (
+      (newValue - oldValue) /
+      Math.abs(oldValue)
+    ) * 100;
+
 
   const rounded =
-    parseFloat(change.toFixed(6));
+    cleanNumber(change);
+
 
   if (change > 0) {
+
     result.textContent =
       rounded + "% increase";
-  } else if (change < 0) {
+
+  }
+
+  else if (change < 0) {
+
     result.textContent =
-      Math.abs(rounded) + "% decrease";
-  } else {
+      Math.abs(rounded) +
+      "% decrease";
+
+  }
+
+  else {
+
     result.textContent =
       "No change";
+
   }
+
 }
+
 </script>
 
 </body>
