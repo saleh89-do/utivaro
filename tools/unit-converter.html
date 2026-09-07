@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Unit Converter – Length, Weight, Temperature & More | Utivaro</title>
+
+  <meta
+    name="description"
+    content="Free online unit converter for length, weight, temperature, data storage, area, volume and speed."
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/unit-converter.html"
+  >
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="/#categories">Categories</a>
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
+  </nav>
+</header>
+
+
+<main class="tool-page">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      →
+      <a href="/#tools">Converters</a>
+      →
+      Unit Converter
+    </div>
+
+
+    <div class="tool-title">
+
+      <h1>Unit Converter</h1>
+
+      <p>
+        Convert length, weight, temperature,
+        data storage, area, volume and speed instantly.
+      </p>
+
+    </div>
+
+
+    <div class="tool-box">
+
+      <div class="field">
+
+        <label for="category">
+          Category
+        </label>
+
+        <select
+          id="category"
+          onchange="loadUnits()"
+        >
+          <option value="length">Length</option>
+          <option value="weight">Weight</option>
+          <option value="temperature">Temperature</option>
+          <option value="data">Data Storage</option>
+          <option value="area">Area</option>
+          <option value="volume">Volume</option>
+          <option value="speed">Speed</option>
+        </select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="unitValue">
+          Value
+        </label>
+
+        <input
+          class="input"
+          id="unitValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Enter a value"
+          oninput="convertUnit()"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="fromUnit">
+          From
+        </label>
+
+        <select
+          id="fromUnit"
+          onchange="convertUnit()"
+        ></select>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="toUnit">
+          To
+        </label>
+
+        <select
+          id="toUnit"
+          onchange="convertUnit()"
+        ></select>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-secondary"
+          onclick="swapUnits()"
+        >
+          ⇄ Swap Units
+        </button>
+
+        <button
+          class="btn btn-primary"
+          onclick="convertUnit()"
+        >
+          Convert
+        </button>
+
+      </div>
+
+
+      <div class="result">
+
+        <strong id="unitResult">
+          —
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+      <h2>
+        Free Online Unit Converter
+      </h2>
+
+      <p>
+        Utivaro Unit Converter lets you convert
+        common measurement units instantly.
+      </p>
+
+
+      <h2>
+        Supported categories
+      </h2>
+
+      <p>
+        Length, weight, temperature,
+        digital storage, area, volume and speed
+        are currently supported.
+      </p>
+
+
+      <h2>
+        How to use the Unit Converter
+      </h2>
+
+      <p>
+        Choose a category, enter a value,
+        select the source unit and target unit,
+        and the result will appear automatically.
+      </p>
+
+
+      <h2>
+        Is this converter free?
+      </h2>
+
+      <p>
+        Yes. The tool is completely free
+        and does not require an account.
+      </p>
+
+
+      <h2>
+        Does the conversion happen online?
+      </h2>
+
+      <p>
+        The calculation happens directly
+        inside your browser.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>UTIVARO</strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">Home</a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+<script>
+
+const unitData = {
+
+  length: {
+    meter: {
+      label: "Meters (m)",
+      factor: 1
+    },
+    kilometer: {
+      label: "Kilometers (km)",
+      factor: 1000
+    },
+    centimeter: {
+      label: "Centimeters (cm)",
+      factor: 0.01
+    },
+    millimeter: {
+      label: "Millimeters (mm)",
+      factor: 0.001
+    },
+    mile: {
+      label: "Miles (mi)",
+      factor: 1609.344
+    },
+    yard: {
+      label: "Yards (yd)",
+      factor: 0.9144
+    },
+    foot: {
+      label: "Feet (ft)",
+      factor: 0.3048
+    },
+    inch: {
+      label: "Inches (in)",
+      factor: 0.0254
+    }
+  },
+
+  weight: {
+    kilogram: {
+      label: "Kilograms (kg)",
+      factor: 1
+    },
+    gram: {
+      label: "Grams (g)",
+      factor: 0.001
+    },
+    milligram: {
+      label: "Milligrams (mg)",
+      factor: 0.000001
+    },
+    pound: {
+      label: "Pounds (lb)",
+      factor: 0.45359237
+    },
+    ounce: {
+      label: "Ounces (oz)",
+      factor: 0.028349523125
+    },
+    ton: {
+      label: "Metric Tons (t)",
+      factor: 1000
+    }
+  },
+
+  data: {
+    byte: {
+      label: "Bytes (B)",
+      factor: 1
+    },
+    kilobyte: {
+      label: "Kilobytes (KB)",
+      factor: 1024
+    },
+    megabyte: {
+      label: "Megabytes (MB)",
+      factor: 1024 ** 2
+    },
+    gigabyte: {
+      label: "Gigabytes (GB)",
+      factor: 1024 ** 3
+    },
+    terabyte: {
+      label: "Terabytes (TB)",
+      factor: 1024 ** 4
+    }
+  },
+
+  area: {
+    squareMeter: {
+      label: "Square Meters (m²)",
+      factor: 1
+    },
+    squareKilometer: {
+      label: "Square Kilometers (km²)",
+      factor: 1000000
+    },
+    squareFoot: {
+      label: "Square Feet (ft²)",
+      factor: 0.09290304
+    },
+    squareYard: {
+      label: "Square Yards (yd²)",
+      factor: 0.83612736
+    },
+    acre: {
+      label: "Acres",
+      factor: 4046.8564224
+    },
+    hectare: {
+      label: "Hectares",
+      factor: 10000
+    }
+  },
+
+  volume: {
+    liter: {
+      label: "Liters (L)",
+      factor: 1
+    },
+    milliliter: {
+      label: "Milliliters (mL)",
+      factor: 0.001
+    },
+    cubicMeter: {
+      label: "Cubic Meters (m³)",
+      factor: 1000
+    },
+    gallonUS: {
+      label: "US Gallons",
+      factor: 3.785411784
+    },
+    quartUS: {
+      label: "US Quarts",
+      factor: 0.946352946
+    },
+    cupUS: {
+      label: "US Cups",
+      factor: 0.2365882365
+    }
+  },
+
+  speed: {
+    meterSecond: {
+      label: "Meters/Second (m/s)",
+      factor: 1
+    },
+    kilometerHour: {
+      label: "Kilometers/Hour (km/h)",
+      factor: 0.2777777778
+    },
+    mileHour: {
+      label: "Miles/Hour (mph)",
+      factor: 0.44704
+    },
+    knot: {
+      label: "Knots",
+      factor: 0.5144444444
+    }
+  }
+
+};
+
+
+const temperatureUnits = {
+  celsius: "Celsius (°C)",
+  fahrenheit: "Fahrenheit (°F)",
+  kelvin: "Kelvin (K)"
+};
+
+
+function loadUnits() {
+
+  const category =
+    document.getElementById("category").value;
+
+  const from =
+    document.getElementById("fromUnit");
+
+  const to =
+    document.getElementById("toUnit");
+
+
+  from.innerHTML = "";
+  to.innerHTML = "";
+
+
+  if (category === "temperature") {
+
+    Object.entries(
+      temperatureUnits
+    ).forEach(([value, label]) => {
+
+      from.add(
+        new Option(label, value)
+      );
+
+      to.add(
+        new Option(label, value)
+      );
+
+    });
+
+    from.value = "celsius";
+    to.value = "fahrenheit";
+
+  }
+
+  else {
+
+    const units =
+      unitData[category];
+
+    Object.entries(
+      units
+    ).forEach(([key, unit]) => {
+
+      from.add(
+        new Option(unit.label, key)
+      );
+
+      to.add(
+        new Option(unit.label, key)
+      );
+
+    });
+
+
+    const keys =
+      Object.keys(units);
+
+    from.value =
+      keys[0];
+
+    to.value =
+      keys[1] || keys[0];
+
+  }
+
+
+  convertUnit();
+
+}
+
+
+function convertTemperature(
+  value,
+  from,
+  to
+) {
+
+  let celsius;
+
+
+  if (from === "celsius") {
+    celsius = value;
+  }
+
+  else if (from === "fahrenheit") {
+    celsius =
+      (value - 32) * 5 / 9;
+  }
+
+  else {
+    celsius =
+      value - 273.15;
+  }
+
+
+  if (to === "celsius") {
+    return celsius;
+  }
+
+  if (to === "fahrenheit") {
+    return celsius * 9 / 5 + 32;
+  }
+
+  return celsius + 273.15;
+
+}
+
+
+function convertUnit() {
+
+  const category =
+    document.getElementById("category").value;
+
+  const value =
+    parseFloat(
+      document.getElementById(
+        "unitValue"
+      ).value
+    );
+
+
+  const result =
+    document.getElementById(
+      "unitResult"
+    );
+
+
+  if (Number.isNaN(value)) {
+
+    result.textContent = "—";
+
+    return;
+  }
+
+
+  const from =
+    document.getElementById(
+      "fromUnit"
+    ).value;
+
+
+  const to =
+    document.getElementById(
+      "toUnit"
+    ).value;
+
+
+  let answer;
+
+
+  if (category === "temperature") {
+
+    answer =
+      convertTemperature(
+        value,
+        from,
+        to
+      );
+
+  }
+
+  else {
+
+    const units =
+      unitData[category];
+
+
+    const baseValue =
+      value *
+      units[from].factor;
+
+
+    answer =
+      baseValue /
+      units[to].factor;
+
+  }
+
+
+  result.textContent =
+    new Intl.NumberFormat(
+      "en-US",
+      {
+        maximumFractionDigits: 8
+      }
+    ).format(answer);
+
+}
+
+
+function swapUnits() {
+
+  const from =
+    document.getElementById(
+      "fromUnit"
+    );
+
+
+  const to =
+    document.getElementById(
+      "toUnit"
+    );
