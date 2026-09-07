@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Word Counter – Count Words & Characters Online | Utivaro</title>
+
+  <meta
+    name="description"
+    content="Free online word counter to count words, characters, sentences, paragraphs and estimated reading time instantly."
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/word-counter.html"
+  >
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="/#categories">Categories</a>
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
+  </nav>
+</header>
+
+
+<main class="tool-page">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      →
+      <a href="/#tools">Text Tools</a>
+      →
+      Word Counter
+    </div>
+
+
+    <div class="tool-title">
+
+      <h1>
+        Word Counter
+      </h1>
+
+      <p>
+        Count words, characters, sentences,
+        paragraphs and estimated reading time instantly.
+      </p>
+
+    </div>
+
+
+    <div class="tool-box">
+
+      <div class="field">
+
+        <label for="textInput">
+          Enter or paste your text
+        </label>
+
+        <textarea
+          id="textInput"
+          placeholder="Start typing or paste your text here..."
+        ></textarea>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-secondary"
+          onclick="Utivaro.clearInput('textInput')"
+        >
+          Clear
+        </button>
+
+        <button
+          class="btn btn-primary"
+          onclick="Utivaro.copyText(
+            document.getElementById('textInput').value,
+            this
+          )"
+        >
+          Copy Text
+        </button>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="wordCount"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Words
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="characterCount"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Characters
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="characterNoSpaces"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Characters without spaces
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="sentenceCount"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Sentences
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="paragraphCount"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Paragraphs
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="readingTime"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Min read
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+      <h2>
+        Free Online Word Counter
+      </h2>
+
+      <p>
+        Utivaro Word Counter helps you instantly
+        calculate the number of words and characters
+        in any text.
+      </p>
+
+      <p>
+        It is useful for articles, essays, social media
+        posts, assignments, product descriptions,
+        emails and other writing tasks.
+      </p>
+
+
+      <h2>
+        How to use the Word Counter
+      </h2>
+
+      <p>
+        Simply type or paste your text into the box.
+        The statistics update automatically while you type.
+      </p>
+
+
+      <h2>
+        Is my text private?
+      </h2>
+
+      <p>
+        Yes. The counting happens directly inside
+        your browser. Your text does not need to be
+        uploaded to a Utivaro server for this tool to work.
+      </p>
+
+
+      <h2>
+        What does the tool count?
+      </h2>
+
+      <p>
+        The tool currently calculates words,
+        total characters, characters without spaces,
+        sentences, paragraphs and estimated reading time.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>
+          UTIVARO
+        </strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">
+          Home
+        </a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+</body>
+</html>
