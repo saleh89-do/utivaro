@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Percentage Calculator – Free Online Percentage Tool | Utivaro</title>
+
+  <meta
+    name="description"
+    content="Free online percentage calculator for percentage of a number, percentage ratio, and percentage increase or decrease."
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/percentage-calculator.html"
+  >
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="/#categories">Categories</a>
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
+  </nav>
+</header>
+
+
+<main class="tool-page">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      →
+      <a href="/#tools">Calculators</a>
+      →
+      Percentage Calculator
+    </div>
+
+
+    <div class="tool-title">
+
+      <h1>
+        Percentage Calculator
+      </h1>
+
+      <p>
+        Calculate percentages, percentage ratios,
+        and percentage increase or decrease instantly.
+      </p>
+
+    </div>
+
+
+    <div class="tool-box">
+
+      <h2>
+        What is X% of Y?
+      </h2>
+
+      <div class="field">
+        <label for="percentageRate">
+          Percentage
+        </label>
+
+        <input
+          class="input"
+          id="percentageRate"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 25"
+        >
+      </div>
+
+
+      <div class="field">
+        <label for="percentageValue">
+          Number
+        </label>
+
+        <input
+          class="input"
+          id="percentageValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 200"
+        >
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-primary"
+          onclick="calculatePercentage()"
+        >
+          Calculate
+        </button>
+
+      </div>
+
+
+      <div class="result">
+
+        <strong id="percentageResult">
+          —
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="tool-box" style="margin-top: 24px;">
+
+      <h2>
+        X is what percentage of Y?
+      </h2>
+
+      <div class="field">
+
+        <label for="partValue">
+          X
+        </label>
+
+        <input
+          class="input"
+          id="partValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 50"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="wholeValue">
+          Y
+        </label>
+
+        <input
+          class="input"
+          id="wholeValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 200"
+        >
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-primary"
+          onclick="calculatePercentageRatio()"
+        >
+          Calculate
+        </button>
+
+      </div>
+
+
+      <div class="result">
+
+        <strong id="ratioResult">
+          —
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="tool-box" style="margin-top: 24px;">
+
+      <h2>
+        Percentage Increase or Decrease
+      </h2>
+
+
+      <div class="field">
+
+        <label for="oldValue">
+          Original value
+        </label>
+
+        <input
+          class="input"
+          id="oldValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 100"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="newValue">
+          New value
+        </label>
+
+        <input
+          class="input"
+          id="newValue"
+          type="number"
+          inputmode="decimal"
+          placeholder="Example: 125"
+        >
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-primary"
+          onclick="calculatePercentageChange()"
+        >
+          Calculate
+        </button>
+
+      </div>
+
+
+      <div class="result">
+
+        <strong id="changeResult">
+          —
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+      <h2>
+        How to calculate a percentage
+      </h2>
+
+      <p>
+        To calculate a percentage of a number,
+        multiply the number by the percentage and divide by 100.
+      </p>
+
+      <p>
+        For example, 25% of 200 is 50.
+      </p>
+
+
+      <h2>
+        How to calculate what percentage one number is of another
+      </h2>
+
+      <p>
+        Divide the first number by the second number,
+        then multiply the result by 100.
+      </p>
+
+
+      <h2>
+        How to calculate percentage increase
+      </h2>
+
+      <p>
+        Subtract the original value from the new value,
+        divide by the original value, then multiply by 100.
+      </p>
+
+
+      <h2>
+        Is this percentage calculator free?
+      </h2>
+
+      <p>
+        Yes. The Utivaro Percentage Calculator is free
+        and does not require an account.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>
+          UTIVARO
+        </strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">
+          Home
+        </a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+<script>
+function calculatePercentageRatio() {
+  const part = parseFloat(
+    document.getElementById("partValue").value
+  );
+
+  const whole = parseFloat(
+    document.getElementById("wholeValue").value
+  );
+
+  const result = document.getElementById("ratioResult");
+
+  if (
+    Number.isNaN(part) ||
+    Number.isNaN(whole) ||
+    whole === 0
+  ) {
+    result.textContent = "Enter valid numbers";
+    return;
+  }
+
+  const answer = (part / whole) * 100;
+
+  result.textContent =
+    parseFloat(answer.toFixed(6)) + "%";
+}
+
+
+function calculatePercentageChange() {
+
+  const oldValue = parseFloat(
+    document.getElementById("oldValue").value
+  );
+
+  const newValue = parseFloat(
+    document.getElementById("newValue").value
+  );
+
+  const result =
+    document.getElementById("changeResult");
+
+  if (
+    Number.isNaN(oldValue) ||
+    Number.isNaN(newValue) ||
+    oldValue === 0
+  ) {
+    result.textContent = "Enter valid numbers";
+    return;
+  }
+
+  const change =
+    ((newValue - oldValue) / Math.abs(oldValue)) * 100;
+
+  const rounded =
+    parseFloat(change.toFixed(6));
+
+  if (change > 0) {
+    result.textContent =
+      rounded + "% increase";
+  } else if (change < 0) {
+    result.textContent =
+      Math.abs(rounded) + "% decrease";
+  } else {
+    result.textContent =
+      "No change";
+  }
+}
+</script>
+
+</body>
+</html>
