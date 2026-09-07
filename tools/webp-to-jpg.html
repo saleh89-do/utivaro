@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>WebP to JPG Converter – Free Online Image Converter | Utivaro</title>
+
+  <meta
+    name="description"
+    content="Convert WebP images to JPG online for free. Fast, private and processed directly in your browser."
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/webp-to-jpg.html"
+  >
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="/#categories">Categories</a>
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
+  </nav>
+</header>
+
+
+<main class="tool-page">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      →
+      <a href="/#tools">Image Tools</a>
+      →
+      WebP to JPG
+    </div>
+
+
+    <div class="tool-title">
+
+      <h1>
+        WebP to JPG Converter
+      </h1>
+
+      <p>
+        Convert WebP images to JPG instantly.
+        Your image is processed directly in your browser.
+      </p>
+
+    </div>
+
+
+    <div class="tool-box">
+
+      <div class="field">
+
+        <label for="imageInput">
+          Choose a WebP image
+        </label>
+
+        <input
+          class="input"
+          id="imageInput"
+          type="file"
+          accept="image/webp,image/*"
+        >
+
+      </div>
+
+
+      <div
+        id="previewWrap"
+        style="display:none; margin-top:20px;"
+      >
+
+        <img
+          id="imagePreview"
+          alt="Image preview"
+          style="
+            max-width:100%;
+            max-height:420px;
+            display:block;
+            margin:auto;
+            border-radius:16px;
+            border:1px solid #e2e8f0;
+          "
+        >
+
+      </div>
+
+
+      <div
+        class="field"
+        id="qualityWrap"
+        style="display:none; margin-top:22px;"
+      >
+
+        <label for="qualityRange">
+          JPG Quality:
+          <span id="qualityValue">92</span>%
+        </label>
+
+        <input
+          id="qualityRange"
+          type="range"
+          min="50"
+          max="100"
+          value="92"
+          step="1"
+          style="width:100%;"
+        >
+
+      </div>
+
+
+      <div
+        class="actions"
+        id="imageActions"
+        style="display:none;"
+      >
+
+        <button
+          class="btn btn-secondary"
+          onclick="clearImageTool()"
+        >
+          Clear
+        </button>
+
+        <button
+          class="btn btn-primary"
+          onclick="convertWebPToJPG()"
+        >
+          Convert to JPG
+        </button>
+
+      </div>
+
+
+      <div
+        id="conversionResult"
+        class="result"
+        style="display:none;"
+      >
+
+        <div class="stats-grid">
+
+          <div class="stat">
+            <span
+              class="stat-value"
+              id="originalSize"
+            >
+              —
+            </span>
+
+            <span class="stat-label">
+              Original size
+            </span>
+          </div>
+
+
+          <div class="stat">
+            <span
+              class="stat-value"
+              id="convertedSize"
+            >
+              —
+            </span>
+
+            <span class="stat-label">
+              JPG size
+            </span>
+          </div>
+
+
+          <div class="stat">
+            <span
+              class="stat-value"
+              id="imageDimensions"
+            >
+              —
+            </span>
+
+            <span class="stat-label">
+              Dimensions
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="actions" style="margin-top:20px;">
+
+          <a
+            id="downloadJPG"
+            class="btn btn-primary"
+            download="utivaro-converted.jpg"
+            href="#"
+          >
+            Download JPG
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="notice">
+        🔒 Your image stays on your device.
+        Conversion happens locally in your browser.
+      </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+      <h2>
+        Free WebP to JPG Converter
+      </h2>
+
+      <p>
+        Use Utivaro to convert WebP images
+        into standard JPG files quickly and privately.
+      </p>
+
+
+      <h2>
+        How to convert WebP to JPG
+      </h2>
+
+      <p>
+        Choose a WebP image from your device,
+        adjust the JPG quality if needed,
+        then press Convert to JPG.
+      </p>
+
+      <p>
+        Once the conversion is complete,
+        you can download the JPG file directly.
+      </p>
+
+
+      <h2>
+        Is my image uploaded?
+      </h2>
+
+      <p>
+        No. The conversion is performed
+        inside your browser using local processing.
+      </p>
+
+
+      <h2>
+        Does JPG reduce image quality?
+      </h2>
+
+      <p>
+        JPG uses lossy compression,
+        so some quality reduction is possible.
+        You can control the output quality using
+        the slider above.
+      </p>
+
+
+      <h2>
+        Why convert WebP to JPG?
+      </h2>
+
+      <p>
+        JPG is widely supported by websites,
+        apps, editors and older devices.
+        Converting WebP to JPG can improve compatibility.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>
+          UTIVARO
+        </strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">
+          Home
+        </a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+<script>
+
+let selectedImageFile = null;
+let selectedImageURL = null;
+let convertedImageURL = null;
+
+
+const imageInput =
+  document.getElementById("imageInput");
+
+const previewWrap =
+  document.getElementById("previewWrap");
+
+const imagePreview =
+  document.getElementById("imagePreview");
+
+const qualityWrap =
+  document.getElementById("qualityWrap");
+
+const qualityRange =
+  document.getElementById("qualityRange");
+
+const qualityValue =
+  document.getElementById("qualityValue");
+
+const imageActions =
+  document.getElementById("imageActions");
+
+const conversionResult =
+  document.getElementById("conversionResult");
+
+
+imageInput.addEventListener(
+  "change",
+  function () {
+
+    const file =
+      imageInput.files[0];
+
+    if (!file) {
+      clearImageTool();
+      return;
+    }
+
+    selectedImageFile = file;
+
+
+    if (selectedImageURL) {
+      URL.revokeObjectURL(
+        selectedImageURL
+      );
+    }
+
+
+    selectedImageURL =
+      URL.createObjectURL(file);
+
+
+    imagePreview.src =
+      selectedImageURL;
+
+
+    previewWrap.style.display =
+      "block";
+
+    qualityWrap.style.display =
+      "block";
+
+    imageActions.style.display =
+      "flex";
+
+    conversionResult.style.display =
+      "none";
+
+  }
+);
+
+
+qualityRange.addEventListener(
+  "input",
+  function () {
+
+    qualityValue.textContent =
+      qualityRange.value;
+
+  }
+);
+
+
+function formatFileSize(bytes) {
+
+  if (!bytes) {
+    return "0 B";
+  }
+
+  if (bytes < 1024) {
+    return bytes + " B";
+  }
+
+  if (bytes < 1024 * 1024) {
+
+    return (
+      bytes / 1024
+    ).toFixed(1) + " KB";
+
+  }
+
+  return (
+    bytes /
+    (1024 * 1024)
+  ).toFixed(2) + " MB";
+
+}
+
+
+function convertWebPToJPG() {
+
+  if (!selectedImageFile) {
+    return;
+  }
+
+
+  const image =
+    new Image();
+
+
+  image.onload = function () {
+
+    const canvas =
+      document.createElement("canvas");
+
+
+    canvas.width =
+      image.naturalWidth;
+
+    canvas.height =
+      image.naturalHeight;
+
+
+    const context =
+      canvas.getContext("2d");
+
+
+    context.fillStyle =
+      "#ffffff";
+
+
+    context.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+
+    context.drawImage(
+      image,
+      0,
+      0
+    );
+
+
+    const quality =
+      Number(
+        qualityRange.value
+      ) / 100;
+
+
+    canvas.toBlob(
+      function (blob) {
+
+        if (!blob) {
+          alert(
+            "Unable to convert this image."
+          );
+          return;
+        }
+
+
+        if (convertedImageURL) {
+
+          URL.revokeObjectURL(
+            convertedImageURL
+          );
+
+        }
+
+
+        convertedImageURL =
+          URL.createObjectURL(blob);
+
+
+        document.getElementById(
+          "downloadJPG"
+        ).href =
+          convertedImageURL;
+
+
+        document.getElementById(
+          "originalSize"
+        ).textContent =
+          formatFileSize(
+            selectedImageFile.size
+          );
+
+
+        document.getElementById(
+          "convertedSize"
+        ).textContent =
+          formatFileSize(
+            blob.size
+          );
+
+
+        document.getElementById(
+          "imageDimensions"
+        ).textContent =
+          canvas.width +
+          " × " +
+          canvas.height;
+
+
+        conversionResult.style.display =
+          "block";
+
+      },
+
+      "image/jpeg",
+
+      quality
+    );
+
+  };
+
+
+  image.onerror = function () {
+
+    alert(
+      "This image could not be processed."
+    );
+
+  };
+
+
+  image.src =
+    selectedImageURL;
+
+}
+
+
+function clearImageTool() {
+
+  imageInput.value =
+    "";
+
+  selectedImageFile =
+    null;
+
+
+  if (selectedImageURL) {
+
+    URL.revokeObjectURL(
+      selectedImageURL
+    );
+
+    selectedImageURL =
+      null;
+
+  }
+
+
+  if (convertedImageURL) {
+
+    URL.revokeObjectURL(
+      convertedImageURL
+    );
+
+    convertedImageURL =
+      null;
+
+  }
+
+
+  imagePreview.src =
+    "";
+
+  previewWrap.style.display =
+    "none";
+
+  qualityWrap.style.display =
+    "none";
+
+  imageActions.style.display =
+    "none";
+
+  conversionResult.style.display =
+    "none";
+
+
+  qualityRange.value =
+    "92";
+
+  qualityValue.textContent =
+    "92";
+
+}
+
+</script>
+
+</
