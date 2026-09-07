@@ -5,148 +5,509 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Utivaro – Free Online Utility Tools</title>
-  <meta name="description" content="Fast, free and private online utility tools for developers, text, calculations, images and everyday tasks. No signup required.">
 
-  <style>
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:#f7f8fa;
-      color:#172033
-    }
-    header{
-      background:#fff;
-      border-bottom:1px solid #e5e7eb
-    }
-    nav{
-      max-width:1100px;
-      margin:auto;
-      padding:20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center
-    }
-    .logo{
-      font-size:26px;
-      font-weight:800
-    }
-    .badge{
-      background:#eef2ff;
-      padding:8px 12px;
-      border-radius:20px;
-      font-size:13px
-    }
-    main{
-      max-width:900px;
-      margin:auto;
-      padding:55px 20px
-    }
-    .hero{text-align:center}
-    h1{
-      font-size:44px;
-      margin:10px 0
-    }
-    .hero p{
-      color:#667085;
-      font-size:18px;
-      line-height:1.6
-    }
-    .tool{
-      background:#fff;
-      margin-top:45px;
-      padding:30px;
-      border-radius:18px;
-      box-shadow:0 8px 30px rgba(0,0,0,.06)
-    }
-    textarea{
-      width:100%;
-      min-height:180px;
-      padding:15px;
-      border:1px solid #d0d5dd;
-      border-radius:10px;
-      font-size:16px;
-      resize:vertical
-    }
-    .buttons{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:15px 0
-    }
-    button{
-      border:0;
-      border-radius:9px;
-      padding:12px 18px;
-      cursor:pointer;
-      font-weight:700
-    }
-    .primary{
-      background:#2563eb;
-      color:#fff
-    }
-    .secondary{
-      background:#eef2f6
-    }
-    .privacy{
-      margin-top:18px;
-      background:#ecfdf3;
-      padding:12px;
-      border-radius:8px;
-      font-size:14px
-    }
-    .coming{
-      margin-top:50px
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:15px
-    }
-    .card{
-      background:#fff;
-      padding:20px;
-      border-radius:12px;
-      border:1px solid #eaecf0
-    }
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      color:#667085
-    }
-    @media(max-width:650px){
-      h1{font-size:34px}
-      .grid{grid-template-columns:1fr}
-      .tool{padding:20px}
-    }
-  </style>
+  <meta
+    name="description"
+    content="Fast, free and private online utility tools for developers, text, calculations, images and everyday tasks. No signup required."
+  >
+
+  <link rel="canonical" href="https://utivaro.com/">
+
+  <meta property="og:title" content="Utivaro – Free Online Utility Tools">
+  <meta
+    property="og:description"
+    content="Fast, simple and private tools for everyday tasks."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://utivaro.com/">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo">UTIVARO</div>
-    <div class="badge">Free Online Tools</div>
+<header class="site-header">
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#tools">Tools</a>
+      <a href="#categories">Categories</a>
+      <a href="#why">Why Utivaro</a>
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
   </nav>
 </header>
 
+
 <main>
 
-  <section class="hero">
-    <h1>Free Online Utility Tools</h1>
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-badge">
+      ⚡ Fast · Free · Private
+    </div>
+
+    <h1>
+      Everyday tools.<br>
+      Simple and fast.
+    </h1>
+
     <p>
-      Fast, free and private tools for developers, text,
+      Free online utilities for developers, text,
       calculations, images and everyday tasks.
       No signup required.
     </p>
-  </section>
 
-  <section class="tool">
-    <h2>Base64 Encoder & Decoder</h2>
-    <p>Encode text to Base64 or decode Base64 instantly.</p>
+    <div class="hero-actions">
 
-    <textarea id="input" placeholder="Enter text or Base64 here..."></textarea>
+      <a href="#tools" class="btn btn-primary">
+        Explore Tools
+      </a>
 
-    <div class="buttons">
-      <button class="
+      <a
+        href="/tools/word-counter.html"
+        class="btn btn-secondary"
+      >
+        Try Word Counter
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="section"
+  id="tools"
+>
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <h2>Popular Tools</h2>
+
+      <p>
+        Useful tools built to do one job quickly and well.
+      </p>
+
+    </div>
+
+
+    <div class="tools-grid">
+
+      <a
+        href="/tools/word-counter.html"
+        class="tool-card"
+      >
+
+        <div class="tool-icon">
+          📝
+        </div>
+
+        <h3>
+          Word Counter
+        </h3>
+
+        <p>
+          Count words, characters,
+          sentences and reading time instantly.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+      <a
+        href="/tools/percentage-calculator.html"
+        class="tool-card"
+      >
+
+        <div class="tool-icon">
+          %
+        </div>
+
+        <h3>
+          Percentage Calculator
+        </h3>
+
+        <p>
+          Calculate percentages quickly
+          without complicated formulas.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+      <a
+        href="/tools/days-between-dates.html"
+        class="tool-card"
+      >
+
+        <div class="tool-icon">
+          📅
+        </div>
+
+        <h3>
+          Days Between Dates
+        </h3>
+
+        <p>
+          Find the exact number of days
+          between any two dates.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+      <a
+        href="/tools/base64.html"
+        class="tool-card"
+      >
+
+        <div class="tool-icon">
+          &lt;/&gt;
+        </div>
+
+        <h3>
+          Base64 Encoder & Decoder
+        </h3>
+
+        <p>
+          Encode text to Base64 or
+          decode Base64 instantly.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+      <a
+        href="/tools/character-counter.html"
+        class="tool-card"
+      >
+
+        <div class="tool-icon">
+          🔤
+        </div>
+
+        <h3>
+          Character Counter
+        </h3>
+
+        <p>
+          Count characters and
+          characters without spaces.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+      <div class="tool-card">
+
+        <div class="tool-icon">
+          { }
+        </div>
+
+        <h3>
+          JSON Formatter
+        </h3>
+
+        <p>
+          Format and validate JSON.
+          Coming in the next update.
+        </p>
+
+        <span class="tool-link">
+          Coming soon
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="section"
+  id="categories"
+>
+
+  <div class="container">
+
+    <div class="section-heading center">
+
+      <h2>
+        Browse by Category
+      </h2>
+
+      <p>
+        Utivaro is designed to grow into
+        a large library of useful online tools.
+      </p>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+
+        <h3>
+          🧮 Calculators
+        </h3>
+
+        <p>
+          Percentage, date,
+          finance and everyday calculators.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          📝 Text Tools
+        </h3>
+
+        <p>
+          Word counting,
+          character counting and text utilities.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          💻 Developer Tools
+        </h3>
+
+        <p>
+          Base64, JSON,
+          encoding and developer utilities.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          🖼 Image Tools
+        </h3>
+
+        <p>
+          Image conversion,
+          compression and resizing tools.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          🔄 Converters
+        </h3>
+
+        <p>
+          Units, formats,
+          file types and everyday conversions.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          ⚙ Generators
+        </h3>
+
+        <p>
+          Random numbers,
+          UUIDs and useful generators.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="section"
+  id="why"
+>
+
+  <div class="container">
+
+    <div class="section-heading center">
+
+      <h2>
+        Why Utivaro?
+      </h2>
+
+      <p>
+        Built around speed,
+        privacy and simplicity.
+      </p>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature">
+
+        <h3>
+          ⚡ Instant
+        </h3>
+
+        <p>
+          Open the tool
+          and start using it immediately.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          🔒 Private
+        </h3>
+
+        <p>
+          Whenever possible,
+          processing happens inside your browser.
+        </p>
+
+      </div>
+
+
+      <div class="feature">
+
+        <h3>
+          ✓ No Signup
+        </h3>
+
+        <p>
+          No account required
+          for the core utility tools.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>
+          UTIVARO
+        </strong>
+
+        <p>
+          Free online utility tools
+          designed to make everyday tasks easier.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#tools">
+          Tools
+        </a>
+
+        <a href="#categories">
+          Categories
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+
+        <a href="#">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro. All rights reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
