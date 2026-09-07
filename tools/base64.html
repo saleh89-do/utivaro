@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Base64 Encoder & Decoder – Encode or Decode Online | Utivaro</title>
+
+  <meta
+    name="description"
+    content="Free online Base64 encoder and decoder. Encode text to Base64 or decode Base64 to readable text instantly in your browser."
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/base64.html"
+  >
+
+  <meta
+    name="robots"
+    content="index,follow"
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:title"
+    content="Base64 Encoder & Decoder – Free Online Tool"
+  >
+
+  <meta
+    property="og:description"
+    content="Encode text to Base64 or decode Base64 back to text instantly with Utivaro."
+  >
+
+  <meta
+    property="og:url"
+    content="https://utivaro.com/tools/base64.html"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Utivaro"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Base64 Encoder and Decoder",
+    "url": "https://utivaro.com/tools/base64.html",
+    "description": "Free browser-based tool to encode text to Base64 and decode Base64 to text.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Utivaro",
+      "url": "https://utivaro.com/"
+    }
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Base64?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Base64 is an encoding method that represents binary or text data using a set of ASCII characters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I encode text to Base64?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter or paste your text into the Utivaro Base64 tool and select Encode to Base64."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I decode Base64?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Paste a valid Base64 string into the input box and select Decode Base64."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Base64 encryption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Base64 is an encoding format, not an encryption or security method."
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+
+      <a href="/">
+        Home
+      </a>
+
+      <a href="/#tools">
+        Tools
+      </a>
+
+      <a href="/#categories">
+        Categories
+      </a>
+
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
+  </nav>
+
+</header>
+
+
+<main class="tool-page">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+
+      <a href="/">
+        Home
+      </a>
+
+      →
+
+      <a href="/#tools">
+        Developer Tools
+      </a>
+
+      →
+
+      Base64 Encoder & Decoder
+
+    </div>
+
+
+    <div class="tool-title">
+
+      <h1>
+        Base64 Encoder & Decoder
+      </h1>
+
+      <p>
+        Encode text to Base64 or decode Base64
+        back to readable text instantly in your browser.
+      </p>
+
+    </div>
+
+
+    <div class="tool-box">
+
+      <div class="field">
+
+        <label for="base64Input">
+          Input
+        </label>
+
+        <textarea
+          class="textarea"
+          id="base64Input"
+          placeholder="Enter text to encode or paste Base64 to decode..."
+        ></textarea>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-primary"
+          type="button"
+          onclick="encodeBase64()"
+        >
+          Encode to Base64
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          type="button"
+          onclick="decodeBase64()"
+        >
+          Decode Base64
+        </button>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="base64Output">
+          Result
+        </label>
+
+        <textarea
+          class="textarea"
+          id="base64Output"
+          placeholder="Your result will appear here..."
+          readonly
+        ></textarea>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-secondary"
+          type="button"
+          onclick="clearBase64()"
+        >
+          Clear
+        </button>
+
+        <button
+          class="btn btn-primary"
+          type="button"
+          id="copyBase64Button"
+          onclick="copyBase64Result(this)"
+        >
+          Copy Result
+        </button>
+
+      </div>
+
+
+      <div
+        class="result"
+        id="base64Message"
+        aria-live="polite"
+      >
+        Enter text above to get started.
+      </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+      <h2>
+        Free Online Base64 Encoder and Decoder
+      </h2>
+
+      <p>
+        Utivaro's Base64 Encoder & Decoder lets you
+        convert text to Base64 or decode Base64
+        back into readable text directly in your browser.
+      </p>
+
+      <p>
+        No account, registration or software
+        installation is required.
+      </p>
+
+
+      <h2>
+        How to Encode Text to Base64
+      </h2>
+
+      <ol>
+
+        <li>
+          Enter or paste text into the input box.
+        </li>
+
+        <li>
+          Select
+          <strong>Encode to Base64</strong>.
+        </li>
+
+        <li>
+          The encoded Base64 value will appear
+          in the result box.
+        </li>
+
+        <li>
+          Use Copy Result to copy the encoded value.
+        </li>
+
+      </ol>
+
+
+      <h2>
+        How to Decode Base64
+      </h2>
+
+      <ol>
+
+        <li>
+          Paste a Base64 string into the input box.
+        </li>
+
+        <li>
+          Select
+          <strong>Decode Base64</strong>.
+        </li>
+
+        <li>
+          The decoded text will appear
+          in the result box.
+        </li>
+
+      </ol>
+
+
+      <h2>
+        What Is Base64?
+      </h2>
+
+      <p>
+        Base64 is a method of representing data
+        using a limited set of text characters.
+        It is commonly used when data needs to be
+        transported or stored in text-based formats.
+      </p>
+
+      <p>
+        Developers may encounter Base64 in APIs,
+        data URLs, email systems, configuration files
+        and other software applications.
+      </p>
+
+
+      <h2>
+        Base64 Encoding Example
+      </h2>
+
+      <p>
+        For example, the text
+        <strong>Hello</strong>
+        becomes:
+      </p>
+
+      <p>
+        <code>SGVsbG8=</code>
+      </p>
+
+      <p>
+        Decoding
+        <code>SGVsbG8=</code>
+        returns the original text:
+        <strong>Hello</strong>.
+      </p>
+
+
+      <h2>
+        Is Base64 Encryption?
+      </h2>
+
+      <p>
+        No. Base64 is encoding, not encryption.
+      </p>
+
+      <p>
+        Base64 data can normally be decoded easily,
+        so it should not be used to protect passwords,
+        confidential information or other sensitive data.
+      </p>
+
+
+      <h2>
+        Does It Support Unicode Text?
+      </h2>
+
+      <p>
+        Yes. This tool uses UTF-8 conversion
+        so it can encode and decode Unicode text,
+        including many non-English characters.
+      </p>
+
+
+      <h2>
+        Private Browser-Based Processing
+      </h2>
+
+      <p>
+        The Base64 conversion is performed locally
+        by JavaScript in your browser.
+      </p>
+
+      <p>
+        The tool does not need to send your input
+        to a Utivaro server to perform the
+        encode or decode operation.
+      </p>
+
+
+      <h2>
+        Frequently Asked Questions
+      </h2>
+
+
+      <h3>
+        What is Base64 used for?
+      </h3>
+
+      <p>
+        Base64 is commonly used to represent data
+        in systems that work primarily with text.
+        Examples can include APIs, emails,
+        data URLs and software configuration.
+      </p>
+
+
+      <h3>
+        How do I encode text to Base64?
+      </h3>
+
+      <p>
+        Enter your text into the input box
+        and select Encode to Base64.
+      </p>
+
+
+      <h3>
+        How do I decode a Base64 string?
+      </h3>
+
+      <p>
+        Paste the Base64 value into the input box
+        and select Decode Base64.
+      </p>
+
+
+      <h3>
+        Is Base64 secure?
+      </h3>
+
+      <p>
+        Base64 should not be treated as a security
+        mechanism because encoded data can easily
+        be decoded.
+      </p>
+
+
+      <h3>
+        Is this Base64 tool free?
+      </h3>
+
+      <p>
+        Yes. The Utivaro Base64 Encoder & Decoder
+        is free and requires no signup.
+      </p>
+
+
+      <h2>
+        More Free Utivaro Tools
+      </h2>
+
+      <p>
+        You can also try the
+        <a href="/tools/word-counter.html">
+          Word Counter
+        </a>,
+        <a href="/tools/unit-converter.html">
+          Unit Converter
+        </a>,
+        <a href="/tools/percentage-calculator.html">
+          Percentage Calculator
+        </a>,
+        <a href="/tools/days-between-dates.html">
+          Days Between Dates Calculator
+        </a>
+        or
+        <a href="/tools/webp-to-jpg.html">
+          WebP to JPG Converter
+        </a>.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>
+          UTIVARO
+        </strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">
+          Home
+        </a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="/about.html">
+          About
+        </a>
+
+        <a href="/privacy.html">
+          Privacy
+        </a>
+
+        <a href="/terms.html">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+      All rights reserved.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+<script>
+
+function utf8ToBase64(text) {
+
+  const bytes =
+    new TextEncoder().encode(text);
+
+  let binary = "";
+
+  bytes.forEach(byte => {
+    binary += String.fromCharCode(byte);
+  });
+
+  return btoa(binary);
+
+}
+
+
+function base64ToUtf8(base64) {
+
+  const cleaned =
+    base64.replace(/\s+/g, "");
+
+  const binary =
+    atob(cleaned);
+
+  const bytes =
+    Uint8Array.from(
+      binary,
+      character =>
+        character.charCodeAt(0)
+    );
+
+  return new TextDecoder(
+    "utf-8",
+    {
+      fatal: true
+    }
+  ).decode(bytes);
+
+}
+
+
+function encodeBase64() {
+
+  const input =
+    document.getElementById(
+      "base64Input"
+    ).value;
+
+  const output =
+    document.getElementById(
+      "base64Output"
+    );
+
+  const message =
+    document.getElementById(
+      "base64Message"
+    );
+
+
+  if (!input) {
+
+    output.value = "";
+
+    message.textContent =
+      "Enter text to encode.";
+
+    return;
+
+  }
+
+
+  try {
+
+    output.value =
+      utf8ToBase64(input);
+
+    message.textContent =
+      "Text encoded successfully.";
+
+  }
+
+  catch (error) {
+
+    output.value = "";
+
+    message.textContent =
+      "Unable to encode this text.";
+
+  }
+
+}
+
+
+function decodeBase64() {
+
+  const input =
+    document.getElementById(
+      "base64Input"
+    ).value;
+
+  const output =
+    document.getElementById(
+      "base64Output"
+    );
+
+  const message =
+    document.getElementById(
+      "base64Message"
+    );
+
+
+  if (!input.trim()) {
+
+    output.value = "";
+
+    message.textContent =
+      "Enter a Base64 value to decode.";
+
+    return;
+
+  }
+
+
+  try {
+
+    output.value =
+      base64ToUtf8(input);
+
+    message.textContent =
+      "Base64 decoded successfully.";
+
+  }
+
+  catch (error) {
+
+    output.value = "";
+
+    message.textContent =
+      "Invalid Base64 input. Please check the value and try again.";
+
+  }
+
+}
+
+
+function clearBase64() {
+
+  document.getElementById(
+    "base64Input"
+  ).value = "";
+
+  document.getElementById(
+    "base64Output"
+  ).value = "";
+
+  document.getElementById(
+    "base64Message"
+  ).textContent =
+    "Enter text above to get started.";
+
+}
+
+
+async function copyBase64Result(button) {
+
+  const output =
+    document.getElementById(
+      "base64Output"
+    ).value;
+
+  const message =
+    document.getElementById(
+      "base64Message"
+    );
+
+
+  if (!output) {
+
+    message.textContent =
+      "There is no result to copy.";
+
+    return;
+
+  }
+
+
+  try {
+
+    await navigator.clipboard.writeText(
+      output
+    );
+
+    message.textContent =
+      "Result copied to clipboard.";
+
+    const originalText =
+      button.textContent;
+
+    button.textContent =
+      "Copied!";
+
+    setTimeout(() => {
+
+      button.textContent =
+        originalText;
+
+    }, 1500);
+
+  }
+
+  catch (error) {
+
+    message.textContent =
+      "Unable to copy automatically. Select the result and copy it manually.";
+
+  }
+
+}
+
+</script>
+
+</body>
+  </html>
