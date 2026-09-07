@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Unit Converter – Length, Weight, Temperature & More | Utivaro</title>
+  <title>Unit Converter - Length, Weight, Temperature & More | Utivaro</title>
 
   <meta
     name="description"
-    content="Free online unit converter for length, weight, temperature, data storage, area, volume and speed."
+    content="Free online unit converter for length, weight, temperature, data, area, volume and speed. Fast, accurate and easy to use."
   >
 
   <link
@@ -23,422 +23,314 @@
 
 <header class="site-header">
   <nav class="nav">
-
     <a href="/" class="logo">
       UTIVARO<span>.</span>
     </a>
 
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/#tools">Tools</a>
-      <a href="/#categories">Categories</a>
-    </div>
-
     <div class="nav-badge">
       Free Online Tools
     </div>
-
   </nav>
 </header>
 
 
 <main class="tool-page">
 
-  <div class="container">
+  <section class="tool-hero">
+    <div class="eyebrow">CONVERTER</div>
 
-    <div class="breadcrumb">
-      <a href="/">Home</a>
-      →
-      <a href="/#tools">Converters</a>
-      →
-      Unit Converter
+    <h1>Unit Converter</h1>
+
+    <p>
+      Convert length, weight, temperature, data,
+      area, volume and speed instantly.
+    </p>
+  </section>
+
+
+  <section class="tool-card">
+
+    <div class="field-group">
+      <label for="category">Category</label>
+
+      <select id="category">
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
+        <option value="temperature">Temperature</option>
+        <option value="data">Digital Storage</option>
+        <option value="area">Area</option>
+        <option value="volume">Volume</option>
+        <option value="speed">Speed</option>
+      </select>
     </div>
 
 
-    <div class="tool-title">
+    <div class="field-group">
+      <label for="unitValue">Value</label>
 
-      <h1>Unit Converter</h1>
-
-      <p>
-        Convert length, weight, temperature,
-        data storage, area, volume and speed instantly.
-      </p>
-
+      <input
+        id="unitValue"
+        type="number"
+        inputmode="decimal"
+        value="1"
+        step="any"
+      >
     </div>
 
 
-    <div class="tool-box">
+    <div class="field-group">
+      <label for="fromUnit">From</label>
 
-      <div class="field">
-
-        <label for="category">
-          Category
-        </label>
-
-        <select
-          id="category"
-          onchange="loadUnits()"
-        >
-          <option value="length">Length</option>
-          <option value="weight">Weight</option>
-          <option value="temperature">Temperature</option>
-          <option value="data">Data Storage</option>
-          <option value="area">Area</option>
-          <option value="volume">Volume</option>
-          <option value="speed">Speed</option>
-        </select>
-
-      </div>
-
-
-      <div class="field">
-
-        <label for="unitValue">
-          Value
-        </label>
-
-        <input
-          class="input"
-          id="unitValue"
-          type="number"
-          inputmode="decimal"
-          placeholder="Enter a value"
-          oninput="convertUnit()"
-        >
-
-      </div>
-
-
-      <div class="field">
-
-        <label for="fromUnit">
-          From
-        </label>
-
-        <select
-          id="fromUnit"
-          onchange="convertUnit()"
-        ></select>
-
-      </div>
-
-
-      <div class="field">
-
-        <label for="toUnit">
-          To
-        </label>
-
-        <select
-          id="toUnit"
-          onchange="convertUnit()"
-        ></select>
-
-      </div>
-
-
-      <div class="actions">
-
-        <button
-          class="btn btn-secondary"
-          onclick="swapUnits()"
-        >
-          ⇄ Swap Units
-        </button>
-
-        <button
-          class="btn btn-primary"
-          onclick="convertUnit()"
-        >
-          Convert
-        </button>
-
-      </div>
-
-
-      <div class="result">
-
-        <strong id="unitResult">
-          —
-        </strong>
-
-      </div>
-
+      <select id="fromUnit"></select>
     </div>
 
 
-    <div class="content-card">
+    <div class="field-group">
+      <label for="toUnit">To</label>
 
-      <h2>
-        Free Online Unit Converter
-      </h2>
-
-      <p>
-        Utivaro Unit Converter lets you convert
-        common measurement units instantly.
-      </p>
-
-
-      <h2>
-        Supported categories
-      </h2>
-
-      <p>
-        Length, weight, temperature,
-        digital storage, area, volume and speed
-        are currently supported.
-      </p>
-
-
-      <h2>
-        How to use the Unit Converter
-      </h2>
-
-      <p>
-        Choose a category, enter a value,
-        select the source unit and target unit,
-        and the result will appear automatically.
-      </p>
-
-
-      <h2>
-        Is this converter free?
-      </h2>
-
-      <p>
-        Yes. The tool is completely free
-        and does not require an account.
-      </p>
-
-
-      <h2>
-        Does the conversion happen online?
-      </h2>
-
-      <p>
-        The calculation happens directly
-        inside your browser.
-      </p>
-
+      <select id="toUnit"></select>
     </div>
 
-  </div>
+
+    <button
+      class="secondary-btn"
+      id="swapButton"
+      type="button"
+    >
+      ⇄ Swap Units
+    </button>
+
+
+    <button
+      class="primary-btn"
+      id="convertButton"
+      type="button"
+    >
+      Convert
+    </button>
+
+
+    <div
+      class="result-box"
+      id="unitResult"
+      aria-live="polite"
+    >
+      —
+    </div>
+
+  </section>
+
+
+  <section class="content-card">
+    <h2>Free Online Unit Converter</h2>
+
+    <p>
+      Utivaro Unit Converter makes it easy to convert
+      common measurements directly in your browser.
+      Choose a category, enter a value and select the
+      units you want to convert.
+    </p>
+
+    <p>
+      The converter supports length, weight,
+      temperature, digital storage, area, volume
+      and speed.
+    </p>
+  </section>
+
+
+  <section class="content-card">
+    <h2>Popular Unit Conversions</h2>
+
+    <p>
+      Convert meters to feet, kilometers to miles,
+      kilograms to pounds, Celsius to Fahrenheit,
+      megabytes to gigabytes and many other common
+      units.
+    </p>
+  </section>
+
+
+  <section class="content-card">
+    <h2>Private and Fast</h2>
+
+    <p>
+      Calculations are performed directly in your
+      browser. No account or registration is required.
+    </p>
+  </section>
 
 </main>
 
 
-<footer>
-
-  <div class="container">
-
-    <div class="footer-grid">
-
-      <div class="footer-brand">
-
-        <strong>UTIVARO</strong>
-
-        <p>
-          Fast, free and private
-          online utility tools.
-        </p>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <a href="/">Home</a>
-
-        <a href="/#tools">
-          Tools
-        </a>
-
-        <a href="#">
-          Privacy
-        </a>
-
-        <a href="#">
-          Terms
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-      © <span id="currentYear">2026</span>
-      Utivaro.
-
-    </div>
-
-  </div>
-
+<footer class="site-footer">
+  <p>© Utivaro — Free Online Utility Tools</p>
 </footer>
 
 
-<script src="../script.js"></script>
-
 <script>
-
-const unitData = {
+const unitGroups = {
 
   length: {
     meter: {
-      label: "Meters (m)",
+      name: "Meters (m)",
       factor: 1
     },
     kilometer: {
-      label: "Kilometers (km)",
+      name: "Kilometers (km)",
       factor: 1000
     },
     centimeter: {
-      label: "Centimeters (cm)",
+      name: "Centimeters (cm)",
       factor: 0.01
     },
     millimeter: {
-      label: "Millimeters (mm)",
+      name: "Millimeters (mm)",
       factor: 0.001
     },
     mile: {
-      label: "Miles (mi)",
+      name: "Miles (mi)",
       factor: 1609.344
     },
     yard: {
-      label: "Yards (yd)",
+      name: "Yards (yd)",
       factor: 0.9144
     },
     foot: {
-      label: "Feet (ft)",
+      name: "Feet (ft)",
       factor: 0.3048
     },
     inch: {
-      label: "Inches (in)",
+      name: "Inches (in)",
       factor: 0.0254
     }
   },
 
+
   weight: {
     kilogram: {
-      label: "Kilograms (kg)",
+      name: "Kilograms (kg)",
       factor: 1
     },
     gram: {
-      label: "Grams (g)",
+      name: "Grams (g)",
       factor: 0.001
     },
     milligram: {
-      label: "Milligrams (mg)",
+      name: "Milligrams (mg)",
       factor: 0.000001
     },
     pound: {
-      label: "Pounds (lb)",
+      name: "Pounds (lb)",
       factor: 0.45359237
     },
     ounce: {
-      label: "Ounces (oz)",
+      name: "Ounces (oz)",
       factor: 0.028349523125
     },
     ton: {
-      label: "Metric Tons (t)",
+      name: "Metric Tons (t)",
       factor: 1000
     }
   },
 
+
   data: {
     byte: {
-      label: "Bytes (B)",
+      name: "Bytes (B)",
       factor: 1
     },
     kilobyte: {
-      label: "Kilobytes (KB)",
+      name: "Kilobytes (KB)",
       factor: 1024
     },
     megabyte: {
-      label: "Megabytes (MB)",
-      factor: 1024 ** 2
+      name: "Megabytes (MB)",
+      factor: 1048576
     },
     gigabyte: {
-      label: "Gigabytes (GB)",
-      factor: 1024 ** 3
+      name: "Gigabytes (GB)",
+      factor: 1073741824
     },
     terabyte: {
-      label: "Terabytes (TB)",
-      factor: 1024 ** 4
+      name: "Terabytes (TB)",
+      factor: 1099511627776
     }
   },
 
+
   area: {
     squareMeter: {
-      label: "Square Meters (m²)",
+      name: "Square Meters (m²)",
       factor: 1
     },
     squareKilometer: {
-      label: "Square Kilometers (km²)",
+      name: "Square Kilometers (km²)",
       factor: 1000000
     },
     squareFoot: {
-      label: "Square Feet (ft²)",
+      name: "Square Feet (ft²)",
       factor: 0.09290304
     },
     squareYard: {
-      label: "Square Yards (yd²)",
+      name: "Square Yards (yd²)",
       factor: 0.83612736
     },
     acre: {
-      label: "Acres",
+      name: "Acres",
       factor: 4046.8564224
     },
     hectare: {
-      label: "Hectares",
+      name: "Hectares",
       factor: 10000
     }
   },
 
+
   volume: {
     liter: {
-      label: "Liters (L)",
+      name: "Liters (L)",
       factor: 1
     },
     milliliter: {
-      label: "Milliliters (mL)",
+      name: "Milliliters (mL)",
       factor: 0.001
     },
     cubicMeter: {
-      label: "Cubic Meters (m³)",
+      name: "Cubic Meters (m³)",
       factor: 1000
     },
-    gallonUS: {
-      label: "US Gallons",
+    gallon: {
+      name: "US Gallons",
       factor: 3.785411784
     },
-    quartUS: {
-      label: "US Quarts",
+    quart: {
+      name: "US Quarts",
       factor: 0.946352946
     },
-    cupUS: {
-      label: "US Cups",
+    cup: {
+      name: "US Cups",
       factor: 0.2365882365
     }
   },
 
+
   speed: {
-    meterSecond: {
-      label: "Meters/Second (m/s)",
+    metersSecond: {
+      name: "Meters per Second (m/s)",
       factor: 1
     },
-    kilometerHour: {
-      label: "Kilometers/Hour (km/h)",
-      factor: 0.2777777778
+    kilometersHour: {
+      name: "Kilometers per Hour (km/h)",
+      factor: 0.2777777777778
     },
-    mileHour: {
-      label: "Miles/Hour (mph)",
+    milesHour: {
+      name: "Miles per Hour (mph)",
       factor: 0.44704
     },
     knot: {
-      label: "Knots",
-      factor: 0.5144444444
+      name: "Knots",
+      factor: 0.514444444444
     }
   }
 
@@ -452,77 +344,108 @@ const temperatureUnits = {
 };
 
 
-function loadUnits() {
+const categorySelect =
+  document.getElementById("category");
+
+const fromSelect =
+  document.getElementById("fromUnit");
+
+const toSelect =
+  document.getElementById("toUnit");
+
+const valueInput =
+  document.getElementById("unitValue");
+
+const resultBox =
+  document.getElementById("unitResult");
+
+const convertButton =
+  document.getElementById("convertButton");
+
+const swapButton =
+  document.getElementById("swapButton");
+
+
+function createOption(value, text) {
+
+  const option =
+    document.createElement("option");
+
+  option.value = value;
+  option.textContent = text;
+
+  return option;
+}
+
+
+function populateUnits() {
 
   const category =
-    document.getElementById("category").value;
+    categorySelect.value;
 
-  const from =
-    document.getElementById("fromUnit");
-
-  const to =
-    document.getElementById("toUnit");
-
-
-  from.innerHTML = "";
-  to.innerHTML = "";
+  fromSelect.innerHTML = "";
+  toSelect.innerHTML = "";
 
 
   if (category === "temperature") {
 
-    Object.entries(
-      temperatureUnits
-    ).forEach(([value, label]) => {
+    Object.entries(temperatureUnits)
+      .forEach(([key, name]) => {
 
-      from.add(
-        new Option(label, value)
-      );
+        fromSelect.appendChild(
+          createOption(key, name)
+        );
 
-      to.add(
-        new Option(label, value)
-      );
+        toSelect.appendChild(
+          createOption(key, name)
+        );
 
-    });
+      });
 
-    from.value = "celsius";
-    to.value = "fahrenheit";
 
-  }
+    fromSelect.value = "celsius";
+    toSelect.value = "fahrenheit";
 
-  else {
+  } else {
 
-    const units =
-      unitData[category];
-
-    Object.entries(
-      units
-    ).forEach(([key, unit]) => {
-
-      from.add(
-        new Option(unit.label, key)
-      );
-
-      to.add(
-        new Option(unit.label, key)
-      );
-
-    });
-
+    const group =
+      unitGroups[category];
 
     const keys =
-      Object.keys(units);
+      Object.keys(group);
 
-    from.value =
+
+    keys.forEach(key => {
+
+      fromSelect.appendChild(
+        createOption(
+          key,
+          group[key].name
+        )
+      );
+
+      toSelect.appendChild(
+        createOption(
+          key,
+          group[key].name
+        )
+      );
+
+    });
+
+
+    fromSelect.value =
       keys[0];
 
-    to.value =
-      keys[1] || keys[0];
+    if (keys.length > 1) {
+      toSelect.value =
+        keys[1];
+    }
 
   }
 
 
-  convertUnit();
-
+  convert();
 }
 
 
@@ -536,17 +459,21 @@ function convertTemperature(
 
 
   if (from === "celsius") {
-    celsius = value;
-  }
 
-  else if (from === "fahrenheit") {
+    celsius = value;
+
+  } else if (
+    from === "fahrenheit"
+  ) {
+
     celsius =
       (value - 32) * 5 / 9;
-  }
 
-  else {
+  } else {
+
     celsius =
       value - 273.15;
+
   }
 
 
@@ -554,58 +481,75 @@ function convertTemperature(
     return celsius;
   }
 
+
   if (to === "fahrenheit") {
-    return celsius * 9 / 5 + 32;
+
+    return (
+      celsius * 9 / 5
+    ) + 32;
+
   }
 
-  return celsius + 273.15;
 
+  return celsius + 273.15;
 }
 
 
-function convertUnit() {
+function formatNumber(number) {
 
-  const category =
-    document.getElementById("category").value;
+  if (!Number.isFinite(number)) {
+    return "—";
+  }
+
+
+  if (
+    Math.abs(number) > 0 &&
+    Math.abs(number) < 0.000001
+  ) {
+
+    return number.toExponential(6);
+
+  }
+
+
+  return new Intl.NumberFormat(
+    "en-US",
+    {
+      maximumFractionDigits: 8
+    }
+  ).format(number);
+}
+
+
+function convert() {
 
   const value =
-    parseFloat(
-      document.getElementById(
-        "unitValue"
-      ).value
-    );
+    parseFloat(valueInput.value);
 
+  const category =
+    categorySelect.value;
 
-  const result =
-    document.getElementById(
-      "unitResult"
-    );
+  const from =
+    fromSelect.value;
+
+  const to =
+    toSelect.value;
 
 
   if (Number.isNaN(value)) {
 
-    result.textContent = "—";
-
+    resultBox.textContent = "—";
     return;
+
   }
-
-
-  const from =
-    document.getElementById(
-      "fromUnit"
-    ).value;
-
-
-  const to =
-    document.getElementById(
-      "toUnit"
-    ).value;
 
 
   let answer;
 
 
-  if (category === "temperature") {
+  if (
+    category === "temperature"
+  ) {
 
     answer =
       convertTemperature(
@@ -614,46 +558,96 @@ function convertUnit() {
         to
       );
 
-  }
+  } else {
 
-  else {
+    const group =
+      unitGroups[category];
 
-    const units =
-      unitData[category];
+
+    if (
+      !group ||
+      !group[from] ||
+      !group[to]
+    ) {
+
+      resultBox.textContent = "—";
+      return;
+
+    }
 
 
     const baseValue =
       value *
-      units[from].factor;
+      group[from].factor;
 
 
     answer =
       baseValue /
-      units[to].factor;
+      group[to].factor;
 
   }
 
 
-  result.textContent =
-    new Intl.NumberFormat(
-      "en-US",
-      {
-        maximumFractionDigits: 8
-      }
-    ).format(answer);
-
+  resultBox.textContent =
+    formatNumber(answer);
 }
 
 
 function swapUnits() {
 
   const from =
-    document.getElementById(
-      "fromUnit"
-    );
-
+    fromSelect.value;
 
   const to =
-    document.getElementById(
-      "toUnit"
-    );
+    toSelect.value;
+
+
+  fromSelect.value = to;
+  toSelect.value = from;
+
+
+  convert();
+}
+
+
+categorySelect.addEventListener(
+  "change",
+  populateUnits
+);
+
+
+fromSelect.addEventListener(
+  "change",
+  convert
+);
+
+
+toSelect.addEventListener(
+  "change",
+  convert
+);
+
+
+valueInput.addEventListener(
+  "input",
+  convert
+);
+
+
+convertButton.addEventListener(
+  "click",
+  convert
+);
+
+
+swapButton.addEventListener(
+  "click",
+  swapUnits
+);
+
+
+populateUnits();
+</script>
+
+</body>
+</html>
