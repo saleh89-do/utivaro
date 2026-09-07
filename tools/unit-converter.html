@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Unit Converter - Length, Weight, Temperature & More | Utivaro</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Unit Converter – Length, Weight, Temperature & More | Utivaro
+  </title>
 
   <meta
     name="description"
-    content="Free online unit converter for length, weight, temperature, data, area, volume and speed. Fast, accurate and easy to use."
+    content="Free online unit converter for length, weight, temperature, digital storage, area, volume and speed. Convert units instantly with Utivaro."
   >
 
   <link
@@ -16,365 +22,945 @@
     href="https://utivaro.com/tools/unit-converter.html"
   >
 
-  <link rel="stylesheet" href="../styles.css">
+  <meta
+    name="robots"
+    content="index,follow"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Unit Converter – Free Online Conversion Tool"
+  >
+
+  <meta
+    property="og:description"
+    content="Convert length, weight, temperature, storage, area, volume and speed instantly."
+  >
+
+  <meta
+    property="og:url"
+    content="https://utivaro.com/tools/unit-converter.html"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Utivaro"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Unit Converter",
+    "url": "https://utivaro.com/tools/unit-converter.html",
+    "description": "Free online unit converter for length, weight, temperature, digital storage, area, volume and speed.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Utivaro",
+      "url": "https://utivaro.com/"
+    }
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert units?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose a measurement category, enter a value, select the unit you are converting from and the unit you are converting to. The result is calculated instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What unit types can I convert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Utivaro supports length, weight, temperature, digital storage, area, volume and speed conversions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert Celsius to Fahrenheit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select Temperature, choose Celsius as the starting unit and Fahrenheit as the destination unit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Utivaro Unit Converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Unit Converter is free and does not require an account."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body>
 
 <header class="site-header">
+
   <nav class="nav">
-    <a href="/" class="logo">
+
+    <a
+      href="/"
+      class="logo"
+    >
       UTIVARO<span>.</span>
     </a>
+
+    <div class="nav-links">
+
+      <a href="/">
+        Home
+      </a>
+
+      <a href="/#tools">
+        Tools
+      </a>
+
+      <a href="/#categories">
+        Categories
+      </a>
+
+    </div>
 
     <div class="nav-badge">
       Free Online Tools
     </div>
+
   </nav>
+
 </header>
 
 
 <main class="tool-page">
 
-  <section class="tool-hero">
-    <div class="eyebrow">CONVERTER</div>
+  <div class="container">
 
-    <h1>Unit Converter</h1>
+    <div class="breadcrumb">
 
-    <p>
-      Convert length, weight, temperature, data,
-      area, volume and speed instantly.
-    </p>
-  </section>
+      <a href="/">
+        Home
+      </a>
 
+      →
 
-  <section class="tool-card">
+      <a href="/#tools">
+        Converters
+      </a>
 
-    <div class="field-group">
-      <label for="category">Category</label>
+      →
 
-      <select id="category">
-        <option value="length">Length</option>
-        <option value="weight">Weight</option>
-        <option value="temperature">Temperature</option>
-        <option value="data">Digital Storage</option>
-        <option value="area">Area</option>
-        <option value="volume">Volume</option>
-        <option value="speed">Speed</option>
-      </select>
+      Unit Converter
+
     </div>
 
 
-    <div class="field-group">
-      <label for="unitValue">Value</label>
+    <section class="tool-hero">
 
-      <input
-        id="unitValue"
-        type="number"
-        inputmode="decimal"
-        value="1"
-        step="any"
+      <div class="eyebrow">
+        CONVERTER
+      </div>
+
+      <h1>
+        Unit Converter
+      </h1>
+
+      <p>
+        Convert length, weight, temperature,
+        digital storage, area, volume and speed
+        instantly with this free online unit converter.
+      </p>
+
+    </section>
+
+
+    <section class="tool-card">
+
+      <div class="field-group">
+
+        <label for="category">
+          Category
+        </label>
+
+        <select id="category">
+
+          <option value="length">
+            Length
+          </option>
+
+          <option value="weight">
+            Weight
+          </option>
+
+          <option value="temperature">
+            Temperature
+          </option>
+
+          <option value="data">
+            Digital Storage
+          </option>
+
+          <option value="area">
+            Area
+          </option>
+
+          <option value="volume">
+            Volume
+          </option>
+
+          <option value="speed">
+            Speed
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <div class="field-group">
+
+        <label for="unitValue">
+          Value
+        </label>
+
+        <input
+          id="unitValue"
+          type="number"
+          inputmode="decimal"
+          value="1"
+          step="any"
+        >
+
+      </div>
+
+
+      <div class="field-group">
+
+        <label for="fromUnit">
+          From
+        </label>
+
+        <select id="fromUnit"></select>
+
+      </div>
+
+
+      <div class="field-group">
+
+        <label for="toUnit">
+          To
+        </label>
+
+        <select id="toUnit"></select>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="secondary-btn"
+          id="swapButton"
+          type="button"
+        >
+          ⇄ Swap Units
+        </button>
+
+        <button
+          class="primary-btn"
+          id="convertButton"
+          type="button"
+        >
+          Convert
+        </button>
+
+      </div>
+
+
+      <div
+        class="result-box"
+        id="unitResult"
+        aria-live="polite"
       >
-    </div>
+        —
+      </div>
+
+    </section>
 
 
-    <div class="field-group">
-      <label for="fromUnit">From</label>
+    <section class="content-card">
 
-      <select id="fromUnit"></select>
-    </div>
+      <h2>
+        Free Online Unit Converter
+      </h2>
 
+      <p>
+        Utivaro's Unit Converter helps you convert
+        common measurement units quickly and accurately
+        from your browser.
+      </p>
 
-    <div class="field-group">
-      <label for="toUnit">To</label>
-
-      <select id="toUnit"></select>
-    </div>
-
-
-    <button
-      class="secondary-btn"
-      id="swapButton"
-      type="button"
-    >
-      ⇄ Swap Units
-    </button>
+      <p>
+        Choose a category, enter a value,
+        select the starting unit and destination unit,
+        and the converted result appears instantly.
+      </p>
 
 
-    <button
-      class="primary-btn"
-      id="convertButton"
-      type="button"
-    >
-      Convert
-    </button>
+      <h2>
+        Supported Unit Conversion Categories
+      </h2>
+
+      <p>
+        The converter currently supports seven
+        common measurement categories:
+        length, weight, temperature, digital storage,
+        area, volume and speed.
+      </p>
 
 
-    <div
-      class="result-box"
-      id="unitResult"
-      aria-live="polite"
-    >
-      —
-    </div>
+      <h2>
+        Length Converter
+      </h2>
 
-  </section>
+      <p>
+        Convert between meters, kilometers,
+        centimeters, millimeters, miles,
+        yards, feet and inches.
+      </p>
 
-
-  <section class="content-card">
-    <h2>Free Online Unit Converter</h2>
-
-    <p>
-      Utivaro Unit Converter makes it easy to convert
-      common measurements directly in your browser.
-      Choose a category, enter a value and select the
-      units you want to convert.
-    </p>
-
-    <p>
-      The converter supports length, weight,
-      temperature, digital storage, area, volume
-      and speed.
-    </p>
-  </section>
+      <p>
+        Common examples include meters to feet,
+        kilometers to miles and inches to centimeters.
+      </p>
 
 
-  <section class="content-card">
-    <h2>Popular Unit Conversions</h2>
+      <h2>
+        Weight Converter
+      </h2>
 
-    <p>
-      Convert meters to feet, kilometers to miles,
-      kilograms to pounds, Celsius to Fahrenheit,
-      megabytes to gigabytes and many other common
-      units.
-    </p>
-  </section>
+      <p>
+        Convert kilograms, grams, milligrams,
+        pounds, ounces and metric tons.
+      </p>
+
+      <p>
+        For example, you can quickly convert
+        kilograms to pounds or pounds to kilograms.
+      </p>
 
 
-  <section class="content-card">
-    <h2>Private and Fast</h2>
+      <h2>
+        Temperature Converter
+      </h2>
 
-    <p>
-      Calculations are performed directly in your
-      browser. No account or registration is required.
-    </p>
-  </section>
+      <p>
+        Convert temperatures between Celsius,
+        Fahrenheit and Kelvin.
+      </p>
+
+      <p>
+        This is useful for weather,
+        cooking, science and international
+        temperature comparisons.
+      </p>
+
+
+      <h2>
+        Digital Storage Converter
+      </h2>
+
+      <p>
+        Convert between bytes, kilobytes,
+        megabytes, gigabytes and terabytes.
+      </p>
+
+      <p>
+        The digital storage conversions in this tool
+        use a 1024-based relationship between units.
+      </p>
+
+
+      <h2>
+        Area Converter
+      </h2>
+
+      <p>
+        Convert square meters, square kilometers,
+        square feet, square yards, acres and hectares.
+      </p>
+
+      <p>
+        Area conversion can be useful for property,
+        land measurement, construction and planning.
+      </p>
+
+
+      <h2>
+        Volume Converter
+      </h2>
+
+      <p>
+        Convert liters, milliliters,
+        cubic meters, US gallons,
+        US quarts and US cups.
+      </p>
+
+
+      <h2>
+        Speed Converter
+      </h2>
+
+      <p>
+        Convert meters per second,
+        kilometers per hour, miles per hour
+        and knots.
+      </p>
+
+      <p>
+        For example, you can convert
+        kilometers per hour to miles per hour
+        when comparing vehicle speeds.
+      </p>
+
+
+      <h2>
+        How to Convert Units
+      </h2>
+
+      <ol>
+
+        <li>
+          Select the measurement category.
+        </li>
+
+        <li>
+          Enter the value you want to convert.
+        </li>
+
+        <li>
+          Choose the starting unit under From.
+        </li>
+
+        <li>
+          Choose the destination unit under To.
+        </li>
+
+        <li>
+          View the converted result instantly.
+        </li>
+
+      </ol>
+
+      <p>
+        You can also use the
+        <strong>Swap Units</strong>
+        button to reverse the conversion direction.
+      </p>
+
+
+      <h2>
+        Common Unit Conversion Examples
+      </h2>
+
+      <p>
+        Some frequently used conversions include:
+        meters to feet, kilometers to miles,
+        kilograms to pounds, pounds to kilograms,
+        Celsius to Fahrenheit, liters to gallons,
+        acres to hectares and kilometers per hour
+        to miles per hour.
+      </p>
+
+
+      <h2>
+        Fast Browser-Based Calculations
+      </h2>
+
+      <p>
+        All unit calculations are performed
+        directly in your browser.
+      </p>
+
+      <p>
+        You do not need to create an account,
+        upload information or install software
+        to use the converter.
+      </p>
+
+
+      <h2>
+        Frequently Asked Questions
+      </h2>
+
+
+      <h3>
+        How many meters are in one kilometer?
+      </h3>
+
+      <p>
+        One kilometer equals 1,000 meters.
+      </p>
+
+
+      <h3>
+        How many pounds are in one kilogram?
+      </h3>
+
+      <p>
+        One kilogram is approximately
+        2.20462 pounds.
+      </p>
+
+
+      <h3>
+        How do I convert Celsius to Fahrenheit?
+      </h3>
+
+      <p>
+        Select Temperature as the category,
+        choose Celsius under From and Fahrenheit
+        under To, then enter the temperature.
+      </p>
+
+
+      <h3>
+        Can I convert kilometers per hour to miles per hour?
+      </h3>
+
+      <p>
+        Yes. Choose Speed and select
+        kilometers per hour and miles per hour
+        as the two units.
+      </p>
+
+
+      <h3>
+        Can I convert MB to GB?
+      </h3>
+
+      <p>
+        Yes. Choose Digital Storage,
+        select Megabytes as the starting unit
+        and Gigabytes as the destination unit.
+      </p>
+
+
+      <h3>
+        Is the Unit Converter free?
+      </h3>
+
+      <p>
+        Yes. The Utivaro Unit Converter
+        is free and requires no signup.
+      </p>
+
+
+      <h2>
+        More Free Utivaro Tools
+      </h2>
+
+      <p>
+        You can also try the
+        <a href="/tools/percentage-calculator.html">
+          Percentage Calculator
+        </a>,
+        <a href="/tools/days-between-dates.html">
+          Days Between Dates Calculator
+        </a>,
+        <a href="/tools/word-counter.html">
+          Word Counter
+        </a>
+        or
+        <a href="/tools/webp-to-jpg.html">
+          WebP to JPG Converter
+        </a>.
+      </p>
+
+    </section>
+
+  </div>
 
 </main>
 
 
-<footer class="site-footer">
-  <p>© Utivaro — Free Online Utility Tools</p>
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>
+          UTIVARO
+        </strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">
+          Home
+        </a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="/about.html">
+          About
+        </a>
+
+        <a href="/privacy.html">
+          Privacy
+        </a>
+
+        <a href="/terms.html">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+      All rights reserved.
+
+    </div>
+
+  </div>
+
 </footer>
 
 
+<script src="../script.js"></script>
+
 <script>
+
 const unitGroups = {
 
   length: {
+
     meter: {
       name: "Meters (m)",
       factor: 1
     },
+
     kilometer: {
       name: "Kilometers (km)",
       factor: 1000
     },
+
     centimeter: {
       name: "Centimeters (cm)",
       factor: 0.01
     },
+
     millimeter: {
       name: "Millimeters (mm)",
       factor: 0.001
     },
+
     mile: {
       name: "Miles (mi)",
       factor: 1609.344
     },
+
     yard: {
       name: "Yards (yd)",
       factor: 0.9144
     },
+
     foot: {
       name: "Feet (ft)",
       factor: 0.3048
     },
+
     inch: {
       name: "Inches (in)",
       factor: 0.0254
     }
+
   },
 
 
   weight: {
+
     kilogram: {
       name: "Kilograms (kg)",
       factor: 1
     },
+
     gram: {
       name: "Grams (g)",
       factor: 0.001
     },
+
     milligram: {
       name: "Milligrams (mg)",
       factor: 0.000001
     },
+
     pound: {
       name: "Pounds (lb)",
       factor: 0.45359237
     },
+
     ounce: {
       name: "Ounces (oz)",
       factor: 0.028349523125
     },
+
     ton: {
       name: "Metric Tons (t)",
       factor: 1000
     }
+
   },
 
 
   data: {
+
     byte: {
       name: "Bytes (B)",
       factor: 1
     },
+
     kilobyte: {
       name: "Kilobytes (KB)",
       factor: 1024
     },
+
     megabyte: {
       name: "Megabytes (MB)",
       factor: 1048576
     },
+
     gigabyte: {
       name: "Gigabytes (GB)",
       factor: 1073741824
     },
+
     terabyte: {
       name: "Terabytes (TB)",
       factor: 1099511627776
     }
+
   },
 
 
   area: {
+
     squareMeter: {
       name: "Square Meters (m²)",
       factor: 1
     },
+
     squareKilometer: {
       name: "Square Kilometers (km²)",
       factor: 1000000
     },
+
     squareFoot: {
       name: "Square Feet (ft²)",
       factor: 0.09290304
     },
+
     squareYard: {
       name: "Square Yards (yd²)",
       factor: 0.83612736
     },
+
     acre: {
       name: "Acres",
       factor: 4046.8564224
     },
+
     hectare: {
       name: "Hectares",
       factor: 10000
     }
+
   },
 
 
   volume: {
+
     liter: {
       name: "Liters (L)",
       factor: 1
     },
+
     milliliter: {
       name: "Milliliters (mL)",
       factor: 0.001
     },
+
     cubicMeter: {
       name: "Cubic Meters (m³)",
       factor: 1000
     },
+
     gallon: {
       name: "US Gallons",
       factor: 3.785411784
     },
+
     quart: {
       name: "US Quarts",
       factor: 0.946352946
     },
+
     cup: {
       name: "US Cups",
       factor: 0.2365882365
     }
+
   },
 
 
   speed: {
+
     metersSecond: {
       name: "Meters per Second (m/s)",
       factor: 1
     },
+
     kilometersHour: {
       name: "Kilometers per Hour (km/h)",
       factor: 0.2777777777778
     },
+
     milesHour: {
       name: "Miles per Hour (mph)",
       factor: 0.44704
     },
+
     knot: {
       name: "Knots",
       factor: 0.514444444444
     }
+
   }
 
 };
 
 
 const temperatureUnits = {
-  celsius: "Celsius (°C)",
-  fahrenheit: "Fahrenheit (°F)",
-  kelvin: "Kelvin (K)"
+
+  celsius:
+    "Celsius (°C)",
+
+  fahrenheit:
+    "Fahrenheit (°F)",
+
+  kelvin:
+    "Kelvin (K)"
+
 };
 
 
 const categorySelect =
-  document.getElementById("category");
+  document.getElementById(
+    "category"
+  );
 
 const fromSelect =
-  document.getElementById("fromUnit");
+  document.getElementById(
+    "fromUnit"
+  );
 
 const toSelect =
-  document.getElementById("toUnit");
+  document.getElementById(
+    "toUnit"
+  );
 
 const valueInput =
-  document.getElementById("unitValue");
+  document.getElementById(
+    "unitValue"
+  );
 
 const resultBox =
-  document.getElementById("unitResult");
+  document.getElementById(
+    "unitResult"
+  );
 
 const convertButton =
-  document.getElementById("convertButton");
+  document.getElementById(
+    "convertButton"
+  );
 
 const swapButton =
-  document.getElementById("swapButton");
+  document.getElementById(
+    "swapButton"
+  );
 
 
-function createOption(value, text) {
+function createOption(
+  value,
+  text
+) {
 
   const option =
-    document.createElement("option");
+    document.createElement(
+      "option"
+    );
 
-  option.value = value;
-  option.textContent = text;
+  option.value =
+    value;
+
+  option.textContent =
+    text;
 
   return option;
+
 }
 
 
@@ -383,69 +969,102 @@ function populateUnits() {
   const category =
     categorySelect.value;
 
-  fromSelect.innerHTML = "";
-  toSelect.innerHTML = "";
+
+  fromSelect.innerHTML =
+    "";
+
+  toSelect.innerHTML =
+    "";
 
 
-  if (category === "temperature") {
+  if (
+    category === "temperature"
+  ) {
 
-    Object.entries(temperatureUnits)
-      .forEach(([key, name]) => {
+    Object.entries(
+      temperatureUnits
+    ).forEach(
+      ([key, name]) => {
 
         fromSelect.appendChild(
-          createOption(key, name)
+          createOption(
+            key,
+            name
+          )
         );
 
         toSelect.appendChild(
-          createOption(key, name)
+          createOption(
+            key,
+            name
+          )
         );
 
-      });
+      }
+    );
 
 
-    fromSelect.value = "celsius";
-    toSelect.value = "fahrenheit";
+    fromSelect.value =
+      "celsius";
 
-  } else {
+    toSelect.value =
+      "fahrenheit";
+
+  }
+
+  else {
 
     const group =
-      unitGroups[category];
+      unitGroups[
+        category
+      ];
+
 
     const keys =
-      Object.keys(group);
-
-
-    keys.forEach(key => {
-
-      fromSelect.appendChild(
-        createOption(
-          key,
-          group[key].name
-        )
+      Object.keys(
+        group
       );
 
-      toSelect.appendChild(
-        createOption(
-          key,
-          group[key].name
-        )
-      );
 
-    });
+    keys.forEach(
+      key => {
+
+        fromSelect.appendChild(
+          createOption(
+            key,
+            group[key].name
+          )
+        );
+
+        toSelect.appendChild(
+          createOption(
+            key,
+            group[key].name
+          )
+        );
+
+      }
+    );
 
 
     fromSelect.value =
       keys[0];
 
-    if (keys.length > 1) {
+
+    if (
+      keys.length > 1
+    ) {
+
       toSelect.value =
         keys[1];
+
     }
 
   }
 
 
   convert();
+
 }
 
 
@@ -458,18 +1077,26 @@ function convertTemperature(
   let celsius;
 
 
-  if (from === "celsius") {
+  if (
+    from === "celsius"
+  ) {
 
-    celsius = value;
+    celsius =
+      value;
 
-  } else if (
+  }
+
+  else if (
     from === "fahrenheit"
   ) {
 
     celsius =
-      (value - 32) * 5 / 9;
+      (value - 32) *
+      5 / 9;
 
-  } else {
+  }
+
+  else {
 
     celsius =
       value - 273.15;
@@ -477,37 +1104,58 @@ function convertTemperature(
   }
 
 
-  if (to === "celsius") {
+  if (
+    to === "celsius"
+  ) {
+
     return celsius;
+
   }
 
 
-  if (to === "fahrenheit") {
+  if (
+    to === "fahrenheit"
+  ) {
 
     return (
-      celsius * 9 / 5
+      celsius *
+      9 / 5
     ) + 32;
 
   }
 
 
-  return celsius + 273.15;
+  return (
+    celsius +
+    273.15
+  );
+
 }
 
 
-function formatNumber(number) {
+function formatNumber(
+  number
+) {
 
-  if (!Number.isFinite(number)) {
+  if (
+    !Number.isFinite(
+      number
+    )
+  ) {
+
     return "—";
+
   }
 
 
   if (
     Math.abs(number) > 0 &&
-    Math.abs(number) < 0.000001
+    Math.abs(number) <
+      0.000001
   ) {
 
-    return number.toExponential(6);
+    return number
+      .toExponential(6);
 
   }
 
@@ -515,30 +1163,41 @@ function formatNumber(number) {
   return new Intl.NumberFormat(
     "en-US",
     {
-      maximumFractionDigits: 8
+      maximumFractionDigits:
+        8
     }
   ).format(number);
+
 }
 
 
 function convert() {
 
   const value =
-    parseFloat(valueInput.value);
+    parseFloat(
+      valueInput.value
+    );
+
 
   const category =
     categorySelect.value;
 
+
   const from =
     fromSelect.value;
+
 
   const to =
     toSelect.value;
 
 
-  if (Number.isNaN(value)) {
+  if (
+    Number.isNaN(value)
+  ) {
 
-    resultBox.textContent = "—";
+    resultBox.textContent =
+      "—";
+
     return;
 
   }
@@ -548,7 +1207,8 @@ function convert() {
 
 
   if (
-    category === "temperature"
+    category ===
+    "temperature"
   ) {
 
     answer =
@@ -558,10 +1218,14 @@ function convert() {
         to
       );
 
-  } else {
+  }
+
+  else {
 
     const group =
-      unitGroups[category];
+      unitGroups[
+        category
+      ];
 
 
     if (
@@ -570,7 +1234,9 @@ function convert() {
       !group[to]
     ) {
 
-      resultBox.textContent = "—";
+      resultBox.textContent =
+        "—";
+
       return;
 
     }
@@ -589,7 +1255,10 @@ function convert() {
 
 
   resultBox.textContent =
-    formatNumber(answer);
+    formatNumber(
+      answer
+    );
+
 }
 
 
@@ -598,15 +1267,21 @@ function swapUnits() {
   const from =
     fromSelect.value;
 
+
   const to =
     toSelect.value;
 
 
-  fromSelect.value = to;
-  toSelect.value = from;
+  fromSelect.value =
+    to;
+
+
+  toSelect.value =
+    from;
 
 
   convert();
+
 }
 
 
@@ -647,7 +1322,8 @@ swapButton.addEventListener(
 
 
 populateUnits();
+
 </script>
 
 </body>
-</html>
+  </html>
