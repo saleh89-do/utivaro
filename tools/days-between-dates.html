@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Days Between Dates Calculator | Utivaro</title>
+
+  <meta
+    name="description"
+    content="Calculate the exact number of days between two dates instantly. See the difference in days, weeks, hours and approximate months."
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/days-between-dates.html"
+  >
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+
+    <a href="/" class="logo">
+      UTIVARO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/#tools">Tools</a>
+      <a href="/#categories">Categories</a>
+    </div>
+
+    <div class="nav-badge">
+      Free Online Tools
+    </div>
+
+  </nav>
+</header>
+
+
+<main class="tool-page">
+
+  <div class="container">
+
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      →
+      <a href="/#tools">Date Tools</a>
+      →
+      Days Between Dates
+    </div>
+
+
+    <div class="tool-title">
+
+      <h1>Days Between Dates</h1>
+
+      <p>
+        Calculate the exact time between two dates
+        in days, weeks, hours and approximate months.
+      </p>
+
+    </div>
+
+
+    <div class="tool-box">
+
+      <h2>Date Difference Calculator</h2>
+
+      <div class="field">
+
+        <label for="startDate">
+          Start date
+        </label>
+
+        <input
+          class="input"
+          id="startDate"
+          type="date"
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="endDate">
+          End date
+        </label>
+
+        <input
+          class="input"
+          id="endDate"
+          type="date"
+        >
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="btn btn-secondary"
+          onclick="clearDates()"
+        >
+          Clear
+        </button>
+
+        <button
+          class="btn btn-primary"
+          onclick="calculateDateDifference()"
+        >
+          Calculate
+        </button>
+
+      </div>
+
+
+      <div
+        id="dateMessage"
+        class="result"
+      >
+
+        <strong>
+          Select two dates
+        </strong>
+
+      </div>
+
+
+      <div
+        class="stats-grid"
+        id="dateStats"
+        style="display:none;"
+      >
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="daysResult"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Days
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="weeksResult"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Weeks
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="monthsResult"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Approx. months
+          </span>
+
+        </div>
+
+
+        <div class="stat">
+
+          <span
+            class="stat-value"
+            id="hoursResult"
+          >
+            0
+          </span>
+
+          <span class="stat-label">
+            Hours
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="content-card">
+
+      <h2>
+        How many days are between two dates?
+      </h2>
+
+      <p>
+        Enter a start date and an end date above.
+        Utivaro will instantly calculate the number
+        of calendar days between the two dates.
+      </p>
+
+
+      <h2>
+        How does the date calculator work?
+      </h2>
+
+      <p>
+        The calculator converts both selected dates
+        into standardized calendar values and measures
+        the difference between them.
+      </p>
+
+      <p>
+        The result is then displayed in days, weeks,
+        approximate months and hours.
+      </p>
+
+
+      <h2>
+        Example
+      </h2>
+
+      <p>
+        If the start date is January 1 and the end date
+        is January 31, the difference is 30 days.
+      </p>
+
+
+      <h2>
+        Does the calculator include the start date?
+      </h2>
+
+      <p>
+        No. This calculator measures the elapsed time
+        between the two dates. For example, January 1
+        to January 2 equals one day.
+      </p>
+
+
+      <h2>
+        Is this date calculator free?
+      </h2>
+
+      <p>
+        Yes. Utivaro's Days Between Dates Calculator
+        is completely free and works directly in your
+        browser without requiring an account.
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <strong>UTIVARO</strong>
+
+        <p>
+          Fast, free and private
+          online utility tools.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="/">Home</a>
+
+        <a href="/#tools">
+          Tools
+        </a>
+
+        <a href="#">
+          Privacy
+        </a>
+
+        <a href="#">
+          Terms
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © <span id="currentYear">2026</span>
+      Utivaro.
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="../script.js"></script>
+
+<script>
+
+function parseDateAsUTC(value) {
+
+  if (!value) {
+    return null;
+  }
+
+  const parts = value.split("-");
+
+  return Date.UTC(
+    Number(parts[0]),
+    Number(parts[1]) - 1,
+    Number(parts[2])
+  );
+}
+
+
+function formatNumber(number) {
+
+  return new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 2
+  }).format(number);
+
+}
+
+
+function calculateDateDifference() {
+
+  const startValue =
+    document.getElementById("startDate").value;
+
+  const endValue =
+    document.getElementById("endDate").value;
+
+
+  const message =
+    document.getElementById("dateMessage");
+
+  const stats =
+    document.getElementById("dateStats");
+
+
+  if (!startValue || !endValue) {
+
+    message.innerHTML =
+      "<strong>Please select both dates.</strong>";
+
+    stats.style.display = "none";
+
+    return;
+  }
+
+
+  const start =
+    parseDateAsUTC(startValue);
+
+  const end =
+    parseDateAsUTC(endValue);
+
+
+  const millisecondsPerDay =
+    1000 * 60 * 60 * 24;
+
+
+  const signedDays =
+    Math.round(
+      (end - start) / millisecondsPerDay
+    );
+
+
+  const days =
+    Math.abs(signedDays);
+
+
+  const weeks =
+    days / 7;
+
+
+  const approximateMonths =
+    days / 30.436875;
+
+
+  const hours =
+    days * 24;
+
+
+  document.getElementById(
+    "daysResult"
+  ).textContent =
+    formatNumber(days);
+
+
+  document.getElementById(
+    "weeksResult"
+  ).textContent =
+    formatNumber(weeks);
+
+
+  document.getElementById(
+    "monthsResult"
+  ).textContent =
+    formatNumber(approximateMonths);
+
+
+  document.getElementById(
+    "hoursResult"
+  ).textContent =
+    formatNumber(hours);
+
+
+  if (signedDays > 0) {
+
+    message.innerHTML =
+      "<strong>" +
+      formatNumber(days) +
+      " days</strong> separate these dates.";
+
+  }
+
+  else if (signedDays < 0) {
+
+    message.innerHTML =
+      "<strong>" +
+      formatNumber(days) +
+      " days</strong> separate these dates. " +
+      "The end date is before the start date.";
+
+  }
+
+  else {
+
+    message.innerHTML =
+      "<strong>The dates are the same.</strong>";
+
+  }
+
+
+  stats.style.display = "grid";
+
+}
+
+
+function clearDates() {
+
+  document.getElementById(
+    "startDate"
+  ).value = "";
+
+
+  document.getElementById(
+    "endDate"
+  ).value = "";
+
+
+  document.getElementById(
+    "dateStats"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "dateMessage"
+  ).innerHTML =
+    "<strong>Select two dates</strong>";
+
+}
+
+
+document.getElementById(
+  "startDate"
+).addEventListener(
+  "change",
+  autoCalculate
+);
+
+
+document.getElementById(
+  "endDate"
+).addEventListener(
+  "change",
+  autoCalculate
+);
+
+
+function autoCalculate() {
+
+  const start =
+    document.getElementById(
+      "startDate"
+    ).value;
+
+  const end =
+    document.getElementById(
+      "endDate"
+    ).value;
+
+
+  if (start && end) {
+    calculateDateDifference();
+  }
+
+}
+
+</script>
+
+</body>
+  </html>
