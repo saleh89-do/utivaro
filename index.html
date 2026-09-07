@@ -2,52 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Utivaro – Free Online Utility Tools</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Utivaro – Free Online Utility Tools
+  </title>
 
   <meta
     name="description"
-    content="Fast, free and private online utility tools for developers, text, calculations, images and everyday tasks. No signup required."
+    content="Free online utility tools for images, text, calculations, conversions and everyday tasks. Fast, simple and private. No signup required."
   >
 
-  <link rel="canonical" href="https://utivaro.com/">
+  <link
+    rel="canonical"
+    href="https://utivaro.com/"
+  >
 
-  <meta property="og:title" content="Utivaro – Free Online Utility Tools">
+  <meta
+    property="og:title"
+    content="Utivaro – Free Online Utility Tools"
+  >
+
   <meta
     property="og:description"
-    content="Fast, simple and private tools for everyday tasks."
+    content="Fast, free and private online tools for everyday tasks."
   >
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://utivaro.com/">
 
-  <link rel="stylesheet" href="styles.css">
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:url"
+    content="https://utivaro.com/"
+  >
+
+  <meta
+    name="theme-color"
+    content="#2563eb"
+  >
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 </head>
+
 
 <body>
 
+
 <header class="site-header">
+
   <nav class="nav">
 
-    <a href="/" class="logo">
+    <a
+      href="/"
+      class="logo"
+      aria-label="Utivaro Home"
+    >
       UTIVARO<span>.</span>
     </a>
 
+
     <div class="nav-links">
-      <a href="#tools">Tools</a>
-      <a href="#categories">Categories</a>
-      <a href="#why">Why Utivaro</a>
+
+      <a href="#tools">
+        Tools
+      </a>
+
+      <a href="#categories">
+        Categories
+      </a>
+
+      <a href="#why">
+        Why Utivaro
+      </a>
+
     </div>
+
 
     <div class="nav-badge">
       Free Online Tools
     </div>
 
   </nav>
+
 </header>
 
 
+
 <main>
+
 
 <section class="hero">
 
@@ -57,28 +108,58 @@
       ⚡ Fast · Free · Private
     </div>
 
+
     <h1>
       Everyday tools.<br>
       Simple and fast.
     </h1>
 
+
     <p>
-      Free online utilities for developers, text,
-      calculations, images and everyday tasks.
+      Free online utilities for images,
+      calculations, text, conversions
+      and everyday tasks.
       No signup required.
     </p>
 
+
+    <div
+      style="
+        max-width:700px;
+        margin:30px auto 0;
+      "
+    >
+
+      <input
+        id="toolSearch"
+        class="input"
+        type="search"
+        placeholder="Search tools..."
+        aria-label="Search tools"
+        style="
+          min-height:60px;
+          font-size:17px;
+          border-radius:16px;
+        "
+      >
+
+    </div>
+
+
     <div class="hero-actions">
 
-      <a href="#tools" class="btn btn-primary">
+      <a
+        href="#tools"
+        class="btn btn-primary"
+      >
         Explore Tools
       </a>
 
       <a
-        href="/tools/word-counter.html"
+        href="/tools/webp-to-jpg.html"
         class="btn btn-secondary"
       >
-        Try Word Counter
+        Try WebP to JPG
       </a>
 
     </div>
@@ -86,6 +167,7 @@
   </div>
 
 </section>
+
 
 
 <section
@@ -97,20 +179,136 @@
 
     <div class="section-heading">
 
-      <h2>Popular Tools</h2>
+      <h2>
+        Popular Tools
+      </h2>
 
       <p>
-        Useful tools built to do one job quickly and well.
+        Focused tools built to solve
+        everyday tasks quickly.
       </p>
 
     </div>
 
 
-    <div class="tools-grid">
+    <div
+      class="tools-grid"
+      id="toolsGrid"
+    >
+
+
+      <a
+        href="/tools/webp-to-jpg.html"
+        class="tool-card searchable-tool"
+        data-search="webp jpg image converter image tools convert photo"
+      >
+
+        <div class="tool-icon">
+          🖼
+        </div>
+
+        <h3>
+          WebP to JPG
+        </h3>
+
+        <p>
+          Convert WebP images to JPG
+          directly in your browser.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+
+      <a
+        href="/tools/unit-converter.html"
+        class="tool-card searchable-tool"
+        data-search="unit converter length weight temperature data area volume speed meters miles kilograms"
+      >
+
+        <div class="tool-icon">
+          ⇄
+        </div>
+
+        <h3>
+          Unit Converter
+        </h3>
+
+        <p>
+          Convert length, weight,
+          temperature, storage and more.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+
+      <a
+        href="/tools/days-between-dates.html"
+        class="tool-card searchable-tool"
+        data-search="days between dates date calculator time days weeks months hours"
+      >
+
+        <div class="tool-icon">
+          📅
+        </div>
+
+        <h3>
+          Days Between Dates
+        </h3>
+
+        <p>
+          Calculate the exact time
+          between two dates.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
+
+      <a
+        href="/tools/percentage-calculator.html"
+        class="tool-card searchable-tool"
+        data-search="percentage calculator percent increase decrease ratio math"
+      >
+
+        <div class="tool-icon">
+          %
+        </div>
+
+        <h3>
+          Percentage Calculator
+        </h3>
+
+        <p>
+          Calculate percentages,
+          ratios and percentage changes.
+        </p>
+
+        <span class="tool-link">
+          Open tool →
+        </span>
+
+      </a>
+
+
 
       <a
         href="/tools/word-counter.html"
-        class="tool-card"
+        class="tool-card searchable-tool"
+        data-search="word counter character counter text words characters sentences paragraphs writing"
       >
 
         <div class="tool-icon">
@@ -123,7 +321,7 @@
 
         <p>
           Count words, characters,
-          sentences and reading time instantly.
+          sentences and reading time.
         </p>
 
         <span class="tool-link">
@@ -132,60 +330,12 @@
 
       </a>
 
-
-      <a
-        href="/tools/percentage-calculator.html"
-        class="tool-card"
-      >
-
-        <div class="tool-icon">
-          %
-        </div>
-
-        <h3>
-          Percentage Calculator
-        </h3>
-
-        <p>
-          Calculate percentages quickly
-          without complicated formulas.
-        </p>
-
-        <span class="tool-link">
-          Open tool →
-        </span>
-
-      </a>
-
-
-      <a
-        href="/tools/days-between-dates.html"
-        class="tool-card"
-      >
-
-        <div class="tool-icon">
-          📅
-        </div>
-
-        <h3>
-          Days Between Dates
-        </h3>
-
-        <p>
-          Find the exact number of days
-          between any two dates.
-        </p>
-
-        <span class="tool-link">
-          Open tool →
-        </span>
-
-      </a>
 
 
       <a
         href="/tools/base64.html"
-        class="tool-card"
+        class="tool-card searchable-tool"
+        data-search="base64 encoder decoder developer encode decode text"
       >
 
         <div class="tool-icon">
@@ -197,8 +347,8 @@
         </h3>
 
         <p>
-          Encode text to Base64 or
-          decode Base64 instantly.
+          Encode text to Base64
+          or decode Base64 instantly.
         </p>
 
         <span class="tool-link">
@@ -208,306 +358,27 @@
       </a>
 
 
-      <a
-        href="/tools/character-counter.html"
-        class="tool-card"
-      >
-
-        <div class="tool-icon">
-          🔤
-        </div>
-
-        <h3>
-          Character Counter
-        </h3>
-
-        <p>
-          Count characters and
-          characters without spaces.
-        </p>
-
-        <span class="tool-link">
-          Open tool →
-        </span>
-
-      </a>
-
-
-      <div class="tool-card">
-
-        <div class="tool-icon">
-          { }
-        </div>
-
-        <h3>
-          JSON Formatter
-        </h3>
-
-        <p>
-          Format and validate JSON.
-          Coming in the next update.
-        </p>
-
-        <span class="tool-link">
-          Coming soon
-        </span>
-
-      </div>
-
     </div>
+
+
+    <p
+      id="noToolsFound"
+      style="
+        display:none;
+        margin-top:30px;
+        color:#687386;
+        text-align:center;
+      "
+    >
+      No matching tools found.
+    </p>
 
   </div>
 
 </section>
+
 
 
 <section
   class="section"
-  id="categories"
->
-
-  <div class="container">
-
-    <div class="section-heading center">
-
-      <h2>
-        Browse by Category
-      </h2>
-
-      <p>
-        Utivaro is designed to grow into
-        a large library of useful online tools.
-      </p>
-
-    </div>
-
-
-    <div class="features">
-
-      <div class="feature">
-
-        <h3>
-          🧮 Calculators
-        </h3>
-
-        <p>
-          Percentage, date,
-          finance and everyday calculators.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          📝 Text Tools
-        </h3>
-
-        <p>
-          Word counting,
-          character counting and text utilities.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          💻 Developer Tools
-        </h3>
-
-        <p>
-          Base64, JSON,
-          encoding and developer utilities.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          🖼 Image Tools
-        </h3>
-
-        <p>
-          Image conversion,
-          compression and resizing tools.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          🔄 Converters
-        </h3>
-
-        <p>
-          Units, formats,
-          file types and everyday conversions.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          ⚙ Generators
-        </h3>
-
-        <p>
-          Random numbers,
-          UUIDs and useful generators.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section
-  class="section"
-  id="why"
->
-
-  <div class="container">
-
-    <div class="section-heading center">
-
-      <h2>
-        Why Utivaro?
-      </h2>
-
-      <p>
-        Built around speed,
-        privacy and simplicity.
-      </p>
-
-    </div>
-
-
-    <div class="features">
-
-      <div class="feature">
-
-        <h3>
-          ⚡ Instant
-        </h3>
-
-        <p>
-          Open the tool
-          and start using it immediately.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          🔒 Private
-        </h3>
-
-        <p>
-          Whenever possible,
-          processing happens inside your browser.
-        </p>
-
-      </div>
-
-
-      <div class="feature">
-
-        <h3>
-          ✓ No Signup
-        </h3>
-
-        <p>
-          No account required
-          for the core utility tools.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-  <div class="container">
-
-    <div class="footer-grid">
-
-      <div class="footer-brand">
-
-        <strong>
-          UTIVARO
-        </strong>
-
-        <p>
-          Free online utility tools
-          designed to make everyday tasks easier.
-        </p>
-
-      </div>
-
-
-      <div class="footer-links">
-
-        <a href="#tools">
-          Tools
-        </a>
-
-        <a href="#categories">
-          Categories
-        </a>
-
-        <a href="#">
-          Privacy
-        </a>
-
-        <a href="#">
-          Terms
-        </a>
-
-        <a href="#">
-          Contact
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="copyright">
-
-      © <span id="currentYear">2026</span>
-      Utivaro. All rights reserved.
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-<script src="script.js"></script>
-
-</body>
-</html>
+  id="
