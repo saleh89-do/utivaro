@@ -234,3 +234,62 @@ function initToolSearch() {
   };
   search.addEventListener("input", filter);
 }
+
+/* ===== Utivaro Navigation Redesign V2 ===== */
+const UTIVARO_TOOL_GROUPS = {
+  images: [
+    ["/tools/heic-to-jpg","📸","HEIC to JPG"], ["/tools/webp-to-jpg","🖼️","WebP to JPG"], ["/tools/jpg-to-webp","🗜️","JPG to WebP"], ["/tools/image-resizer","↔️","Image Resizer"], ["/tools/color-picker","🎨","Color Picker"]
+  ],
+  calculators: [
+    ["/tools/percentage-calculator","%","Percentage"], ["/tools/age-calculator","🎂","Age Calculator"], ["/tools/days-between-dates","📅","Days Between"], ["/tools/tip-calculator","💵","Tip Calculator"]
+  ],
+  text: [["/tools/word-counter","📝","Word Counter"], ["/tools/character-counter","🔤","Character Counter"]],
+  developer: [["/tools/base64","</>","Base64"], ["/tools/json-formatter","{ }","JSON Formatter"], ["/tools/uuid-generator","🆔","UUID Generator"]],
+  generators: [["/tools/password-generator","🔐","Password Generator"], ["/tools/random-number-generator","🎲","Random Number"]],
+  converters: [["/tools/unit-converter","⇄","Unit Converter"]]
+};
+
+function utivaroCurrentGroup(path) {
+  return Object.entries(UTIVARO_TOOL_GROUPS).find(([, tools]) => tools.some(t => t[0] === path));
+}
+
+function initUtivaroToolNavigation() {
+  const path = window.location.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
+  if (!path.startsWith("/tools/")) return;
+  const found = utivaroCurrentGroup(path);
+  if (!found) return;
+  const [groupName, groupTools] = found;
+  const groupLabel = {images:"Image Tools",calculators:"Calculators",text:"Text Tools",developer:"Developer Tools",generators:"Generators",converters:"Converters"}[groupName];
+
+  const main = document.querySelector("main");
+  if (main) {
+    const quick = document.createElement("nav");
+    quick.className = "tool-quick-nav";
+    quick.setAttribute("aria-label","Tool categories");
+    quick.innerHTML = `<a href="/#categories">☰ All Categories</a><a href="/">⌂ Home</a><a href="/#all-tools">⌕ Search Tools</a><a href="/#categories">${groupLabel}</a>`;
+    main.insertBefore(quick, main.firstChild);
+  }
+
+  const related = groupTools.filter(t => t[0] !== path).slice(0,4);
+  if (related.length) {
+    const block = document.createElement("section");
+    block.className = "related-tools-v2";
+    block.innerHTML = `<div class="related-tools-head"><h2>Related ${groupLabel}</h2><a href="/#categories">See all tools →</a></div><div class="related-tools-grid">${related.map(t => `<a class="related-tool-link" href="${t[0]}"><span>${t[1]}</span>${t[2]}</a>`).join("")}</div>`;
+    const footer = document.querySelector("footer");
+    if (footer) footer.parentNode.insertBefore(block, footer); else document.body.appendChild(block);
+  }
+}
+
+function initUtivaroMobileNav() {
+  const path = window.location.pathname.replace(/\.html$/, "");
+  const nav = document.createElement("nav");
+  nav.className = "mobile-tool-nav";
+  nav.setAttribute("aria-label","Mobile navigation");
+  nav.innerHTML = `<a href="/" class="${path === "/" ? "active" : ""}"><span>⌂</span>Home</a><a href="/#categories"><span>▦</span>Categories</a><a href="/#all-tools"><span>⌕</span>Search</a><a href="/#all-tools" class="${path.startsWith("/tools/") ? "active" : ""}"><span>🧰</span>All Tools</a>`;
+  document.body.appendChild(nav);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initUtivaroToolNavigation();
+  initUtivaroMobileNav();
+});
