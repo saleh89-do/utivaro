@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Age Calculator – Calculate Your Exact Age Online | Utivaro
+  </title>
+
+  <meta
+    name="description"
+    content="Free online age calculator to find your exact age in years, months and days. Calculate total months, weeks and days instantly."
+  >
+
+  <meta
+    name="robots"
+    content="index,follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://utivaro.com/tools/age-calculator.html"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Age Calculator – Calculate Your Exact Age"
+  >
+
+  <meta
+    property="og:description"
+    content="Calculate your exact age in years, months and days instantly with Utivaro."
+  >
+
+  <meta
+    property="og:url"
+    content="https://utivaro.com/tools/age-calculator.html"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Utivaro"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Age Calculator – Calculate Your Exact Age"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Calculate your exact age in years, months and days instantly with Utivaro."
+  >
+
+  <meta
+    name="theme-color"
+    content="#2563eb"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../styles.css"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Age Calculator",
+    "url": "https://utivaro.com/tools/age-calculator.html",
+    "description": "Free online age calculator for calculating exact age in years, months and days.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Utivaro",
+      "url": "https://utivaro.com/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I calculate my exact age?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your date of birth and the date you want to calculate your age on. The calculator will show your age in years, months and days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I calculate age on a past or future date?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can choose a custom calculation date to find your age on a past or future date."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the calculator show total days lived?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. It also shows approximate total months, total weeks and total days between the two dates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the Utivaro Age Calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Age Calculator is free to use and does not require an account."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="../index.html">
+        UTIVARO<span>.</span>
+      </a>
+
+      <div class="nav-badge">
+        Free Online Tools
+      </div>
+    </div>
+  </header>
+
+  <main class="tool-page">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>→</span>
+        <span>Calculators</span>
+        <span>→</span>
+        <span>Age Calculator</span>
+      </div>
+
+      <section class="tool-title">
+        <h1>Age Calculator</h1>
+
+        <p>
+          Calculate your exact age in years, months and days using your date of birth.
+        </p>
+      </section>
+
+      <section class="tool-box">
+
+        <div class="field">
+          <label for="birthDate">
+            Date of birth
+          </label>
+
+          <input
+            class="input"
+            type="date"
+            id="birthDate"
+          >
+        </div>
+
+        <div class="field">
+          <label for="ageDate">
+            Calculate age on
+          </label>
+
+          <input
+            class="input"
+            type="date"
+            id="ageDate"
+          >
+        </div>
+
+        <div class="actions">
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="calculateAge()"
+          >
+            Calculate Age
+          </button>
+
+          <button
+            class="btn btn-secondary"
+            type="button"
+            onclick="clearAgeCalculator()"
+          >
+            Clear
+          </button>
+        </div>
+
+        <div
+          class="notice"
+          id="ageMessage"
+          style="display:none;"
+        ></div>
+
+        <div
+          class="result"
+          id="ageResult"
+          style="display:none;"
+        >
+          <div class="result-number" id="exactAge">
+            —
+          </div>
+
+          <div class="result-text">
+            Exact age
+          </div>
+        </div>
+
+        <div
+          class="stats-grid"
+          id="ageStats"
+          style="display:none;"
+        >
+          <div class="stat">
+            <div class="stat-value" id="totalMonths">—</div>
+            <div class="stat-label">Total Months</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-value" id="totalWeeks">—</div>
+            <div class="stat-label">Total Weeks</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-value" id="totalDays">—</div>
+            <div class="stat-label">Total Days</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-value" id="nextBirthday">—</div>
+            <div class="stat-label">Next Birthday</div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="section">
+        <div class="content-card">
+
+          <h2>How to use the Age Calculator</h2>
+
+          <p>
+            Enter your date of birth, then choose the date you want to calculate your age on.
+            By default, the calculator uses today's date.
+          </p>
+
+          <p>
+            Select <strong>Calculate Age</strong> to see your exact age in years, months and days,
+            along with additional statistics such as total months, weeks and days.
+          </p>
+
+          <h2>How age is calculated</h2>
+
+          <p>
+            Your exact age is calculated by comparing the calendar year, month and day of your
+            birth date with the selected calculation date.
+          </p>
+
+          <p>
+            This approach accounts for different month lengths and leap years instead of simply
+            dividing the total number of days by 365.
+          </p>
+
+          <h2>Age calculator example</h2>
+
+          <p>
+            If someone was born on January 1, 2000 and calculates their age on January 1, 2026,
+            the result is exactly 26 years.
+          </p>
+
+          <h2>Common uses for an age calculator</h2>
+
+          <p>
+            An age calculator can be useful for checking eligibility requirements, completing forms,
+            planning birthdays, calculating age on a specific historical date, or quickly finding
+            how much time has passed since a birth date.
+          </p>
+
+          <h2>Frequently asked questions</h2>
+
+          <h3>How do I calculate my exact age?</h3>
+
+          <p>
+            Enter your date of birth and the date you want to calculate your age on.
+            The calculator will show your age in years, months and days.
+          </p>
+
+          <h3>Can I calculate age on a past or future date?</h3>
+
+          <p>
+            Yes. You can select any valid date after your date of birth as the calculation date.
+          </p>
+
+          <h3>Does the calculator show total days lived?</h3>
+
+          <p>
+            Yes. It also displays approximate total months, total weeks and total days between the dates.
+          </p>
+
+          <h3>Is the Utivaro Age Calculator free?</h3>
+
+          <p>
+            Yes. The tool is free and does not require an account.
+          </p>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>More free tools</h2>
+        </div>
+
+        <div class="tools-grid">
+
+          <a
+            class="tool-card"
+            href="days-between-dates.html"
+          >
+            <div class="tool-icon">📅</div>
+
+            <h3>Days Between Dates</h3>
+
+            <p>
+              Calculate the number of days between two dates.
+            </p>
+          </a>
+
+          <a
+            class="tool-card"
+            href="percentage-calculator.html"
+          >
+            <div class="tool-icon">%</div>
+
+            <h3>Percentage Calculator</h3>
+
+            <p>
+              Calculate percentages, increases and decreases.
+            </p>
+          </a>
+
+          <a
+            class="tool-card"
+            href="unit-converter.html"
+          >
+            <div class="tool-icon">⇄</div>
+
+            <h3>Unit Converter</h3>
+
+            <p>
+              Convert length, weight, temperature and more.
+            </p>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+
+      <div>
+        <div class="logo">
+          UTIVARO<span>.</span>
+        </div>
+
+        <p>
+          Fast, free and simple online tools for everyday tasks.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="../about.html">About</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="currentYear"></span> Utivaro
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+
+  <script>
+    const birthDateInput = document.getElementById("birthDate");
+    const ageDateInput = document.getElementById("ageDate");
+    const ageResult = document.getElementById("ageResult");
+    const ageStats = document.getElementById("ageStats");
+    const ageMessage = document.getElementById("ageMessage");
+
+    function getLocalDateString(date) {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+
+      return `${year}-${month}-${day}`;
+    }
+
+    ageDateInput.value = getLocalDateString(new Date());
+
+    function parseLocalDate(value) {
+      const parts = value.split("-").map(Number);
+
+      if (parts.length !== 3) {
+        return null;
+      }
+
+      return new Date(
+        parts[0],
+        parts[1] - 1,
+        parts[2]
+      );
+    }
+
+    function calculateExactAge(birthDate, targetDate) {
+      let years =
+        targetDate.getFullYear() -
+        birthDate.getFullYear();
+
+      let months =
+        targetDate.getMonth() -
+        birthDate.getMonth();
+
+      let days =
+        targetDate.getDate() -
+        birthDate.getDate();
+
+      if (days < 0) {
+        const previousMonthDays = new Date(
+          targetDate.getFullYear(),
+          targetDate.getMonth(),
+          0
+        ).getDate();
+
+        days += previousMonthDays;
+        months--;
+      }
+
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      return {
+        years,
+        months,
+        days
+      };
+    }
+
+    function calculateNextBirthday(birthDate, targetDate) {
+      let birthday = new Date(
+        targetDate.getFullYear(),
+        birthDate.getMonth(),
+        birthDate.getDate()
+      );
+
+      if (birthday < targetDate) {
+        birthday = new Date(
+          targetDate.getFullYear() + 1,
+          birthDate.getMonth(),
+          birthDate.getDate()
+        );
+      }
+
+      const millisecondsPerDay =
+        1000 * 60 * 60 * 24;
+
+      return Math.ceil(
+        (
+          Date.UTC(
+            birthday.getFullYear(),
+            birthday.getMonth(),
+            birthday.getDate()
+          ) -
+          Date.UTC(
+            targetDate.getFullYear(),
+            targetDate.getMonth(),
+            targetDate.getDate()
+          )
+        ) / millisecondsPerDay
+      );
+    }
+
+    function calculateAge() {
+      ageMessage.style.display = "none";
+      ageResult.style.display = "none";
+      ageStats.style.display = "none";
+
+      if (
+        !birthDateInput.value ||
+        !ageDateInput.value
+      ) {
+        ageMessage.textContent =
+          "Please select both dates.";
+
+        ageMessage.style.display = "block";
+        return;
+      }
+
+      const birthDate =
+        parseLocalDate(birthDateInput.value);
+
+      const targetDate =
+        parseLocalDate(ageDateInput.value);
+
+      if (
+        !birthDate ||
+        !targetDate
+      ) {
+        ageMessage.textContent =
+          "Please enter valid dates.";
+
+        ageMessage.style.display = "block";
+        return;
+      }
+
+      if (birthDate > targetDate) {
+        ageMessage.textContent =
+          "The calculation date must be on or after the date of birth.";
+
+        ageMessage.style.display = "block";
+        return;
+      }
+
+      const exactAge =
+        calculateExactAge(
+          birthDate,
+          targetDate
+        );
+
+      const millisecondsPerDay =
+        1000 * 60 * 60 * 24;
+
+      const totalDays = Math.round(
+        (
+          Date.UTC(
+            targetDate.getFullYear(),
+            targetDate.getMonth(),
+            targetDate.getDate()
+          ) -
+          Date.UTC(
+            birthDate.getFullYear(),
+            birthDate.getMonth(),
+            birthDate.getDate()
+          )
+        ) / millisecondsPerDay
+      );
+
+      const totalWeeks =
+        totalDays / 7;
+
+      const totalMonths =
+        exactAge.years * 12 +
+        exactAge.months +
+        exactAge.days / 30.436875;
+
+      const nextBirthday =
+        calculateNextBirthday(
+          birthDate,
+          targetDate
+        );
+
+      document.getElementById("exactAge").textContent =
+        `${exactAge.years} years, ${exactAge.months} months, ${exactAge.days} days`;
+
+      document.getElementById("totalMonths").textContent =
+        totalMonths.toLocaleString(
+          undefined,
+          {
+            maximumFractionDigits: 1
+          }
+        );
+
+      document.getElementById("totalWeeks").textContent =
+        totalWeeks.toLocaleString(
+          undefined,
+          {
+            maximumFractionDigits: 1
+          }
+        );
+
+      document.getElementById("totalDays").textContent =
+        totalDays.toLocaleString();
+
+      document.getElementById("nextBirthday").textContent =
+        nextBirthday === 0
+          ? "Today"
+          : `${nextBirthday} days`;
+
+      ageResult.style.display = "block";
+      ageStats.style.display = "grid";
+    }
+
+    function clearAgeCalculator() {
+      birthDateInput.value = "";
+      ageDateInput.value =
+        getLocalDateString(new Date());
+
+      ageMessage.style.display = "none";
+      ageResult.style.display = "none";
+      ageStats.style.display = "none";
+    }
+  </script>
+
+</body>
+  </html>
