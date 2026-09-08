@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Number Generator – Generate Random Numbers | Utivaro</title>
+<meta name="description" content="Generate random numbers online for free. Set a range, quantity, decimal places and optional unique results. Fast browser-based RNG.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://utivaro.com/tools/random-number-generator">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:title" content="Random Number Generator | Utivaro"><meta property="og:description" content="Generate random numbers online for free. Set a range, quantity, decimal places and optional unique results. Fast browser-based RNG."><meta property="og:url" content="https://utivaro.com/tools/random-number-generator"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Random Number Generator | Utivaro"><meta name="twitter:description" content="Generate random numbers online for free. Set a range, quantity, decimal places and optional unique results. Fast browser-based RNG."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="../styles.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Random Number Generator", "url": "https://utivaro.com/tools/random-number-generator", "description": "Generate random numbers online for free. Set a range, quantity, decimal places and optional unique results. Fast browser-based RNG.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I generate more than one random number?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. You can generate up to 100 values at a time."}}, {"@type": "Question", "name": "Can I generate decimal numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose between 0 and 8 decimal places."}}, {"@type": "Question", "name": "Can I avoid duplicate numbers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enable the no-duplicates option. For integers, the requested quantity must fit inside the selected range."}}, {"@type": "Question", "name": "Are the numbers generated on my device?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The tool runs in your browser and uses browser cryptographic randomness when it is available."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Generators", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "Random Number Generator", "item": "https://utivaro.com/tools/random-number-generator"}]}</script>
+</head>
+<body>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<main class="tool-page"><div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Generators</a> → Random Number Generator</div>
+<section class="tool-title"><h1>Random Number Generator</h1><p>Generate one or many random numbers within a range, with optional decimals and no-duplicate results.</p></section>
+<section class="tool-box">
+<div class="two-col"><div class="field"><label for="rngMin">Minimum</label><input class="input" id="rngMin" type="number" value="1" step="any"></div><div class="field"><label for="rngMax">Maximum</label><input class="input" id="rngMax" type="number" value="100" step="any"></div></div>
+<div class="two-col"><div class="field"><label for="rngQuantity">How many numbers?</label><input class="input" id="rngQuantity" type="number" min="1" max="100" value="1"></div><div class="field"><label for="rngDecimals">Decimal places</label><input class="input" id="rngDecimals" type="number" min="0" max="8" value="0"></div></div>
+<div class="checkbox-row"><input id="rngUnique" type="checkbox"><label for="rngUnique">No duplicate results</label></div>
+<div class="actions"><button class="btn btn-primary" type="button" onclick="generateRandomNumbers()">Generate Numbers</button><button class="btn btn-secondary" type="button" onclick="Utivaro.copyText(document.getElementById('rngOutput').textContent,this)">Copy</button></div>
+<div id="rngOutput" class="tool-output mono output-large" style="margin-top:20px" role="status"></div><div id="rngStatus" class="status"></div>
+<div class="notice">🎲 Random values are generated locally in your browser using cryptographic randomness when available.</div>
+</section>
+<section class="content-card"><h2>Generate random numbers online</h2>
+<p>Set a minimum and maximum value, choose how many numbers you need and optionally add decimal places or require unique results.</p>
+<h2>How to use the random number generator</h2>
+<ol><li>Enter the minimum and maximum values.</li><li>Choose the quantity and decimal places.</li><li>Optionally enable unique results.</li><li>Select <strong>Generate Numbers</strong>.</li></ol>
+<h2>Common uses</h2>
+<p>Random numbers are useful for games, classroom activities, testing, sampling, simulations and any task that needs an unpredictable value within a range.</p><h2>Frequently Asked Questions</h2>
+<h3>Can I generate more than one random number?</h3><p>Yes. You can generate up to 100 values at a time.</p>
+<h3>Can I generate decimal numbers?</h3><p>Yes. Choose between 0 and 8 decimal places.</p>
+<h3>Can I avoid duplicate numbers?</h3><p>Yes. Enable the no-duplicates option. For integers, the requested quantity must fit inside the selected range.</p>
+<h3>Are the numbers generated on my device?</h3><p>Yes. The tool runs in your browser and uses browser cryptographic randomness when it is available.</p></section>
+<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/password-generator"><div class="tool-icon">🔐</div><h3>Password Generator</h3><p>Create strong random passwords.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/uuid-generator"><div class="tool-icon">🆔</div><h3>UUID Generator</h3><p>Generate UUID v4 identifiers.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/percentage-calculator"><div class="tool-icon">%</div><h3>Percentage Calculator</h3><p>Calculate percentages quickly.</p><span class="tool-link">Open tool →</span></a></div></section>
+</div></main>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div></footer>
+<script src="../script.js"></script>
+<script>
+function randomUnit(){if(window.crypto&&crypto.getRandomValues){const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]/4294967296;}return Math.random();}
+function generateRandomNumbers(){const min=Number(document.getElementById('rngMin').value),max=Number(document.getElementById('rngMax').value),qty=Math.min(100,Math.max(1,Number(document.getElementById('rngQuantity').value)||1)),dec=Math.min(8,Math.max(0,Number(document.getElementById('rngDecimals').value)||0)),unique=document.getElementById('rngUnique').checked,out=document.getElementById('rngOutput'),status=document.getElementById('rngStatus');status.className='status';if(!Number.isFinite(min)||!Number.isFinite(max)||min>=max){out.textContent='';status.textContent='Enter a maximum value greater than the minimum.';status.classList.add('error');return;}if(dec===0&&Math.ceil(min)>Math.floor(max)){out.textContent='';status.textContent='This range contains no whole numbers. Increase the range or use decimal places.';status.classList.add('error');return;}if(unique&&dec===0&&qty>Math.floor(max)-Math.ceil(min)+1){out.textContent='';status.textContent='The range is too small for that many unique integers.';status.classList.add('error');return;}const results=[],seen=new Set(),factor=10**dec;let attempts=0;while(results.length<qty&&attempts<100000){attempts++;let v=dec===0?Math.floor(randomUnit()*(Math.floor(max)-Math.ceil(min)+1))+Math.ceil(min):Math.round((min+randomUnit()*(max-min))*factor)/factor;const key=v.toFixed(dec);if(unique&&seen.has(key))continue;seen.add(key);results.push(dec?key:String(v));}out.textContent=results.join(qty===1?'':'\n');status.textContent=`Generated ${results.length} ${results.length===1?'number':'numbers'}.`;status.classList.add('success');}
+generateRandomNumbers();
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Character Counter – Count Characters Online Free | Utivaro</title>
+<meta name="description" content="Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://utivaro.com/tools/character-counter">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:title" content="Character Counter | Utivaro"><meta property="og:description" content="Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private."><meta property="og:url" content="https://utivaro.com/tools/character-counter"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Character Counter | Utivaro"><meta name="twitter:description" content="Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="../styles.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Character Counter", "url": "https://utivaro.com/tools/character-counter", "description": "Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private.", "applicationCategory": "UtilityApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the character counter include spaces?", "acceptedAnswer": {"@type": "Answer", "text": "The main Characters count includes spaces. A separate counter shows characters without whitespace."}}, {"@type": "Question", "name": "Can I set a character limit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter any positive limit and the tool will show the number of characters remaining."}}, {"@type": "Question", "name": "Does it count emoji?", "acceptedAnswer": {"@type": "Answer", "text": "The tool uses browser text segmentation when available so emoji and combined characters are counted more naturally."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The counting happens locally in your browser."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "Character Counter", "item": "https://utivaro.com/tools/character-counter"}]}</script>
+</head>
+<body>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<main class="tool-page"><div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Text Tools</a> → Character Counter</div>
+<section class="tool-title"><h1>Character Counter</h1><p>Count characters, words, lines and bytes in real time. Add an optional limit to see how many characters remain.</p></section>
+<section class="tool-box">
+<div class="field"><label for="charInput">Enter or paste text</label><textarea id="charInput" class="input" placeholder="Start typing or paste your text here..."></textarea></div>
+<div class="field"><label for="charLimit">Optional character limit</label><input class="input" id="charLimit" type="number" min="1" placeholder="Example: 280"></div>
+<div class="stats-grid"><div class="stat"><span class="stat-value" id="charsTotal">0</span><span class="stat-label">Characters</span></div><div class="stat"><span class="stat-value" id="charsNoSpaces">0</span><span class="stat-label">Without Spaces</span></div><div class="stat"><span class="stat-value" id="charWords">0</span><span class="stat-label">Words</span></div><div class="stat"><span class="stat-value" id="charLines">0</span><span class="stat-label">Lines</span></div><div class="stat"><span class="stat-value" id="charBytes">0</span><span class="stat-label">UTF-8 Bytes</span></div><div class="stat"><span class="stat-value" id="charRemaining">—</span><span class="stat-label">Remaining</span></div></div>
+<div class="actions"><button class="btn btn-secondary" type="button" onclick="document.getElementById('charInput').value='';updateCharacterStats();document.getElementById('charInput').focus()">Clear</button><button class="btn btn-secondary" type="button" onclick="Utivaro.copyText(document.getElementById('charInput').value,this)">Copy Text</button></div>
+<div class="notice">🔒 Your text is counted locally in your browser.</div>
+</section>
+<section class="content-card"><h2>Count characters instantly</h2>
+<p>Paste or type text to see live counts for characters, characters without spaces, words, lines and UTF-8 bytes. You can also set an optional character limit.</p>
+<h2>Character count with a limit</h2>
+<p>When you enter a limit, the Remaining counter shows how many characters are left. A negative result means the text is over the selected limit.</p>
+<h2>Characters versus bytes</h2>
+<p>Character count measures visible text units, while UTF-8 byte count measures the encoded data size. Some characters and emoji use more than one byte.</p><h2>Frequently Asked Questions</h2>
+<h3>Does the character counter include spaces?</h3><p>The main Characters count includes spaces. A separate counter shows characters without whitespace.</p>
+<h3>Can I set a character limit?</h3><p>Yes. Enter any positive limit and the tool will show the number of characters remaining.</p>
+<h3>Does it count emoji?</h3><p>The tool uses browser text segmentation when available so emoji and combined characters are counted more naturally.</p>
+<h3>Is my text uploaded?</h3><p>No. The counting happens locally in your browser.</p></section>
+<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/word-counter"><div class="tool-icon">📝</div><h3>Word Counter</h3><p>Count words and reading time.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/json-formatter"><div class="tool-icon">{}</div><h3>JSON Formatter</h3><p>Format and validate JSON.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon"></></div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode text.</p><span class="tool-link">Open tool →</span></a></div></section>
+</div></main>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div></footer>
+<script src="../script.js"></script>
+<script>
+function graphemeCount(text){if(Intl.Segmenter){return Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(text)).length;}return Array.from(text).length;}
+function updateCharacterStats(){const text=document.getElementById('charInput').value,total=graphemeCount(text),noSpaces=graphemeCount(text.replace(/\s/g,'')),words=text.trim()?text.trim().split(/\s+/).length:0,lines=text?text.split(/\r?\n/).length:0,bytes=new TextEncoder().encode(text).length,limit=Number(document.getElementById('charLimit').value);document.getElementById('charsTotal').textContent=total;document.getElementById('charsNoSpaces').textContent=noSpaces;document.getElementById('charWords').textContent=words;document.getElementById('charLines').textContent=lines;document.getElementById('charBytes').textContent=bytes;document.getElementById('charRemaining').textContent=limit>0?limit-total:'—';}
+document.getElementById('charInput').addEventListener('input',updateCharacterStats);document.getElementById('charLimit').addEventListener('input',updateCharacterStats);updateCharacterStats();
+</script>
+</body>
+</html>

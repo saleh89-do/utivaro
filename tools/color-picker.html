@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Color Picker – HEX, RGB, HSL & Image Color Picker | Utivaro</title>
+<meta name="description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://utivaro.com/tools/color-picker">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website"><meta property="og:title" content="Color Picker & Converter | Utivaro"><meta property="og:description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser."><meta property="og:url" content="https://utivaro.com/tools/color-picker"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Color Picker & Converter | Utivaro"><meta name="twitter:description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="../styles.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Picker & Converter", "url": "https://utivaro.com/tools/color-picker", "description": "Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser.", "applicationCategory": "DesignApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I convert HEX to RGB?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter a valid HEX color and the RGB and HSL values update automatically."}}, {"@type": "Question", "name": "Can I pick a color from an image?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload a supported image and tap or click a pixel to sample its color."}}, {"@type": "Question", "name": "What image formats can I use?", "acceptedAnswer": {"@type": "Answer", "text": "The image picker supports common browser-readable formats such as JPG, PNG, WebP and GIF."}}, {"@type": "Question", "name": "Is my image uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The image is read and sampled locally in your browser."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "Color Picker & Converter", "item": "https://utivaro.com/tools/color-picker"}]}</script>
+</head>
+<body>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<main class="tool-page"><div class="container">
+<div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Image Tools</a> → Color Picker & Converter</div>
+<section class="tool-title"><h1>Color Picker & Converter</h1><p>Pick a color, convert HEX, RGB and HSL values, or sample a color directly from an image.</p></section>
+<section class="tool-box">
+<div class="two-col"><div><div id="colorSwatch" class="color-swatch"></div></div><div><div class="field"><label for="nativeColor">Choose a color</label><input id="nativeColor" type="color" value="#2563eb" style="width:100%;height:58px;border:1px solid #cfd8e5;border-radius:12px;background:#fff;padding:5px"></div><div class="field"><label for="hexInput">HEX value</label><input class="input mono" id="hexInput" value="#2563EB" maxlength="7"></div></div></div>
+<div class="color-value-row"><label>HEX</label><div id="hexValue" class="tool-output mono" style="min-height:52px;padding:12px">#2563EB</div><button class="btn btn-secondary" type="button" onclick="copyColor('hexValue',this)">Copy</button></div>
+<div class="color-value-row"><label>RGB</label><div id="rgbValue" class="tool-output mono" style="min-height:52px;padding:12px">rgb(37, 99, 235)</div><button class="btn btn-secondary" type="button" onclick="copyColor('rgbValue',this)">Copy</button></div>
+<div class="color-value-row"><label>HSL</label><div id="hslValue" class="tool-output mono" style="min-height:52px;padding:12px">hsl(221, 83%, 53%)</div><button class="btn btn-secondary" type="button" onclick="copyColor('hslValue',this)">Copy</button></div>
+<hr style="border:0;border-top:1px solid #e2e8f0;margin:28px 0">
+<div class="field"><label for="colorImage">Pick a color from an image</label><input class="input" id="colorImage" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><div class="canvas-note">Upload an image, then tap or click any point on it to sample that pixel color.</div></div>
+<div id="colorCanvasWrap" class="preview-stage" hidden><canvas id="colorCanvas"></canvas></div>
+<div class="notice">🔒 Uploaded images are processed locally in your browser.</div>
+</section>
+<section class="content-card"><h2>Pick and convert colors online</h2>
+<p>Choose a color visually or type a HEX value to instantly see matching HEX, RGB and HSL values.</p>
+<h2>Pick a color from an image</h2>
+<p>Upload a JPG, PNG, WebP or GIF image and tap any visible pixel to sample its color. The image stays on your device while you use the picker.</p>
+<h2>HEX, RGB and HSL</h2>
+<p>HEX represents red, green and blue channels with hexadecimal values. RGB uses numeric channel values from 0 to 255. HSL describes hue, saturation and lightness.</p><h2>Frequently Asked Questions</h2>
+<h3>Can I convert HEX to RGB?</h3><p>Yes. Enter a valid HEX color and the RGB and HSL values update automatically.</p>
+<h3>Can I pick a color from an image?</h3><p>Yes. Upload a supported image and tap or click a pixel to sample its color.</p>
+<h3>What image formats can I use?</h3><p>The image picker supports common browser-readable formats such as JPG, PNG, WebP and GIF.</p>
+<h3>Is my image uploaded?</h3><p>No. The image is read and sampled locally in your browser.</p></section>
+<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/image-resizer"><div class="tool-icon">↔️</div><h3>Image Resizer</h3><p>Resize images by dimensions.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/jpg-to-webp"><div class="tool-icon">🗜️</div><h3>JPG to WebP</h3><p>Convert JPG to WebP.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/webp-to-jpg"><div class="tool-icon">🖼</div><h3>WebP to JPG</h3><p>Convert WebP to JPG.</p><span class="tool-link">Open tool →</span></a></div></section>
+</div></main>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div></footer>
+<script src="../script.js"></script>
+<script>
+function hexToRgb(hex){hex=hex.trim().replace('#','');if(/^[0-9a-fA-F]{3}$/.test(hex))hex=hex.split('').map(c=>c+c).join('');if(!/^[0-9a-fA-F]{6}$/.test(hex))return null;return {r:parseInt(hex.slice(0,2),16),g:parseInt(hex.slice(2,4),16),b:parseInt(hex.slice(4,6),16)};}
+function rgbToHex(r,g,b){return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,v)).toString(16).padStart(2,'0')).join('').toUpperCase();}
+function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h=0,s=0,l=(max+min)/2;if(max!==min){const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;default:h=(r-g)/d+4;}h/=6;}return {h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};}
+function setColor(r,g,b){const hex=rgbToHex(r,g,b),hsl=rgbToHsl(r,g,b);document.getElementById('colorSwatch').style.background=hex;document.getElementById('nativeColor').value=hex.toLowerCase();document.getElementById('hexInput').value=hex;document.getElementById('hexValue').textContent=hex;document.getElementById('rgbValue').textContent=`rgb(${r}, ${g}, ${b})`;document.getElementById('hslValue').textContent=`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;}
+function copyColor(id,btn){Utivaro.copyText(document.getElementById(id).textContent,btn);}
+document.getElementById('nativeColor').addEventListener('input',e=>{const c=hexToRgb(e.target.value);setColor(c.r,c.g,c.b);});document.getElementById('hexInput').addEventListener('input',e=>{const c=hexToRgb(e.target.value);if(c)setColor(c.r,c.g,c.b);});
+let colorURL='';document.getElementById('colorImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(colorURL)URL.revokeObjectURL(colorURL);colorURL=URL.createObjectURL(f);const img=new Image();img.onload=()=>{const max=900,scale=Math.min(1,max/img.naturalWidth,max/img.naturalHeight),canvas=document.getElementById('colorCanvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext('2d',{willReadFrequently:true}).drawImage(img,0,0,canvas.width,canvas.height);document.getElementById('colorCanvasWrap').hidden=false;};img.src=colorURL;});
+document.getElementById('colorCanvas').addEventListener('click',e=>{const c=e.currentTarget,rect=c.getBoundingClientRect(),x=Math.floor((e.clientX-rect.left)*c.width/rect.width),y=Math.floor((e.clientY-rect.top)*c.height/rect.height),d=c.getContext('2d').getImageData(x,y,1,1).data;setColor(d[0],d[1],d[2]);});
+</script>
+</body>
+</html>
