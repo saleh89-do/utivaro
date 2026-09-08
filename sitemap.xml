@@ -1,48 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://utivaro.com/</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/about</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/privacy</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/terms</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/webp-to-jpg</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/unit-converter</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/days-between-dates</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/percentage-calculator</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/word-counter</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/base64</loc>
-  </url>
-
-  <url>
-    <loc>https://utivaro.com/tools/age-calculator</loc>
-  </url>
-
+  <url><loc>https://utivaro.com/</loc></url>
+  <url><loc>https://utivaro.com/about</loc></url>
+  <url><loc>https://utivaro.com/privacy</loc></url>
+  <url><loc>https://utivaro.com/terms</loc></url>
+  <url><loc>https://utivaro.com/tools/webp-to-jpg</loc></url>
+  <url><loc>https://utivaro.com/tools/heic-to-jpg</loc></url>
+  <url><loc>https://utivaro.com/tools/image-resizer</loc></url>
+  <url><loc>https://utivaro.com/tools/jpg-to-webp</loc></url>
+  <url><loc>https://utivaro.com/tools/color-picker</loc></url>
+  <url><loc>https://utivaro.com/tools/unit-converter</loc></url>
+  <url><loc>https://utivaro.com/tools/percentage-calculator</loc></url>
+  <url><loc>https://utivaro.com/tools/age-calculator</loc></url>
+  <url><loc>https://utivaro.com/tools/days-between-dates</loc></url>
+  <url><loc>https://utivaro.com/tools/tip-calculator</loc></url>
+  <url><loc>https://utivaro.com/tools/word-counter</loc></url>
+  <url><loc>https://utivaro.com/tools/character-counter</loc></url>
+  <url><loc>https://utivaro.com/tools/base64</loc></url>
+  <url><loc>https://utivaro.com/tools/uuid-generator</loc></url>
+  <url><loc>https://utivaro.com/tools/json-formatter</loc></url>
+  <url><loc>https://utivaro.com/tools/password-generator</loc></url>
+  <url><loc>https://utivaro.com/tools/random-number-generator</loc></url>
 </urlset>
