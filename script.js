@@ -1,3 +1,20 @@
+// Google Analytics
+(function () {
+  if (document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) return;
+
+  const gaScript = document.createElement("script");
+  gaScript.async = true;
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-QEJKW6BQMH";
+  document.head.appendChild(gaScript);
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () {
+    dataLayer.push(arguments);
+  };
+
+  gtag("js", new Date());
+  gtag("config", "G-QEJKW6BQMH");
+})();
 "use strict";
 
 /* Utivaro V1
