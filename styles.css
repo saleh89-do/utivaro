@@ -1039,3 +1039,6 @@ footer {
   .mobile-tool-nav a span { display:block; margin-bottom:3px; font-size:17px; }
   .mobile-tool-nav a.active { color:var(--primary); }
 }
+
+/* Keep controls, previews, downloads and search results hidden until ready. */
+[hidden]:not([hidden="until-found"]) { display: none !important; }
