@@ -68,7 +68,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link
     rel="stylesheet"
-    href="../styles.css"
+    href="../styles.css?v=20260911-2"
   >
 
 
@@ -79,7 +79,7 @@
     "name": "Percentage Calculator",
     "url": "https://utivaro.com/tools/percentage-calculator",
     "description": "Free online percentage calculator for percentage values, ratios, increases and decreases.",
-    "applicationCategory": "UtilityApplication",
+    "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "offers": {
       "@type": "Offer",
@@ -157,7 +157,7 @@
         Home
       </a>
 
-      <a href="/#tools">
+      <a href="/#all-tools">
         Tools
       </a>
 
@@ -188,7 +188,7 @@
 
       →
 
-      <a href="/#tools">
+      <a href="/#all-tools">
         Calculators
       </a>
 
@@ -683,7 +683,7 @@
           Home
         </a>
 
-        <a href="/#tools">
+        <a href="/#all-tools">
           Tools
         </a>
 
@@ -699,7 +699,7 @@
           Terms
         </a>
 
-      </div>
+      <a href="/contact">Contact</a></div>
 
     </div>
 
@@ -719,174 +719,13 @@
 
 <script src="../script.js"></script>
 
-<script>
-
-function cleanNumber(value) {
-
-  return parseFloat(
-    Number(value).toFixed(6)
-  );
-
-}
+<!-- Tool logic is maintained in /assets/utivaro-tools.js and utivaro-images.js. -->
 
 
-function calculatePercentage() {
-
-  const rate = parseFloat(
-    document.getElementById(
-      "percentageRate"
-    ).value
-  );
-
-  const value = parseFloat(
-    document.getElementById(
-      "percentageValue"
-    ).value
-  );
-
-  const result =
-    document.getElementById(
-      "percentageResult"
-    );
-
-
-  if (
-    Number.isNaN(rate) ||
-    Number.isNaN(value)
-  ) {
-
-    result.textContent =
-      "Enter valid numbers";
-
-    return;
-
-  }
-
-
-  const answer =
-    (rate / 100) * value;
-
-
-  result.textContent =
-    cleanNumber(answer);
-
-}
-
-
-function calculatePercentageRatio() {
-
-  const part = parseFloat(
-    document.getElementById(
-      "partValue"
-    ).value
-  );
-
-  const whole = parseFloat(
-    document.getElementById(
-      "wholeValue"
-    ).value
-  );
-
-  const result =
-    document.getElementById(
-      "ratioResult"
-    );
-
-
-  if (
-    Number.isNaN(part) ||
-    Number.isNaN(whole) ||
-    whole === 0
-  ) {
-
-    result.textContent =
-      "Enter valid numbers";
-
-    return;
-
-  }
-
-
-  const answer =
-    (part / whole) * 100;
-
-
-  result.textContent =
-    cleanNumber(answer) + "%";
-
-}
-
-
-function calculatePercentageChange() {
-
-  const oldValue = parseFloat(
-    document.getElementById(
-      "oldValue"
-    ).value
-  );
-
-  const newValue = parseFloat(
-    document.getElementById(
-      "newValue"
-    ).value
-  );
-
-  const result =
-    document.getElementById(
-      "changeResult"
-    );
-
-
-  if (
-    Number.isNaN(oldValue) ||
-    Number.isNaN(newValue) ||
-    oldValue === 0
-  ) {
-
-    result.textContent =
-      "Enter valid numbers";
-
-    return;
-
-  }
-
-
-  const change =
-    (
-      (newValue - oldValue) /
-      Math.abs(oldValue)
-    ) * 100;
-
-
-  const rounded =
-    cleanNumber(change);
-
-
-  if (change > 0) {
-
-    result.textContent =
-      rounded + "% increase";
-
-  }
-
-  else if (change < 0) {
-
-    result.textContent =
-      Math.abs(rounded) +
-      "% decrease";
-
-  }
-
-  else {
-
-    result.textContent =
-      "No change";
-
-  }
-
-}
-
-</script>
-
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
 </body>
 </html>

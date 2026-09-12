@@ -11,14 +11,14 @@
 <meta property="og:type" content="website"><meta property="og:title" content="Tip Calculator | Utivaro"><meta property="og:description" content="Free tip calculator to calculate gratuity, total bill, tip per person and split bill amounts. Use preset or custom tip percentages instantly."><meta property="og:url" content="https://utivaro.com/tools/tip-calculator"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Tip Calculator | Utivaro"><meta name="twitter:description" content="Free tip calculator to calculate gratuity, total bill, tip per person and split bill amounts. Use preset or custom tip percentages instantly."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.css?v=20260911-2">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Tip Calculator", "url": "https://utivaro.com/tools/tip-calculator", "description": "Free tip calculator to calculate gratuity, total bill, tip per person and split bill amounts. Use preset or custom tip percentages instantly.", "applicationCategory": "FinanceApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I calculate a 20% tip?", "acceptedAnswer": {"@type": "Answer", "text": "Multiply the bill by 0.20. For example, a 20% tip on $50 is $10."}}, {"@type": "Question", "name": "Can I split the bill between multiple people?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter the number of people to see both the tip per person and total per person."}}, {"@type": "Question", "name": "Can I use a custom tip percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter any non-negative percentage in the tip field."}}, {"@type": "Question", "name": "Does the calculator add taxes automatically?", "acceptedAnswer": {"@type": "Answer", "text": "No. Enter the bill amount you want the tip calculation to use."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "Tip Calculator", "item": "https://utivaro.com/tools/tip-calculator"}]}</script>
 </head>
 <body>
-<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
 <main class="tool-page"><div class="container">
 <div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Calculators</a> → Tip Calculator</div>
 <section class="tool-title"><h1>Tip Calculator</h1><p>Calculate a tip, total bill and per-person split instantly with preset or custom tip percentages.</p></section>
@@ -40,14 +40,14 @@
 <h3>Does the calculator add taxes automatically?</h3><p>No. Enter the bill amount you want the tip calculation to use.</p></section>
 <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/percentage-calculator"><div class="tool-icon">%</div><h3>Percentage Calculator</h3><p>Calculate any percentage.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/age-calculator"><div class="tool-icon">🎂</div><h3>Age Calculator</h3><p>Calculate exact age.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/unit-converter"><div class="tool-icon">⇄</div><h3>Unit Converter</h3><p>Convert common units.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
-<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div></footer>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div></footer>
 <script src="../script.js"></script>
-<script>
-function money(v){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(v);}
-function calculateTip(){const bill=Math.max(0,Number(document.getElementById('tipBill').value)||0),pct=Math.max(0,Number(document.getElementById('tipPercent').value)||0),people=Math.max(1,Math.floor(Number(document.getElementById('tipPeople').value)||1)),tip=bill*pct/100,total=bill+tip;document.getElementById('tipAmount').textContent=money(tip);document.getElementById('tipTotal').textContent=money(total);document.getElementById('tipPerPerson').textContent=money(tip/people);document.getElementById('totalPerPerson').textContent=money(total/people);}
-function setTip(v){document.getElementById('tipPercent').value=v;calculateTip();}
-function clearTip(){document.getElementById('tipBill').value='';document.getElementById('tipPercent').value=20;document.getElementById('tipPeople').value=1;calculateTip();document.getElementById('tipBill').focus();}
-['tipBill','tipPercent','tipPeople'].forEach(id=>document.getElementById(id).addEventListener('input',calculateTip));calculateTip();
-</script>
+<!-- Tool logic is maintained in /assets/utivaro-tools.js and utivaro-images.js. -->
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
 </body>
 </html>

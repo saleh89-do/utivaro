@@ -68,7 +68,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link
     rel="stylesheet"
-    href="../styles.css"
+    href="../styles.css?v=20260911-2"
   >
 
 
@@ -79,7 +79,7 @@
     "name": "Days Between Dates Calculator",
     "url": "https://utivaro.com/tools/days-between-dates",
     "description": "Free online date difference calculator for finding the number of days, weeks, approximate months and hours between two dates.",
-    "applicationCategory": "UtilityApplication",
+    "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requires a modern web browser with JavaScript enabled",
     "offers": {
@@ -155,7 +155,7 @@
         Home
       </a>
 
-      <a href="/#tools">
+      <a href="/#all-tools">
         Tools
       </a>
 
@@ -186,7 +186,7 @@
 
       →
 
-      <a href="/#tools">
+      <a href="/#all-tools">
         Date Tools
       </a>
 
@@ -647,7 +647,7 @@
           Home
         </a>
 
-        <a href="/#tools">
+        <a href="/#all-tools">
           Tools
         </a>
 
@@ -663,7 +663,7 @@
           Terms
         </a>
 
-      </div>
+      <a href="/contact">Contact</a></div>
 
     </div>
 
@@ -683,258 +683,13 @@
 
 <script src="../script.js"></script>
 
-<script>
+<!-- Tool logic is maintained in /assets/utivaro-tools.js and utivaro-images.js. -->
 
-function parseDateAsUTC(value) {
 
-  if (!value) {
-    return null;
-  }
-
-  const parts =
-    value.split("-");
-
-  return Date.UTC(
-    Number(parts[0]),
-    Number(parts[1]) - 1,
-    Number(parts[2])
-  );
-
-}
-
-
-function formatNumber(number) {
-
-  return new Intl.NumberFormat(
-    "en-US",
-    {
-      maximumFractionDigits: 2
-    }
-  ).format(number);
-
-}
-
-
-function calculateDateDifference() {
-
-  const startValue =
-    document.getElementById(
-      "startDate"
-    ).value;
-
-
-  const endValue =
-    document.getElementById(
-      "endDate"
-    ).value;
-
-
-  const message =
-    document.getElementById(
-      "dateMessage"
-    );
-
-
-  const stats =
-    document.getElementById(
-      "dateStats"
-    );
-
-
-  if (
-    !startValue ||
-    !endValue
-  ) {
-
-    message.innerHTML =
-      "<strong>Please select both dates.</strong>";
-
-    stats.style.display =
-      "none";
-
-    return;
-
-  }
-
-
-  const start =
-    parseDateAsUTC(
-      startValue
-    );
-
-
-  const end =
-    parseDateAsUTC(
-      endValue
-    );
-
-
-  const millisecondsPerDay =
-    1000 * 60 * 60 * 24;
-
-
-  const signedDays =
-    Math.round(
-      (end - start) /
-      millisecondsPerDay
-    );
-
-
-  const days =
-    Math.abs(
-      signedDays
-    );
-
-
-  const weeks =
-    days / 7;
-
-
-  const approximateMonths =
-    days / 30.436875;
-
-
-  const hours =
-    days * 24;
-
-
-  document.getElementById(
-    "daysResult"
-  ).textContent =
-    formatNumber(
-      days
-    );
-
-
-  document.getElementById(
-    "weeksResult"
-  ).textContent =
-    formatNumber(
-      weeks
-    );
-
-
-  document.getElementById(
-    "monthsResult"
-  ).textContent =
-    formatNumber(
-      approximateMonths
-    );
-
-
-  document.getElementById(
-    "hoursResult"
-  ).textContent =
-    formatNumber(
-      hours
-    );
-
-
-  if (
-    signedDays > 0
-  ) {
-
-    message.innerHTML =
-      "<strong>" +
-      formatNumber(days) +
-      " days</strong> separate these dates.";
-
-  }
-
-  else if (
-    signedDays < 0
-  ) {
-
-    message.innerHTML =
-      "<strong>" +
-      formatNumber(days) +
-      " days</strong> separate these dates. " +
-      "The end date is before the start date.";
-
-  }
-
-  else {
-
-    message.innerHTML =
-      "<strong>The dates are the same.</strong>";
-
-  }
-
-
-  stats.style.display =
-    "grid";
-
-}
-
-
-function clearDates() {
-
-  document.getElementById(
-    "startDate"
-  ).value = "";
-
-
-  document.getElementById(
-    "endDate"
-  ).value = "";
-
-
-  document.getElementById(
-    "dateStats"
-  ).style.display =
-    "none";
-
-
-  document.getElementById(
-    "dateMessage"
-  ).innerHTML =
-    "<strong>Select two dates</strong>";
-
-}
-
-
-document.getElementById(
-  "startDate"
-).addEventListener(
-  "change",
-  autoCalculate
-);
-
-
-document.getElementById(
-  "endDate"
-).addEventListener(
-  "change",
-  autoCalculate
-);
-
-
-function autoCalculate() {
-
-  const start =
-    document.getElementById(
-      "startDate"
-    ).value;
-
-
-  const end =
-    document.getElementById(
-      "endDate"
-    ).value;
-
-
-  if (
-    start &&
-    end
-  ) {
-
-    calculateDateDifference();
-
-  }
-
-}
-
-</script>
-
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
 </body>
   </html>

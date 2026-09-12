@@ -74,7 +74,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link
     rel="stylesheet"
-    href="../styles.css"
+    href="../styles.css?v=20260911-2"
   >
 
   <script type="application/ld+json">
@@ -84,7 +84,7 @@
     "name": "Age Calculator",
     "url": "https://utivaro.com/tools/age-calculator",
     "description": "Free online age calculator for calculating exact age in years, months and days.",
-    "applicationCategory": "UtilityApplication",
+    "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requires a modern web browser with JavaScript enabled",
     "offers": {
@@ -282,7 +282,7 @@
             along with additional statistics such as total months, weeks and days.
           </p>
 
-          <h2>How age is calculated</h2>
+          <h2>How age is calculated</h2><p class="notice" data-utivaro-date-rule>Calendar rule: month anniversaries use the last available day when a month is shorter. February 29 anniversaries fall on February 28 in non-leap years. Total months and weeks are approximate.</p>
 
           <p>
             Your exact age is calculated by comparing the calendar year, month and day of your
@@ -408,7 +408,7 @@
         <a href="../about">About</a>
         <a href="../privacy">Privacy</a>
         <a href="../terms">Terms</a>
-      </div>
+      <a href="/contact">Contact</a></div>
 
       <div class="footer-bottom">
         © <span id="currentYear"></span> Utivaro
@@ -419,227 +419,13 @@
 
   <script src="../script.js"></script>
 
-  <script>
-    const birthDateInput = document.getElementById("birthDate");
-    const ageDateInput = document.getElementById("ageDate");
-    const ageResult = document.getElementById("ageResult");
-    const ageStats = document.getElementById("ageStats");
-    const ageMessage = document.getElementById("ageMessage");
+  <!-- Tool logic is maintained in /assets/utivaro-tools.js and utivaro-images.js. -->
 
-    function getLocalDateString(date) {
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const day = String(date.getDate()).padStart(2, "0");
 
-      return `${year}-${month}-${day}`;
-    }
-
-    ageDateInput.value = getLocalDateString(new Date());
-
-    function parseLocalDate(value) {
-      const parts = value.split("-").map(Number);
-
-      if (parts.length !== 3) {
-        return null;
-      }
-
-      return new Date(
-        parts[0],
-        parts[1] - 1,
-        parts[2]
-      );
-    }
-
-    function calculateExactAge(birthDate, targetDate) {
-      let years =
-        targetDate.getFullYear() -
-        birthDate.getFullYear();
-
-      let months =
-        targetDate.getMonth() -
-        birthDate.getMonth();
-
-      let days =
-        targetDate.getDate() -
-        birthDate.getDate();
-
-      if (days < 0) {
-        const previousMonthDays = new Date(
-          targetDate.getFullYear(),
-          targetDate.getMonth(),
-          0
-        ).getDate();
-
-        days += previousMonthDays;
-        months--;
-      }
-
-      if (months < 0) {
-        months += 12;
-        years--;
-      }
-
-      return {
-        years,
-        months,
-        days
-      };
-    }
-
-    function calculateNextBirthday(birthDate, targetDate) {
-      let birthday = new Date(
-        targetDate.getFullYear(),
-        birthDate.getMonth(),
-        birthDate.getDate()
-      );
-
-      if (birthday < targetDate) {
-        birthday = new Date(
-          targetDate.getFullYear() + 1,
-          birthDate.getMonth(),
-          birthDate.getDate()
-        );
-      }
-
-      const millisecondsPerDay =
-        1000 * 60 * 60 * 24;
-
-      return Math.ceil(
-        (
-          Date.UTC(
-            birthday.getFullYear(),
-            birthday.getMonth(),
-            birthday.getDate()
-          ) -
-          Date.UTC(
-            targetDate.getFullYear(),
-            targetDate.getMonth(),
-            targetDate.getDate()
-          )
-        ) / millisecondsPerDay
-      );
-    }
-
-    function calculateAge() {
-      ageMessage.style.display = "none";
-      ageResult.style.display = "none";
-      ageStats.style.display = "none";
-
-      if (
-        !birthDateInput.value ||
-        !ageDateInput.value
-      ) {
-        ageMessage.textContent =
-          "Please select both dates.";
-
-        ageMessage.style.display = "block";
-        return;
-      }
-
-      const birthDate =
-        parseLocalDate(birthDateInput.value);
-
-      const targetDate =
-        parseLocalDate(ageDateInput.value);
-
-      if (
-        !birthDate ||
-        !targetDate
-      ) {
-        ageMessage.textContent =
-          "Please enter valid dates.";
-
-        ageMessage.style.display = "block";
-        return;
-      }
-
-      if (birthDate > targetDate) {
-        ageMessage.textContent =
-          "The calculation date must be on or after the date of birth.";
-
-        ageMessage.style.display = "block";
-        return;
-      }
-
-      const exactAge =
-        calculateExactAge(
-          birthDate,
-          targetDate
-        );
-
-      const millisecondsPerDay =
-        1000 * 60 * 60 * 24;
-
-      const totalDays = Math.round(
-        (
-          Date.UTC(
-            targetDate.getFullYear(),
-            targetDate.getMonth(),
-            targetDate.getDate()
-          ) -
-          Date.UTC(
-            birthDate.getFullYear(),
-            birthDate.getMonth(),
-            birthDate.getDate()
-          )
-        ) / millisecondsPerDay
-      );
-
-      const totalWeeks =
-        totalDays / 7;
-
-      const totalMonths =
-        exactAge.years * 12 +
-        exactAge.months +
-        exactAge.days / 30.436875;
-
-      const nextBirthday =
-        calculateNextBirthday(
-          birthDate,
-          targetDate
-        );
-
-      document.getElementById("exactAge").textContent =
-        `${exactAge.years} years, ${exactAge.months} months, ${exactAge.days} days`;
-
-      document.getElementById("totalMonths").textContent =
-        totalMonths.toLocaleString(
-          undefined,
-          {
-            maximumFractionDigits: 1
-          }
-        );
-
-      document.getElementById("totalWeeks").textContent =
-        totalWeeks.toLocaleString(
-          undefined,
-          {
-            maximumFractionDigits: 1
-          }
-        );
-
-      document.getElementById("totalDays").textContent =
-        totalDays.toLocaleString();
-
-      document.getElementById("nextBirthday").textContent =
-        nextBirthday === 0
-          ? "Today"
-          : `${nextBirthday} days`;
-
-      ageResult.style.display = "block";
-      ageStats.style.display = "grid";
-    }
-
-    function clearAgeCalculator() {
-      birthDateInput.value = "";
-      ageDateInput.value =
-        getLocalDateString(new Date());
-
-      ageMessage.style.display = "none";
-      ageResult.style.display = "none";
-      ageStats.style.display = "none";
-    }
-  </script>
-
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
 </body>
   </html>
