@@ -1181,6 +1181,7 @@ function formatNumber(
 
 
 function convert() {
+  window.UtivaroAnalytics?.track('tool_start', {interaction:'input'});
 
   const value =
     parseFloat(
@@ -1207,6 +1208,7 @@ function convert() {
     resultBox.textContent =
       "—";
 
+    window.UtivaroAnalytics?.track('tool_error', {interaction:'input',category:'validation'});
     return;
 
   }
@@ -1246,7 +1248,8 @@ function convert() {
       resultBox.textContent =
         "—";
 
-      return;
+      window.UtivaroAnalytics?.track('tool_error', {interaction:'input',category:'validation'});
+    return;
 
     }
 
@@ -1267,6 +1270,7 @@ function convert() {
     formatNumber(
       answer
     );
+  window.UtivaroAnalytics?.track(Number.isFinite(answer) ? 'tool_success' : 'tool_error', {interaction:'input',category:'validation'});
 
 }
 
@@ -1337,8 +1341,9 @@ populateUnits();
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
+<script data-utivaro-measurement="2026-09-14.1" src="/assets/utivaro-analytics.js?v=2026-09-14.1"></script>
 </body>
   </html>

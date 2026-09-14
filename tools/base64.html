@@ -638,6 +638,7 @@ function base64ToUtf8(base64) {
 
 
 function encodeBase64() {
+  window.UtivaroAnalytics?.track('tool_start');
 
   const input =
     document.getElementById(
@@ -661,6 +662,7 @@ function encodeBase64() {
 
     message.textContent =
       "Enter text to encode.";
+    window.UtivaroAnalytics?.track('tool_error', {category:'validation'});
 
     return;
 
@@ -674,6 +676,7 @@ function encodeBase64() {
 
     message.textContent =
       "Text encoded successfully.";
+    window.UtivaroAnalytics?.track('tool_success');
 
   }
 
@@ -683,6 +686,7 @@ function encodeBase64() {
 
     message.textContent =
       "Unable to encode this text.";
+    window.UtivaroAnalytics?.track('tool_error', {category:'validation'});
 
   }
 
@@ -690,6 +694,7 @@ function encodeBase64() {
 
 
 function decodeBase64() {
+  window.UtivaroAnalytics?.track('tool_start');
 
   const input =
     document.getElementById(
@@ -713,6 +718,7 @@ function decodeBase64() {
 
     message.textContent =
       "Enter a Base64 value to decode.";
+    window.UtivaroAnalytics?.track('tool_error', {category:'validation'});
 
     return;
 
@@ -726,6 +732,7 @@ function decodeBase64() {
 
     message.textContent =
       "Base64 decoded successfully.";
+    window.UtivaroAnalytics?.track('tool_success');
 
   }
 
@@ -735,6 +742,7 @@ function decodeBase64() {
 
     message.textContent =
       "Invalid Base64 input. Please check the value and try again.";
+    window.UtivaroAnalytics?.track('tool_error', {category:'validation'});
 
   }
 
@@ -820,8 +828,9 @@ async function copyBase64Result(button) {
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
+<script data-utivaro-measurement="2026-09-14.1" src="/assets/utivaro-analytics.js?v=2026-09-14.1"></script>
 </body>
   </html>

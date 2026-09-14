@@ -50,17 +50,29 @@
 function hexToRgb(hex){hex=hex.trim().replace('#','');if(/^[0-9a-fA-F]{3}$/.test(hex))hex=hex.split('').map(c=>c+c).join('');if(!/^[0-9a-fA-F]{6}$/.test(hex))return null;return {r:parseInt(hex.slice(0,2),16),g:parseInt(hex.slice(2,4),16),b:parseInt(hex.slice(4,6),16)};}
 function rgbToHex(r,g,b){return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,v)).toString(16).padStart(2,'0')).join('').toUpperCase();}
 function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h=0,s=0,l=(max+min)/2;if(max!==min){const d=max-min;s=l>.5?d/(2-max-min):d/(max+min);switch(max){case r:h=(g-b)/d+(g<b?6:0);break;case g:h=(b-r)/d+2;break;default:h=(r-g)/d+4;}h/=6;}return {h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};}
-function setColor(r,g,b){const hex=rgbToHex(r,g,b),hsl=rgbToHsl(r,g,b);document.getElementById('colorSwatch').style.background=hex;document.getElementById('nativeColor').value=hex.toLowerCase();document.getElementById('hexInput').value=hex;document.getElementById('hexValue').textContent=hex;document.getElementById('rgbValue').textContent=`rgb(${r}, ${g}, ${b})`;document.getElementById('hslValue').textContent=`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;}
+function setColor(r,g,b,interaction='input'){window.UtivaroAnalytics?.track('tool_start',{interaction});try{const hex=rgbToHex(r,g,b),hsl=rgbToHsl(r,g,b);document.getElementById('colorSwatch').style.background=hex;document.getElementById('nativeColor').value=hex.toLowerCase();document.getElementById('hexInput').value=hex;document.getElementById('hexValue').textContent=hex;document.getElementById('rgbValue').textContent=`rgb(${r}, ${g}, ${b})`;document.getElementById('hslValue').textContent=`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;window.UtivaroAnalytics?.track('tool_success',{interaction});}catch(error){window.UtivaroAnalytics?.track('tool_error',{interaction,category:'processing'});throw error;}}
 function copyColor(id,btn){Utivaro.copyText(document.getElementById(id).textContent,btn);}
-document.getElementById('nativeColor').addEventListener('input',e=>{const c=hexToRgb(e.target.value);setColor(c.r,c.g,c.b);});document.getElementById('hexInput').addEventListener('input',e=>{const c=hexToRgb(e.target.value);if(c)setColor(c.r,c.g,c.b);});
-let colorURL='';document.getElementById('colorImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(colorURL)URL.revokeObjectURL(colorURL);colorURL=URL.createObjectURL(f);const img=new Image();img.onload=()=>{const max=900,scale=Math.min(1,max/img.naturalWidth,max/img.naturalHeight),canvas=document.getElementById('colorCanvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext('2d',{willReadFrequently:true}).drawImage(img,0,0,canvas.width,canvas.height);document.getElementById('colorCanvasWrap').hidden=false;};img.src=colorURL;});
-document.getElementById('colorCanvas').addEventListener('click',e=>{const c=e.currentTarget,rect=c.getBoundingClientRect(),x=Math.floor((e.clientX-rect.left)*c.width/rect.width),y=Math.floor((e.clientY-rect.top)*c.height/rect.height),d=c.getContext('2d').getImageData(x,y,1,1).data;setColor(d[0],d[1],d[2]);});
+document.getElementById('nativeColor').addEventListener('input',e=>{const c=hexToRgb(e.target.value);setColor(c.r,c.g,c.b);});document.getElementById('hexInput').addEventListener('input',e=>{const c=hexToRgb(e.target.value);if(c)setColor(c.r,c.g,c.b);else{window.UtivaroAnalytics?.track('tool_start',{interaction:'input'});window.UtivaroAnalytics?.track('tool_error',{interaction:'input',category:'validation'});}});
+let colorURL='';document.getElementById('colorImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(colorURL)URL.revokeObjectURL(colorURL);colorURL=URL.createObjectURL(f);const img=new Image();img.onload=()=>{const max=900,scale=Math.min(1,max/img.naturalWidth,max/img.naturalHeight),canvas=document.getElementById('colorCanvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext('2d',{willReadFrequently:true}).drawImage(img,0,0,canvas.width,canvas.height);document.getElementById('colorCanvasWrap').hidden=false;};img.onerror=()=>window.UtivaroAnalytics?.track('tool_error',{category:'image_decode',phase:'file_selection'});img.src=colorURL;});
+document.getElementById('colorCanvas').addEventListener('click',e=>{
+  const c=e.currentTarget,rect=c.getBoundingClientRect();
+  const x=Math.floor((e.clientX-rect.left)*c.width/rect.width),y=Math.floor((e.clientY-rect.top)*c.height/rect.height);
+  let d;
+  try { d=c.getContext('2d').getImageData(x,y,1,1).data; }
+  catch(error) {
+    window.UtivaroAnalytics?.track('tool_start',{interaction:'sample'});
+    window.UtivaroAnalytics?.track('tool_error',{interaction:'sample',category:'image_processing'});
+    throw error;
+  }
+  setColor(d[0],d[1],d[2],'sample');
+});
 </script>
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
+<script data-utivaro-measurement="2026-09-14.1" src="/assets/utivaro-analytics.js?v=2026-09-14.1"></script>
 </body>
 </html>

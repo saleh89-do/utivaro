@@ -631,309 +631,121 @@
 
 <script>
 
-let selectedImageFile = null;
-let selectedImageURL = null;
-let convertedImageURL = null;
-
-
-const imageInput =
-  document.getElementById("imageInput");
-
-const previewWrap =
-  document.getElementById("previewWrap");
-
-const imagePreview =
-  document.getElementById("imagePreview");
-
-const qualityWrap =
-  document.getElementById("qualityWrap");
-
-const qualityRange =
-  document.getElementById("qualityRange");
-
-const qualityValue =
-  document.getElementById("qualityValue");
-
-const imageActions =
-  document.getElementById("imageActions");
-
-const conversionResult =
-  document.getElementById("conversionResult");
-
-
-imageInput.addEventListener(
-  "change",
-  function () {
-
-    const file =
-      imageInput.files[0];
-
-    if (!file) {
-      clearImageTool();
-      return;
-    }
-
-    selectedImageFile = file;
-
-
-    if (selectedImageURL) {
-      URL.revokeObjectURL(
-        selectedImageURL
-      );
-    }
-
-
-    selectedImageURL =
-      URL.createObjectURL(file);
-
-
-    imagePreview.src =
-      selectedImageURL;
-
-
-    previewWrap.style.display =
-      "block";
-
-    qualityWrap.style.display =
-      "block";
-
-    imageActions.style.display =
-      "flex";
-
-    conversionResult.style.display =
-      "none";
-
+let selectedImageFile = null, selectedImageURL = null, convertedImageURL = null;
+let webpRevision = 0, webpRunning = false;
+const imageInput = document.getElementById('imageInput');
+const previewWrap = document.getElementById('previewWrap');
+const imagePreview = document.getElementById('imagePreview');
+const qualityWrap = document.getElementById('qualityWrap');
+const qualityRange = document.getElementById('qualityRange');
+const qualityValue = document.getElementById('qualityValue');
+const imageActions = document.getElementById('imageActions');
+const conversionResult = document.getElementById('conversionResult');
+const jpgDownload = document.getElementById('downloadJPG');
+function webpMetric(name, category, phase = 'operation') {
+  window.UtivaroAnalytics?.track(name, {category,phase});
+}
+function invalidateWebP(reason) {
+  webpRevision++;
+  if (webpRunning) webpMetric('tool_cancel', reason);
+  webpRunning = false;
+  if (convertedImageURL) URL.revokeObjectURL(convertedImageURL);
+  convertedImageURL = null;
+  jpgDownload.removeAttribute('href');
+  conversionResult.style.display = 'none';
+}
+imageInput.addEventListener('change', function () {
+  const file = imageInput.files[0];
+  if (!file) { clearImageTool(); return; }
+  invalidateWebP('file_changed');
+  if (selectedImageURL) URL.revokeObjectURL(selectedImageURL);
+  selectedImageURL = null; selectedImageFile = null;
+  if (!file.size || (file.type !== 'image/webp' && !/\.webp$/i.test(file.name))) {
+    clearImageTool();
+    webpMetric('tool_error', 'file_validation', 'file_selection');
+    alert('Choose a non-empty WebP image.'); return;
   }
-);
-
-
-qualityRange.addEventListener(
-  "input",
-  function () {
-
-    qualityValue.textContent =
-      qualityRange.value;
-
-  }
-);
-
-
+  selectedImageFile = file;
+  selectedImageURL = URL.createObjectURL(file);
+  imagePreview.src = selectedImageURL;
+  previewWrap.style.display = 'block';
+  qualityWrap.style.display = 'block';
+  imageActions.style.display = 'flex';
+});
+qualityRange.addEventListener('input', function () {
+  qualityValue.textContent = qualityRange.value;
+  invalidateWebP('settings_changed');
+});
 function formatFileSize(bytes) {
-
-  if (!bytes) {
-    return "0 B";
-  }
-
-  if (bytes < 1024) {
-    return bytes + " B";
-  }
-
-  if (bytes < 1024 * 1024) {
-
-    return (
-      bytes / 1024
-    ).toFixed(1) + " KB";
-
-  }
-
-  return (
-    bytes /
-    (1024 * 1024)
-  ).toFixed(2) + " MB";
-
+  if (!bytes) return '0 B';
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
 }
-
-
 function convertWebPToJPG() {
-
-  if (!selectedImageFile) {
-    return;
-  }
-
-
-  const image =
-    new Image();
-
-
+  invalidateWebP('superseded');
+  webpMetric('tool_start');
+  if (!selectedImageFile) { webpMetric('tool_error', 'validation'); return; }
+  const revision = webpRevision, file = selectedImageFile, source = selectedImageURL;
+  const quality = Number(qualityRange.value) / 100;
+  webpRunning = true;
+  const fail = () => {
+    if (revision !== webpRevision) return;
+    webpRunning = false;
+    webpMetric('tool_error', 'image_processing');
+    alert('This image could not be processed. Try a smaller WebP image.');
+  };
+  const image = new Image();
   image.onload = function () {
-
-    const canvas =
-      document.createElement("canvas");
-
-
-    canvas.width =
-      image.naturalWidth;
-
-    canvas.height =
-      image.naturalHeight;
-
-
-    const context =
-      canvas.getContext("2d");
-
-
-    context.fillStyle =
-      "#ffffff";
-
-
-    context.fillRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-
-    context.drawImage(
-      image,
-      0,
-      0
-    );
-
-
-    const quality =
-      Number(
-        qualityRange.value
-      ) / 100;
-
-
-    canvas.toBlob(
-      function (blob) {
-
-        if (!blob) {
-          alert(
-            "Unable to convert this image."
-          );
-          return;
+    if (revision !== webpRevision) return;
+    let canvas;
+    try {
+      const width = image.naturalWidth, height = image.naturalHeight;
+      if (!width || !height || width * height > 40000000 ||
+          !Number.isFinite(quality) || quality < 0 || quality > 1) { fail(); return; }
+      canvas = document.createElement('canvas');
+      canvas.width = width; canvas.height = height;
+      const context = canvas.getContext('2d');
+      if (!context) { fail(); return; }
+      context.fillStyle = '#ffffff';
+      context.fillRect(0, 0, width, height);
+      context.drawImage(image, 0, 0);
+      canvas.toBlob(function (blob) {
+        canvas.width = 0; canvas.height = 0;
+        if (revision !== webpRevision) return;
+        if (!blob || blob.type !== 'image/jpeg') { fail(); return; }
+        try {
+          convertedImageURL = URL.createObjectURL(blob);
+          jpgDownload.href = convertedImageURL;
+          document.getElementById('originalSize').textContent = formatFileSize(file.size);
+          document.getElementById('convertedSize').textContent = formatFileSize(blob.size);
+          document.getElementById('imageDimensions').textContent = width + ' × ' + height;
+          conversionResult.style.display = 'block';
+          webpRunning = false;
+          webpMetric('tool_success');
+        } catch (_) {
+          if (convertedImageURL) URL.revokeObjectURL(convertedImageURL);
+          convertedImageURL = null; jpgDownload.removeAttribute('href');
+          conversionResult.style.display = 'none'; fail();
         }
-
-
-        if (convertedImageURL) {
-
-          URL.revokeObjectURL(
-            convertedImageURL
-          );
-
-        }
-
-
-        convertedImageURL =
-          URL.createObjectURL(blob);
-
-
-        document.getElementById(
-          "downloadJPG"
-        ).href =
-          convertedImageURL;
-
-
-        document.getElementById(
-          "originalSize"
-        ).textContent =
-          formatFileSize(
-            selectedImageFile.size
-          );
-
-
-        document.getElementById(
-          "convertedSize"
-        ).textContent =
-          formatFileSize(
-            blob.size
-          );
-
-
-        document.getElementById(
-          "imageDimensions"
-        ).textContent =
-          canvas.width +
-          " × " +
-          canvas.height;
-
-
-        conversionResult.style.display =
-          "block";
-
-      },
-
-      "image/jpeg",
-
-      quality
-    );
-
+      }, 'image/jpeg', quality);
+    } catch (_) {
+      if (canvas) { canvas.width = 0; canvas.height = 0; }
+      fail();
+    }
   };
-
-
-  image.onerror = function () {
-
-    alert(
-      "This image could not be processed."
-    );
-
-  };
-
-
-  image.src =
-    selectedImageURL;
-
+  image.onerror = fail;
+  image.src = source;
 }
-
-
 function clearImageTool() {
-
-  imageInput.value =
-    "";
-
-  selectedImageFile =
-    null;
-
-
-  if (selectedImageURL) {
-
-    URL.revokeObjectURL(
-      selectedImageURL
-    );
-
-    selectedImageURL =
-      null;
-
-  }
-
-
-  if (convertedImageURL) {
-
-    URL.revokeObjectURL(
-      convertedImageURL
-    );
-
-    convertedImageURL =
-      null;
-
-  }
-
-
-  imagePreview.src =
-    "";
-
-  previewWrap.style.display =
-    "none";
-
-  qualityWrap.style.display =
-    "none";
-
-  imageActions.style.display =
-    "none";
-
-  conversionResult.style.display =
-    "none";
-
-
-  qualityRange.value =
-    "92";
-
-  qualityValue.textContent =
-    "92";
-
+  invalidateWebP('cleared');
+  imageInput.value = ''; selectedImageFile = null;
+  if (selectedImageURL) URL.revokeObjectURL(selectedImageURL);
+  selectedImageURL = null;
+  imagePreview.removeAttribute('src');
+  previewWrap.style.display = 'none'; qualityWrap.style.display = 'none';
+  imageActions.style.display = 'none';
+  qualityRange.value = '92'; qualityValue.textContent = '92';
 }
 
 </script>
@@ -941,8 +753,9 @@ function clearImageTool() {
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
+<script data-utivaro-measurement="2026-09-14.1" src="/assets/utivaro-analytics.js?v=2026-09-14.1"></script>
 </body>
 </html>

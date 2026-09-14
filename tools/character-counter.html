@@ -45,14 +45,38 @@
 <script src="../script.js"></script>
 <script>
 function graphemeCount(text){if(Intl.Segmenter){return Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(text)).length;}return Array.from(text).length;}
-function updateCharacterStats(){const text=document.getElementById('charInput').value,total=graphemeCount(text),noSpaces=graphemeCount(text.replace(/\s/g,'')),words=text.trim()?text.trim().split(/\s+/).length:0,lines=text?text.split(/\r?\n/).length:0,bytes=new TextEncoder().encode(text).length,limit=Number(document.getElementById('charLimit').value);document.getElementById('charsTotal').textContent=total;document.getElementById('charsNoSpaces').textContent=noSpaces;document.getElementById('charWords').textContent=words;document.getElementById('charLines').textContent=lines;document.getElementById('charBytes').textContent=bytes;document.getElementById('charRemaining').textContent=limit>0?limit-total:'—';}
+function updateCharacterStats(event) {
+  const text = document.getElementById('charInput').value;
+  const active = event && event.type === 'input' && text.length > 0;
+  const analytics = window.UtivaroAnalytics;
+  if (!text.length) analytics?.reset();
+  if (active) analytics?.track('tool_start', {interaction:'input'});
+  try {
+    const total = graphemeCount(text), noSpaces = graphemeCount(text.replace(/\s/g,''));
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const lines = text ? text.split(/\r?\n/).length : 0;
+    const bytes = new TextEncoder().encode(text).length;
+    const limit = Number(document.getElementById('charLimit').value);
+    document.getElementById('charsTotal').textContent = total;
+    document.getElementById('charsNoSpaces').textContent = noSpaces;
+    document.getElementById('charWords').textContent = words;
+    document.getElementById('charLines').textContent = lines;
+    document.getElementById('charBytes').textContent = bytes;
+    document.getElementById('charRemaining').textContent = limit > 0 ? limit-total : '—';
+    if (active) analytics?.track('tool_success', {interaction:'input'});
+  } catch(error) {
+    if (active) analytics?.track('tool_error', {interaction:'input',category:'processing'});
+    throw error;
+  }
+}
 document.getElementById('charInput').addEventListener('input',updateCharacterStats);document.getElementById('charLimit').addEventListener('input',updateCharacterStats);updateCharacterStats();
 </script>
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
+<script data-utivaro-measurement="2026-09-14.1" src="/assets/utivaro-analytics.js?v=2026-09-14.1"></script>
 </body>
 </html>
