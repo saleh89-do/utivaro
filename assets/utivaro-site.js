@@ -36,12 +36,4 @@
     }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',ready); else ready();
-  // Disabled by default. Enable only after the site's analytics/consent configuration
-  // is reviewed. No inputs, file names, output values or raw exception text are sent.
-  document.addEventListener('utivaro:tool',e => {
-    const allowed = ['tool_start','tool_success','tool_error'];
-    if (window.UTIVARO_ENABLE_TOOL_ANALYTICS === true && typeof window.gtag === 'function' && allowed.includes(e.detail?.event)) {
-      window.gtag('event',e.detail.event,{tool_name:e.detail.tool,error_category:e.detail.category || undefined});
-    }
-  });
 })();

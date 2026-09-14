@@ -95,7 +95,7 @@
       } catch(e) { ['tipAmount','tipTotal','tipPerPerson','totalPerPerson'].forEach(id => text(id,'—')); failure('tipStatus',e); }
     };
     window.setTip = n => { $('tipPercent').value = n; window.calculateTip(); };
-    window.clearTip = () => { $('tipBill').value = ''; $('tipPercent').value = '20'; $('tipPeople').value = '1'; ['tipAmount','tipTotal','tipPerPerson','totalPerPerson'].forEach(id => text(id,'—')); status('tipStatus','Enter a bill to calculate.'); $('tipBill').focus(); };
+    window.clearTip = () => { event('tool_reset'); $('tipBill').value = ''; $('tipPercent').value = '20'; $('tipPeople').value = '1'; ['tipAmount','tipTotal','tipPerPerson','totalPerPerson'].forEach(id => text(id,'—')); status('tipStatus','Enter a bill to calculate.'); $('tipBill').focus(); };
     ['tipBill','tipPercent','tipPeople'].forEach(id => $(id).addEventListener('input',window.calculateTip));
   }
   if ($('uuidQuantity')) {

@@ -6,16 +6,22 @@
   const bytes = n => n < 1024 ? `${n} B` : n < 1048576 ? `${(n / 1024).toFixed(1)} KB` : `${(n / 1048576).toFixed(1)} MB`;
   const config = $('resizeInput') ? {p:'resize',run:'resizeImage',clear:'clearResize',stats:'resizeResults',heic:false} : $('jpgWebpInput') ? {p:'jpgWebp',run:'convertJPGToWebP',clear:'clearJPGWebP',stats:'jpgWebpStats',heic:false} : $('heicInput') ? {p:'heic',run:'convertHEIC',clear:'clearHEIC',stats:'heicStats',heic:true} : null;
   if (!config) return;
-  const {p} = config, state = new C.RequestState(); let sourceURL = '', outputURL = '';
+  const {p} = config, state = new C.RequestState(); let sourceURL = '', outputURL = '', measuring = false;
   const button = document.querySelector(`button[onclick="${config.run}()"]`);
   const report = (message,error = false) => { $(p+'Status').textContent = message; $(p+'Status').className = 'status ' + (error ? 'error' : ''); $(p+'Status').setAttribute('role','status'); };
-  const track = (name,category = '') => document.dispatchEvent(new CustomEvent('utivaro:tool',{detail:{event:name,tool:location.pathname.split('/').pop().replace(/\.html$/,''),category}}));
+  const track = (name,category = '',phase = 'operation') => {
+    if (name === 'tool_start') measuring = true;
+    if (['tool_success','tool_error','tool_cancel'].includes(name) && phase === 'operation') measuring = false;
+    document.dispatchEvent(new CustomEvent('utivaro:tool',{detail:{event:name,category,phase}}));
+  };
+  const cancelTracking = reason => { if (measuring) track('tool_cancel',reason); };
   function clearOutput() {
     if (outputURL) URL.revokeObjectURL(outputURL); outputURL = '';
     $(p+'PreviewWrap').hidden = true; $(config.stats).hidden = true; $(p+'Download').hidden = true;
     $(p+'Download').removeAttribute('href'); $(p+'Preview').removeAttribute('src');
   }
   function reset(file = null) {
+    cancelTracking(file ? 'file_changed' : 'cleared');
     const token = state.reset(file); clearOutput();
     if (sourceURL) URL.revokeObjectURL(sourceURL); sourceURL = '';
     if ($(p+'Controls')) $(p+'Controls').hidden = true;
@@ -32,23 +38,23 @@
   $(p+'Input').addEventListener('change',e => {
     const file = e.target.files[0] || null, token = reset(file);
     if (!file) { report('Choose an image to begin.'); return; }
-    try { limits(file); } catch(err) { reset(); report(err.message,true); return; }
+    try { limits(file); } catch(err) { reset(); report(err.message,true); track('tool_error','file_validation','file_selection'); return; }
     if (config.heic) { report(`Ready: ${bytes(file.size)}. Select Convert.`); return; }
     report('Opening image...'); sourceURL = URL.createObjectURL(file); const img = new Image();
     img.onload = () => {
       if (!state.current(token)) return;
-      if (!img.naturalWidth || !img.naturalHeight || img.naturalWidth * img.naturalHeight > 40000000) { reset(); report('Use an image with no more than 40 million pixels.',true); return; }
+      if (!img.naturalWidth || !img.naturalHeight || img.naturalWidth * img.naturalHeight > 40000000) { reset(); report('Use an image with no more than 40 million pixels.',true); track('tool_error','file_validation','file_selection'); return; }
       state.loaded(token,img);
       if (p === 'resize') { $('resizeWidth').value = img.naturalWidth; $('resizeHeight').value = img.naturalHeight; }
       $(p+'Controls').hidden = false; if (button) button.disabled = false;
       report(`Ready: ${img.naturalWidth} × ${img.naturalHeight} · ${bytes(file.size)}`);
     };
-    img.onerror = () => { if (state.current(token)) { reset(); report('This image could not be opened. Choose another file.',true); } };
+    img.onerror = () => { if (state.current(token)) { reset(); report('This image could not be opened. Choose another file.',true); track('tool_error','image_decode','file_selection'); } };
     img.src = sourceURL;
   });
   const quality = $(p+'Quality');
   quality.addEventListener('input',() => { $(p+'QualityValue').textContent = quality.value; invalidateSettings(); });
-  function invalidateSettings() { state.invalidate(); clearOutput(); if (button) button.disabled = config.heic ? !state.file : !state.image; report('Settings changed. Convert again to update the result.'); }
+  function invalidateSettings() { cancelTracking('settings_changed'); state.invalidate(); clearOutput(); if (button) button.disabled = config.heic ? !state.file : !state.image; report('Settings changed. Convert again to update the result.'); }
   if (p === 'resize') {
     ['resizeWidth','resizeHeight'].forEach(id => $(id).addEventListener('input',() => {
       if (state.image && $('resizeLock').checked) {
@@ -66,7 +72,7 @@
     });
   }
   window[config.run] = async function () {
-    let request; clearOutput(); track('tool_start');
+    let request; cancelTracking('superseded'); clearOutput(); track('tool_start');
     try {
       if (config.heic) {
         if (!state.file) throw new Error('Choose a HEIC or HEIF file first.');
