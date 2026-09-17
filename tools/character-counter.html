@@ -34,7 +34,14 @@
 <h2>Character count with a limit</h2>
 <p>When you enter a limit, the Remaining counter shows how many characters are left. A negative result means the text is over the selected limit.</p>
 <h2>Characters versus bytes</h2>
-<p>Character count measures visible text units, while UTF-8 byte count measures the encoded data size. Some characters and emoji use more than one byte.</p><h2>Frequently Asked Questions</h2>
+<p>Character count measures visible text units, while UTF-8 byte count measures the encoded data size. Some characters and emoji use more than one byte.</p><div data-utivaro-guide="2026-09-16" style="overflow-wrap:anywhere">
+<h2>Check a small example first</h2>
+<p>The text <code>Hello world</code> has 11 characters including its space, 10 without whitespace, 2 words and 11 UTF-8 bytes. With a limit of 10, Remaining shows -1. Removing the space brings the total to 10 but joins the words.</p>
+<h2>Why another service may show a different total</h2>
+<p>A visible emoji can contain multiple Unicode code points. This tool uses browser text segmentation when available, while some services count code points or UTF-16 units. A byte limit is different again. Check the destination's counter before submitting text to a strict field.</p>
+<p>Line breaks and other whitespace affect the totals. The limit is a planning aid and does not truncate the text. For an article-length target and estimated reading time, use the <a href="/tools/word-counter">Word Counter</a>.</p>
+</div>
+<h2>Frequently Asked Questions</h2>
 <h3>Does the character counter include spaces?</h3><p>The main Characters count includes spaces. A separate counter shows characters without whitespace.</p>
 <h3>Can I set a character limit?</h3><p>Yes. Enter any positive limit and the tool will show the number of characters remaining.</p>
 <h3>Does it count emoji?</h3><p>The tool uses browser text segmentation when available so emoji and combined characters are counted more naturally.</p>

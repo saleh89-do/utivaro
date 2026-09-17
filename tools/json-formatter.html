@@ -35,7 +35,14 @@
 <h2>How to use the JSON formatter</h2>
 <ol><li>Paste your JSON into the input field.</li><li>Choose 2 spaces, 4 spaces or tabs.</li><li>Select <strong>Format</strong> to prettify or <strong>Minify</strong> to compress.</li><li>Copy the result when finished.</li></ol>
 <h2>Private developer utility</h2>
-<p>Parsing and formatting happen in JavaScript inside your browser. Your JSON does not need to be sent to Utivaro for processing.</p><h2>Frequently Asked Questions</h2>
+<p>Parsing and formatting happen in JavaScript inside your browser. Your JSON does not need to be sent to Utivaro for processing.</p><div data-utivaro-guide="2026-09-16" style="overflow-wrap:anywhere">
+<h2>A formatting example you can check</h2>
+<p>Paste <code>{"order":9007199254740993,"items":["box","label"]}</code>, choose 2 spaces and select Format. The output becomes easier to read while the long order number stays exactly as entered. Minify removes the extra whitespace again.</p>
+<h2>Formatting is different from changing data</h2>
+<p>This formatter preserves the original number tokens, including large integers and exponent notation. It does not sort keys, convert dates or repair invalid JSON. A trailing comma, comment or single-quoted key must be corrected first. Validate checks syntax, not an API schema or whether the values are correct.</p>
+<p>Duplicate object keys are preserved, but applications may interpret them differently. Resolve duplicates before using the document in production. For an encoded text payload, use the <a href="/tools/base64">Base64 decoder</a> first, then validate the decoded JSON here.</p>
+</div>
+<h2>Frequently Asked Questions</h2>
 <h3>What does a JSON formatter do?</h3><p>A JSON formatter adds indentation and line breaks to valid JSON so nested objects and arrays are easier to read.</p>
 <h3>Can this tool validate JSON?</h3><p>Yes. Select Validate to check whether the input can be parsed as valid JSON.</p>
 <h3>Can I minify JSON?</h3><p>Yes. The Minify action removes unnecessary whitespace from valid JSON.</p>

@@ -33,7 +33,14 @@
 <h2>How UUID v4 works</h2>
 <p>A UUID v4 is a 128-bit identifier whose random bits are generated independently. The standard text format contains 32 hexadecimal digits separated by hyphens.</p>
 <h2>Browser-based generation</h2>
-<p>The generator uses the browser Web Crypto API and does not need to send generated identifiers to a server.</p><h2>Frequently Asked Questions</h2>
+<p>The generator uses the browser Web Crypto API and does not need to send generated identifiers to a server.</p><div data-utivaro-guide="2026-09-16" style="overflow-wrap:anywhere">
+<h2>Recognize the UUID format</h2>
+<p>A standard UUID uses five hexadecimal groups of 8, 4, 4, 4 and 12 characters. For example, <code>550e8400-e29b-41d4-a716-446655440000</code> illustrates the layout only; generate a new value for your own record instead of reusing this example.</p>
+<h2>Choose the representation your application accepts</h2>
+<p>Select a quantity from 1 to 100, choose uppercase or hyphen-free text if needed, and press Generate UUIDs. Removing hyphens leaves 32 hexadecimal characters. Some APIs expect the hyphenated form, so check the receiving field.</p>
+<p>Random UUIDs are useful for test records and identifiers. They are not a replacement for access checks or a database uniqueness constraint. A public record identifier does not prove permission to view a record. Use the <a href="/tools/json-formatter">JSON Formatter</a> to prepare a sample payload containing your identifiers.</p>
+</div>
+<h2>Frequently Asked Questions</h2>
 <h3>What is a UUID v4?</h3><p>UUID version 4 is a randomly generated 128-bit identifier commonly represented as hexadecimal characters with hyphens.</p>
 <h3>How many UUIDs can I generate?</h3><p>You can generate up to 100 UUIDs at a time.</p>
 <h3>Can I remove UUID hyphens?</h3><p>Yes. Enable the remove-hyphens option for a compact 32-character hexadecimal output.</p>

@@ -443,7 +443,14 @@
       </p>
 
 
-      <h2>
+      <div data-utivaro-guide="2026-09-16" style="overflow-wrap:anywhere">
+<h2>Try a short round trip</h2>
+<p>Enter <code>Hello</code> and select Encode. The result is <code>SGVsbG8=</code>. Put that result in the input and select Decode to get <code>Hello</code> back. The final equals sign is padding in this example, so keep it when copying.</p>
+<h2>Encoding does not protect a secret</h2>
+<p>Base64 represents bytes as text; anyone with the encoded value can decode it. Use it to inspect text payloads, not to hide credentials. This tool uses UTF-8, allowing Arabic and other non-ASCII text to make the round trip.</p>
+<p>The encoded representation is usually longer than the input. This is a text encoder and decoder, not a binary file converter or Base64URL/JWT inspector. If the decoded text is JSON, use the <a href="/tools/json-formatter">JSON Formatter</a> to check its syntax.</p>
+</div>
+<h2>
         Frequently Asked Questions
       </h2>
 
