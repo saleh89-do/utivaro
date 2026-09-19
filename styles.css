@@ -451,6 +451,11 @@ footer {
   color: #aeb8c8;
 }
 
+.utivaro-privacy-controls { width:min(1180px,calc(100% - 40px)); margin:16px auto; }
+.utivaro-privacy-controls .utivaro-privacy-button { background:transparent; border:1px solid currentColor; border-radius:8px; padding:10px 14px; color:inherit; font:inherit; cursor:pointer; min-height:44px; }
+.utivaro-privacy-button:focus-visible { outline:3px solid #2563eb; outline-offset:3px; }
+#utivaro-privacy-status { font-size:14px; line-height:1.5; max-width:70ch; }
+#utivaro-privacy-status:empty { display:none; }
 .footer-links {
   display: flex;
   flex-wrap: wrap;
