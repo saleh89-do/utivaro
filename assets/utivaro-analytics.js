@@ -1,10 +1,10 @@
-/* Utivaro usage measurement 2026-09-14.1. Uses the existing Google tag.
+/* Utivaro usage measurement 2026-09-19.1. Uses the consent-gated Google tag.
    Only fixed identifiers, bounded counts and fixed categories are forwarded.
    Inputs, search terms, filenames, result values and raw errors stay local. */
 (function () {
   'use strict';
   if (window.UtivaroAnalytics) return;
-  const VERSION = '2026-09-14.1', ID = 'G-QEJKW6BQMH';
+  const VERSION = '2026-09-19.1', ID = 'G-QEJKW6BQMH';
   const groups = {
     'age-calculator':'calculators', 'percentage-calculator':'calculators',
     'days-between-dates':'calculators', 'tip-calculator':'calculators',
@@ -22,13 +22,15 @@
   const categories = new Set(['validation','file_validation','image_decode','image_processing','processing']);
   const reasons = new Set(['cleared','file_changed','settings_changed','superseded']);
   const continuous = new Set(['tip-calculator','unit-converter','word-counter','character-counter','color-picker']);
+  const asynchronous = new Set(['image-resizer','heic-to-jpg','jpg-to-webp','webp-to-jpg']);
   const debug = new URLSearchParams(location.search).get('utivaro_debug') === '1';
-  let queued = [], timer = null;
+  let queued = [], timer = null, activeOperation = false;
 
   // The owner requested activation. A pre-existing false value remains an opt-out.
   if (window.UTIVARO_ENABLE_TOOL_ANALYTICS === undefined) window.UTIVARO_ENABLE_TOOL_ANALYTICS = true;
   function enabled() {
     return window.UTIVARO_ENABLE_TOOL_ANALYTICS === true &&
+      window.UtivaroConsent && window.UtivaroConsent.canMeasure() === true &&
       /^(www\.)?utivaro\.com$/.test(location.hostname) &&
       window['ga-disable-' + ID] !== true && navigator.globalPrivacyControl !== true &&
       typeof window.gtag === 'function';
@@ -49,6 +51,7 @@
     try { window.gtag('event', name, params); } catch (_) {}
   }
   function reset() { if (timer !== null) clearTimeout(timer); timer = null; queued = []; }
+  document.addEventListener('utivaro:consent', () => { reset(); activeOperation = false; });
   function flush() {
     const batch = queued; reset();
     // An unfinished edit is not reported as a completed attempt.
@@ -56,11 +59,15 @@
   }
   function track(name, detail) {
     if (!tool) return;
-    if (name === 'tool_reset') { reset(); return; }
+    if (name === 'tool_reset') { reset(); activeOperation = false; return; }
     if (!names.has(name)) return;
     detail = detail && typeof detail === 'object' ? detail : {};
-    if (!enabled()) { reset(); return; }
+    if (!enabled()) { reset(); activeOperation = false; return; }
     const phase = detail.phase === 'file_selection' ? 'file_selection' : 'operation';
+    if (asynchronous.has(tool) && phase === 'operation') {
+      if (name === 'tool_start') activeOperation = true;
+      else { if (!activeOperation) return; activeOperation = false; }
+    }
     const mode = ['button','input','sample'].includes(detail.interaction) ? detail.interaction :
       (continuous.has(tool) ? 'input' : 'button');
     const params = {tool_name:tool, tool_group:groups[tool], interaction_mode:mode, operation_phase:phase};
@@ -100,6 +107,7 @@
     if (home && input && area) {
       let searchTimer = null, last = '';
       const clearSearchTimer = () => { if (searchTimer !== null) clearTimeout(searchTimer); searchTimer = null; };
+      document.addEventListener('utivaro:consent', () => { clearSearchTimer(); last = ''; });
       const search = () => {
         clearSearchTimer();
         const q = input.value.trim().toLowerCase();
@@ -113,6 +121,7 @@
       };
       input.addEventListener('input', () => {
         clearSearchTimer();
+        if (!enabled()) { last = ''; return; }
         if (!input.value.trim()) { last = ''; return; }
         searchTimer = setTimeout(search, 650);
       });

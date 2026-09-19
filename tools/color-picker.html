@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Color Picker – HEX, RGB, HSL & Image Color Picker | Utivaro</title>
 <meta name="description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser.">
@@ -11,7 +14,7 @@
 <meta property="og:type" content="website"><meta property="og:title" content="Color Picker & Converter | Utivaro"><meta property="og:description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser."><meta property="og:url" content="https://utivaro.com/tools/color-picker"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Color Picker & Converter | Utivaro"><meta name="twitter:description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="../styles.css?v=20260911-2">
+<link rel="stylesheet" href="../styles.css?v=20260919-1">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Picker & Converter", "url": "https://utivaro.com/tools/color-picker", "description": "Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser.", "applicationCategory": "DesignApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I convert HEX to RGB?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter a valid HEX color and the RGB and HSL values update automatically."}}, {"@type": "Question", "name": "Can I pick a color from an image?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload a supported image and tap or click a pixel to sample its color."}}, {"@type": "Question", "name": "What image formats can I use?", "acceptedAnswer": {"@type": "Answer", "text": "The image picker supports common browser-readable formats such as JPG, PNG, WebP and GIF."}}, {"@type": "Question", "name": "Is my image uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The image is read and sampled locally in your browser."}}]}</script>
@@ -51,8 +54,8 @@
 <h3>Is my image uploaded?</h3><p>No. The image is read and sampled locally in your browser.</p></section>
 <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/image-resizer"><div class="tool-icon">↔️</div><h3>Image Resizer</h3><p>Resize images by dimensions.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/jpg-to-webp"><div class="tool-icon">🗜️</div><h3>JPG to WebP</h3><p>Convert JPG to WebP.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/webp-to-jpg"><div class="tool-icon">🖼</div><h3>WebP to JPG</h3><p>Convert WebP to JPG.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
-<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div></footer>
-<script src="../script.js"></script>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260919-1"></script>
 <script>
 function hexToRgb(hex){hex=hex.trim().replace('#','');if(/^[0-9a-fA-F]{3}$/.test(hex))hex=hex.split('').map(c=>c+c).join('');if(!/^[0-9a-fA-F]{6}$/.test(hex))return null;return {r:parseInt(hex.slice(0,2),16),g:parseInt(hex.slice(2,4),16),b:parseInt(hex.slice(4,6),16)};}
 function rgbToHex(r,g,b){return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,v)).toString(16).padStart(2,'0')).join('').toUpperCase();}
@@ -80,6 +83,6 @@ document.getElementById('colorCanvas').addEventListener('click',e=>{
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
-<script data-utivaro-measurement="2026-09-14.1" src="/assets/utivaro-analytics.js?v=2026-09-14.1"></script>
+<script data-utivaro-measurement="2026-09-19.1" src="/assets/utivaro-analytics.js?v=2026-09-19.1"></script>
 </body>
 </html>
