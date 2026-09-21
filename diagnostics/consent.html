@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>فحص رسالة الموافقة | Utivaro</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#182234;font:17px/1.8 system-ui,sans-serif}
+    main{max-width:800px;margin:auto;padding:24px 16px 60px}h1{font-size:27px;line-height:1.4}h2{font-size:20px}
+    section{background:white;border:1px solid #dce3ed;border-radius:16px;padding:20px;margin:18px 0}
+    a{color:#174caf}button{font:inherit;border:0;border-radius:10px;background:#174caf;color:white;padding:12px 20px;cursor:pointer;min-height:48px}
+    button:disabled{background:#65758b;cursor:default}button:focus-visible,a:focus-visible{outline:3px solid #dc7700;outline-offset:3px}
+    p{margin:10px 0}.muted{color:#506076}#summary{font-weight:700}dt{font-weight:700;margin-top:14px}dd{margin:0;overflow-wrap:anywhere}
+    pre{direction:ltr;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border-radius:8px;padding:12px;font-size:13px;line-height:1.6}
+    code{direction:ltr;unicode-bidi:isolate}small{font-size:14px}.actions{display:flex;gap:12px;flex-wrap:wrap}
+  </style>
+  <script type="module" src="/diagnostics/consent-check.mjs?v=2026-09-21.1"></script>
+</head>
+<body>
+<main>
+  <a href="/">UTIVARO — العودة للموقع</a>
+  <h1>فحص تحميل رسالة الموافقة</h1>
+  <p>صفحة مساعدة لصاحب الموقع. لا يغيّر الفحص إعدادات Cloudflare أو AdSense، ولا يحمل Google Analytics.</p>
+  <section>
+    <p>عند بدء الفحص، نجلب الصفحة الرئيسية ونقرأ ترويساتها، ثم نحمل وسم AdSense المعتاد لاختبار رسالة Google. هذا الجزء يتصل بـGoogle وقد يعرض الرسالة أو إعلانات وفق إعدادات حسابك.</p>
+    <p class="muted">التقرير لا يتضمن ملفات تعريف الارتباط أو معرّفات الزوار أو سلسلة الموافقة. لا يُرسل التقرير تلقائيًا. قد يضيف المضيف تحليلات Cloudflare بشكل منفصل.</p>
+    <div class="actions"><button id="run" type="button">ابدأ الفحص</button><button id="copy" type="button" disabled>نسخ التقرير</button></div>
+    <p id="summary" role="status" aria-live="polite">جاهز. اضغط «ابدأ الفحص» وانتظر النتيجة.</p>
+    <noscript>يلزم تفعيل JavaScript لتشغيل الفحص.</noscript>
+  </section>
+  <section aria-label="نتائج الفحص">
+    <dl>
+      <dt>جلب الصفحة الرئيسية</dt><dd id="home-status">لم يبدأ</dd>
+      <dt>سياسة إرسال المصدر للصفحة الرئيسية</dt><dd id="home-policy">لم تُقرأ</dd>
+      <dt>سياسة إرسال المصدر لصفحة الفحص</dt><dd id="check-policy">لم تُقرأ</dd>
+      <dt>وسم AdSense في الصفحة الرئيسية</dt><dd id="publisher-status">لم يُفحص</dd>
+      <dt>تحميل ملف AdSense في هذا الاختبار</dt><dd id="tag-status">لم يبدأ</dd>
+      <dt>جاهزية واجهة رسالة Google</dt><dd id="api-status">لم تصل إشارة الجاهزية</dd>
+      <dt>وصول بيانات Consent mode</dt><dd id="mode-status">لم تصل البيانات</dd>
+      <dt>أخطاء حظر الموارد الملتقطة</dt><dd id="blocked-status">لم تُرصد</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>التقرير القابل للنسخ</h2>
+    <p>بعد الانتظار 30 ثانية، انسخ التقرير وأرسله في المحادثة. إذا ظهرت رسالة Google، يمكنك اختيار تفضيلاتك ثم نسخ التقرير. اختيارك قد يُحفظ ويؤثر في زيارات الموقع التالية.</p>
+    <pre id="report" tabindex="0">لم يبدأ الفحص.</pre>
+    <p id="copy-status" role="status"></p>
+    <small>نجاح هذا الفحص يثبت وصول الرسالة إلى صفحة الفحص فقط؛ يلزم بعده التحقق من الصفحة الرئيسية ومن وصول أحداث GA4 إلى الحساب.</small>
+  </section>
+</main>
+</body>
+</html>
