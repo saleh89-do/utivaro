@@ -14,7 +14,7 @@
 <meta property="og:type" content="website"><meta property="og:title" content="Character Counter | Utivaro"><meta property="og:description" content="Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private."><meta property="og:url" content="https://utivaro.com/tools/character-counter"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Character Counter | Utivaro"><meta name="twitter:description" content="Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="../styles.css?v=20260919-1">
+<link rel="stylesheet" href="../styles.css?v=20260925-1">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Character Counter", "url": "https://utivaro.com/tools/character-counter", "description": "Count characters online with or without spaces, plus words, lines, UTF-8 bytes and an optional character limit. Free and private.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the character counter include spaces?", "acceptedAnswer": {"@type": "Answer", "text": "The main Characters count includes spaces. A separate counter shows characters without whitespace."}}, {"@type": "Question", "name": "Can I set a character limit?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter any positive limit and the tool will show the number of characters remaining."}}, {"@type": "Question", "name": "Does it count emoji?", "acceptedAnswer": {"@type": "Answer", "text": "The tool uses browser text segmentation when available so emoji and combined characters are counted more naturally."}}, {"@type": "Question", "name": "Is my text uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The counting happens locally in your browser."}}]}</script>
@@ -52,7 +52,7 @@
 <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/word-counter"><div class="tool-icon">📝</div><h3>Word Counter</h3><p>Count words and reading time.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/json-formatter"><div class="tool-icon">{}</div><h3>JSON Formatter</h3><p>Format and validate JSON.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode text.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
 <footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
-<script src="/script.js?v=20260919-1"></script>
+<script src="/script.js?v=20260925-1"></script>
 <script>
 function graphemeCount(text){if(Intl.Segmenter){return Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(text)).length;}return Array.from(text).length;}
 function updateCharacterStats(event) {
@@ -84,9 +84,9 @@ document.getElementById('charInput').addEventListener('input',updateCharacterSta
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
-<script data-utivaro-measurement="2026-09-19.1" src="/assets/utivaro-analytics.js?v=2026-09-19.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
 </html>

@@ -66,7 +66,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link
     rel="stylesheet"
-    href="../styles.css?v=20260919-1"
+    href="../styles.css?v=20260925-1"
   >
 
 
@@ -278,6 +278,7 @@
           type="button"
           id="copyBase64Button"
           onclick="copyBase64Result(this)"
+          disabled
         >
           Copy Result
         </button>
@@ -602,7 +603,7 @@
 <div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
 
 
-<script src="/script.js?v=20260919-1"></script>
+<script src="/script.js?v=20260925-1"></script>
 
 <script>
 
@@ -669,6 +670,7 @@ function encodeBase64() {
   if (!input) {
 
     output.value = "";
+    document.getElementById('copyBase64Button').disabled = true;
 
     message.textContent =
       "Enter text to encode.";
@@ -683,6 +685,7 @@ function encodeBase64() {
 
     output.value =
       utf8ToBase64(input);
+    document.getElementById('copyBase64Button').disabled = !output.value;
 
     message.textContent =
       "Text encoded successfully.";
@@ -693,6 +696,7 @@ function encodeBase64() {
   catch (error) {
 
     output.value = "";
+    document.getElementById('copyBase64Button').disabled = true;
 
     message.textContent =
       "Unable to encode this text.";
@@ -725,6 +729,7 @@ function decodeBase64() {
   if (!input.trim()) {
 
     output.value = "";
+    document.getElementById('copyBase64Button').disabled = true;
 
     message.textContent =
       "Enter a Base64 value to decode.";
@@ -739,6 +744,7 @@ function decodeBase64() {
 
     output.value =
       base64ToUtf8(input);
+    document.getElementById('copyBase64Button').disabled = !output.value;
 
     message.textContent =
       "Base64 decoded successfully.";
@@ -749,6 +755,7 @@ function decodeBase64() {
   catch (error) {
 
     output.value = "";
+    document.getElementById('copyBase64Button').disabled = true;
 
     message.textContent =
       "Invalid Base64 input. Please check the value and try again.";
@@ -768,6 +775,7 @@ function clearBase64() {
   document.getElementById(
     "base64Output"
   ).value = "";
+  document.getElementById('copyBase64Button').disabled = true;
 
   document.getElementById(
     "base64Message"
@@ -833,14 +841,20 @@ async function copyBase64Result(button) {
 
 }
 
+document.getElementById('base64Input').addEventListener('input', () => {
+  document.getElementById('base64Output').value = '';
+  document.getElementById('copyBase64Button').disabled = true;
+  document.getElementById('base64Message').textContent = 'Input changed. Encode or decode again.';
+});
+
 </script>
 
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
-<script data-utivaro-measurement="2026-09-19.1" src="/assets/utivaro-analytics.js?v=2026-09-19.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
   </html>

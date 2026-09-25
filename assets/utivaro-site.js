@@ -12,10 +12,10 @@
       const style = document.createElement('style'); style.textContent = '[data-utivaro-search-item][hidden]{display:none!important}.utivaro-search-status{grid-column:1/-1;color:#4b5563}'; document.head.appendChild(style);
       items.forEach(a => a.setAttribute('data-utivaro-search-item',''));
       const filter = () => {
-        const q = input.value.trim().toLowerCase(); let count = 0;
-        items.forEach(a => { const match = !q || (a.textContent + ' ' + (a.getAttribute('data-search') || '') + ' ' + a.getAttribute('href').replace(/[-/]/g,' ')).toLowerCase().includes(q); a.hidden = !match; if (match) count++; });
+        const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean); let count = 0;
+        items.forEach(a => { const haystack = (a.textContent + ' ' + (a.getAttribute('data-search') || '') + ' ' + a.getAttribute('href').replace(/[-/]/g,' ')).toLowerCase(); const match = terms.every(term => haystack.includes(term)); a.hidden = !match; if (match) count++; });
         note.hidden = false;
-        note.textContent = count ? `${count} ${count === 1 ? 'tool' : 'tools'}${q ? ' found.' : ' available.'}` : 'No tools found. Try a different search.';
+        note.textContent = count ? `${count} ${count === 1 ? 'tool' : 'tools'}${terms.length ? ' found.' : ' available.'}` : 'No tools found. Try another name or browse the categories above.';
       };
       input.addEventListener('input',filter);
       input.addEventListener('keydown',e => { if (e.key === 'Enter') { e.preventDefault(); filter(); area.scrollIntoView({block:'start',behavior:'smooth'}); } });
@@ -33,6 +33,24 @@
       };
       // Registered after the original shared counter so the displayed counts agree.
       textInput.addEventListener('input',update); update();
+    }
+    const toolTitle = document.querySelector('.tool-page .tool-title, .tool-page .tool-hero');
+    if (toolTitle && location.pathname.startsWith('/tools/')) {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'btn btn-secondary';
+      button.textContent = 'Copy tool link';
+      const feedback = document.createElement('span');
+      feedback.className = 'utivaro-link-feedback';
+      feedback.setAttribute('role','status'); feedback.setAttribute('aria-live','polite');
+      button.addEventListener('click',async () => {
+        const link = location.origin + location.pathname.replace(/\.html$/, '');
+        try {
+          await navigator.clipboard.writeText(link);
+          feedback.textContent = 'Link copied.';
+          window.UtivaroAnalytics?.track('tool_link_copy');
+        } catch (_) { feedback.textContent = 'Copy this link: ' + link; }
+      });
+      toolTitle.append(button,feedback);
     }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',ready); else ready();

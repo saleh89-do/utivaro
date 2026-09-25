@@ -194,7 +194,6 @@ function setText(id, value) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initToolSearch();
   const textInput =
     document.getElementById("textInput");
 
@@ -215,26 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
       new Date().getFullYear();
   }
 });
-
-/* HOMEPAGE TOOL SEARCH */
-function initToolSearch() {
-  const search = document.getElementById("toolSearch");
-  const cards = Array.from(document.querySelectorAll(".searchable-tool"));
-  const empty = document.getElementById("noToolsFound");
-  if (!search || !cards.length) return;
-  const filter = () => {
-    const q = search.value.trim().toLowerCase();
-    let visible = 0;
-    cards.forEach(card => {
-      const haystack = ((card.dataset.search || "") + " " + card.textContent).toLowerCase();
-      const show = !q || haystack.includes(q);
-      card.hidden = !show;
-      if (show) visible += 1;
-    });
-    if (empty) empty.hidden = visible !== 0;
-  };
-  search.addEventListener("input", filter);
-}
 
 /* ===== Utivaro Navigation Redesign V2 ===== */
 const UTIVARO_TOOL_GROUPS = {

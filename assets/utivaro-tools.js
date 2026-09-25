@@ -17,7 +17,7 @@
       event('tool_start');
       try {
         const raw = $('jsonInput').value;
-        if (mode === 'validate') { C.jsonTokens(raw); $('jsonOutput').value = ''; }
+        if (mode === 'validate') C.jsonTokens(raw);
         else $('jsonOutput').value = C.formatJSON(raw,mode === 'minify' ? '' : $('jsonIndent').value === 'tab' ? '\t' : ' '.repeat(Number($('jsonIndent').value)));
         status('jsonStatus',mode === 'validate' ? 'Valid JSON. Values have not been changed.' : 'Valid JSON. Original values preserved.'); event('tool_success');
       } catch (e) { $('jsonOutput').value = ''; failure('jsonStatus',e); }
@@ -78,6 +78,12 @@
       const n = ((next - old) / Math.abs(old)) * 100;
       const value = C.formatNumber(Math.abs(n)); return n === 0 ? 'No change' : value + (n > 0 ? '% increase' : '% decrease');
     });
+    const invalidate = (fields,result) => fields.forEach(id => $(id).addEventListener('input',() => {
+      text(result,'—');
+    }));
+    invalidate(['percentageRate','percentageValue'],'percentageResult');
+    invalidate(['partValue','wholeValue'],'ratioResult');
+    invalidate(['oldValue','newValue'],'changeResult');
   }
   if ($('tipBill')) {
     function errorBox() { if (!$('tipStatus')) { const el = document.createElement('div'); el.id = 'tipStatus'; el.className = 'status'; $('tipBill').closest('.tool-box').appendChild(el); } }

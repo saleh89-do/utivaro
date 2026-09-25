@@ -158,6 +158,16 @@ test('Query strings, fragments and full referrers do not enter GA page configura
   const h = harness({url:'https://utivaro.com/tools/word-counter.html?private=SECRET#SECRET'});
   h.choice(values(1)); h.load(); assert.ok(!JSON.stringify(h.commands()).includes('SECRET'));
 });
+test('Copying a tool link is measured only after consent, without user input', () => {
+  const h = harness({url:'https://utivaro.com/tools/base64?secret=SECRET'});
+  h.useAnalytics();
+  h.window.UtivaroAnalytics.track('tool_link_copy', {secret:'SECRET'});
+  assert.deepEqual(h.events(), []);
+  h.choice(values(1)); h.load();
+  h.window.UtivaroAnalytics.track('tool_link_copy', {secret:'SECRET'});
+  assert.deepEqual(h.events(), ['page_view','tool_link_copy']);
+  assert.ok(!JSON.stringify(h.commands()).includes('SECRET'));
+});
 test('Back-forward cache restoration reevaluates consent on a new page', () => {
   const h = harness(); h.choice(values(1)); h.load();
   h.window.dispatchEvent({type:'pageshow', persisted:true});
@@ -176,7 +186,7 @@ test('Every page uses the consent loader first, without a second Analytics boot 
     assert.ok(!/googletagmanager\.com|gtag\s*\(/.test(html), file);
     assert.equal((html.match(/data-utivaro-privacy /g) || []).length, 1, file);
     for (const match of html.matchAll(/<script[^>]+src="([^" ]*script\.js[^" ]*)"/g)) {
-      assert.equal(match[1], '/script.js?v=20260919-1', file);
+      assert.equal(match[1], '/script.js?v=20260925-1', file);
     }
   }
   assert.ok(!/googletagmanager\.com|gtag\s*\(/.test(fs.readFileSync(path.join(root,'script.js'),'utf8')));
