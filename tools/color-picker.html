@@ -14,7 +14,7 @@
 <meta property="og:type" content="website"><meta property="og:title" content="Color Picker & Converter | Utivaro"><meta property="og:description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser."><meta property="og:url" content="https://utivaro.com/tools/color-picker"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Color Picker & Converter | Utivaro"><meta name="twitter:description" content="Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser."><meta name="twitter:image" content="https://utivaro.com/og-image.png">
 <meta name="theme-color" content="#2563eb">
-<link rel="stylesheet" href="../styles.css?v=20260919-1">
+<link rel="stylesheet" href="../styles.css?v=20260925-1">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Color Picker & Converter", "url": "https://utivaro.com/tools/color-picker", "description": "Free online color picker and converter. Pick HEX colors, convert HEX to RGB and HSL, or sample a color directly from an image in your browser.", "applicationCategory": "DesignApplication", "operatingSystem": "Any", "browserRequirements": "Requires a modern web browser with JavaScript enabled", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "Utivaro", "url": "https://utivaro.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I convert HEX to RGB?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter a valid HEX color and the RGB and HSL values update automatically."}}, {"@type": "Question", "name": "Can I pick a color from an image?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Upload a supported image and tap or click a pixel to sample its color."}}, {"@type": "Question", "name": "What image formats can I use?", "acceptedAnswer": {"@type": "Answer", "text": "The image picker supports common browser-readable formats such as JPG, PNG, WebP and GIF."}}, {"@type": "Question", "name": "Is my image uploaded?", "acceptedAnswer": {"@type": "Answer", "text": "No. The image is read and sampled locally in your browser."}}]}</script>
@@ -27,12 +27,13 @@
 <section class="tool-title"><h1>Color Picker & Converter</h1><p>Pick a color, convert HEX, RGB and HSL values, or sample a color directly from an image.</p></section>
 <section class="tool-box">
 <div class="two-col"><div><div id="colorSwatch" class="color-swatch"></div></div><div><div class="field"><label for="nativeColor">Choose a color</label><input id="nativeColor" type="color" value="#2563eb" style="width:100%;height:58px;border:1px solid #cfd8e5;border-radius:12px;background:#fff;padding:5px"></div><div class="field"><label for="hexInput">HEX value</label><input class="input mono" id="hexInput" value="#2563EB" maxlength="7"></div></div></div>
-<div class="color-value-row"><label>HEX</label><div id="hexValue" class="tool-output mono" style="min-height:52px;padding:12px">#2563EB</div><button class="btn btn-secondary" type="button" onclick="copyColor('hexValue',this)">Copy</button></div>
-<div class="color-value-row"><label>RGB</label><div id="rgbValue" class="tool-output mono" style="min-height:52px;padding:12px">rgb(37, 99, 235)</div><button class="btn btn-secondary" type="button" onclick="copyColor('rgbValue',this)">Copy</button></div>
-<div class="color-value-row"><label>HSL</label><div id="hslValue" class="tool-output mono" style="min-height:52px;padding:12px">hsl(221, 83%, 53%)</div><button class="btn btn-secondary" type="button" onclick="copyColor('hslValue',this)">Copy</button></div>
+<div class="color-value-row"><label>HEX</label><div id="hexValue" class="tool-output mono" style="min-height:52px;padding:12px">#2563EB</div><button class="btn btn-secondary" type="button" aria-label="Copy HEX color" onclick="copyColor('hexValue',this)">Copy</button></div>
+<div class="color-value-row"><label>RGB</label><div id="rgbValue" class="tool-output mono" style="min-height:52px;padding:12px">rgb(37, 99, 235)</div><button class="btn btn-secondary" type="button" aria-label="Copy RGB color" onclick="copyColor('rgbValue',this)">Copy</button></div>
+<div class="color-value-row"><label>HSL</label><div id="hslValue" class="tool-output mono" style="min-height:52px;padding:12px">hsl(221, 83%, 53%)</div><button class="btn btn-secondary" type="button" aria-label="Copy HSL color" onclick="copyColor('hslValue',this)">Copy</button></div>
 <hr style="border:0;border-top:1px solid #e2e8f0;margin:28px 0">
-<div class="field"><label for="colorImage">Pick a color from an image</label><input class="input" id="colorImage" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><div class="canvas-note">Upload an image, then tap or click any point on it to sample that pixel color.</div></div>
-<div id="colorCanvasWrap" class="preview-stage" hidden><canvas id="colorCanvas"></canvas></div>
+<div class="field"><label for="colorImage">Pick a color from an image</label><input class="input" id="colorImage" type="file" accept="image/jpeg,image/png,image/webp,image/gif"><div class="canvas-note">Choose an image under 25 MB. Tap a pixel, or enter its preview coordinates below.</div><p id="colorImageStatus" class="status" role="status" aria-live="polite"></p></div>
+<div id="colorCanvasWrap" class="preview-stage" hidden><canvas id="colorCanvas" role="img" aria-label="Image preview. Use the X and Y fields below to sample a pixel with a keyboard."></canvas></div>
+<div id="colorCoordinates" class="two-col" hidden><div class="field"><label for="colorX">Preview pixel X</label><input class="input" id="colorX" type="number" min="0" value="0"></div><div class="field"><label for="colorY">Preview pixel Y</label><input class="input" id="colorY" type="number" min="0" value="0"></div><button class="btn btn-secondary" type="button" id="colorSample">Sample pixel</button></div>
 <div class="notice">🔒 Uploaded images are processed locally in your browser.</div>
 </section>
 <section class="content-card"><h2>Pick and convert colors online</h2>
@@ -55,7 +56,7 @@
 <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/image-resizer"><div class="tool-icon">↔️</div><h3>Image Resizer</h3><p>Resize images by dimensions.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/jpg-to-webp"><div class="tool-icon">🗜️</div><h3>JPG to WebP</h3><p>Convert JPG to WebP.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/webp-to-jpg"><div class="tool-icon">🖼</div><h3>WebP to JPG</h3><p>Convert WebP to JPG.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
 <footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
-<script src="/script.js?v=20260919-1"></script>
+<script src="/script.js?v=20260925-1"></script>
 <script>
 function hexToRgb(hex){hex=hex.trim().replace('#','');if(/^[0-9a-fA-F]{3}$/.test(hex))hex=hex.split('').map(c=>c+c).join('');if(!/^[0-9a-fA-F]{6}$/.test(hex))return null;return {r:parseInt(hex.slice(0,2),16),g:parseInt(hex.slice(2,4),16),b:parseInt(hex.slice(4,6),16)};}
 function rgbToHex(r,g,b){return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,v)).toString(16).padStart(2,'0')).join('').toUpperCase();}
@@ -63,26 +64,75 @@ function rgbToHsl(r,g,b){r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math
 function setColor(r,g,b,interaction='input'){window.UtivaroAnalytics?.track('tool_start',{interaction});try{const hex=rgbToHex(r,g,b),hsl=rgbToHsl(r,g,b);document.getElementById('colorSwatch').style.background=hex;document.getElementById('nativeColor').value=hex.toLowerCase();document.getElementById('hexInput').value=hex;document.getElementById('hexValue').textContent=hex;document.getElementById('rgbValue').textContent=`rgb(${r}, ${g}, ${b})`;document.getElementById('hslValue').textContent=`hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;window.UtivaroAnalytics?.track('tool_success',{interaction});}catch(error){window.UtivaroAnalytics?.track('tool_error',{interaction,category:'processing'});throw error;}}
 function copyColor(id,btn){Utivaro.copyText(document.getElementById(id).textContent,btn);}
 document.getElementById('nativeColor').addEventListener('input',e=>{const c=hexToRgb(e.target.value);setColor(c.r,c.g,c.b);});document.getElementById('hexInput').addEventListener('input',e=>{const c=hexToRgb(e.target.value);if(c)setColor(c.r,c.g,c.b);else{window.UtivaroAnalytics?.track('tool_start',{interaction:'input'});window.UtivaroAnalytics?.track('tool_error',{interaction:'input',category:'validation'});}});
-let colorURL='';document.getElementById('colorImage').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(colorURL)URL.revokeObjectURL(colorURL);colorURL=URL.createObjectURL(f);const img=new Image();img.onload=()=>{const max=900,scale=Math.min(1,max/img.naturalWidth,max/img.naturalHeight),canvas=document.getElementById('colorCanvas');canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));canvas.getContext('2d',{willReadFrequently:true}).drawImage(img,0,0,canvas.width,canvas.height);document.getElementById('colorCanvasWrap').hidden=false;};img.onerror=()=>window.UtivaroAnalytics?.track('tool_error',{category:'image_decode',phase:'file_selection'});img.src=colorURL;});
-document.getElementById('colorCanvas').addEventListener('click',e=>{
-  const c=e.currentTarget,rect=c.getBoundingClientRect();
-  const x=Math.floor((e.clientX-rect.left)*c.width/rect.width),y=Math.floor((e.clientY-rect.top)*c.height/rect.height);
-  let d;
-  try { d=c.getContext('2d').getImageData(x,y,1,1).data; }
-  catch(error) {
-    window.UtivaroAnalytics?.track('tool_start',{interaction:'sample'});
-    window.UtivaroAnalytics?.track('tool_error',{interaction:'sample',category:'image_processing'});
-    throw error;
+let colorURL='',colorRevision=0;
+const colorCanvas=document.getElementById('colorCanvas');
+const colorStatus=document.getElementById('colorImageStatus');
+function colorError(message,category='file_validation') {
+  colorStatus.textContent=message;
+  window.UtivaroAnalytics?.track('tool_error',{category,phase:'file_selection'});
+}
+document.getElementById('colorImage').addEventListener('change',e=>{
+  const revision=++colorRevision,f=e.target.files[0];
+  document.getElementById('colorCanvasWrap').hidden=true;
+  document.getElementById('colorCoordinates').hidden=true;
+  colorStatus.textContent='';
+  if(colorURL) URL.revokeObjectURL(colorURL);
+  colorURL='';
+  if(!f) return;
+  if(!f.size || f.size>25*1024*1024 || !['image/jpeg','image/png','image/webp','image/gif'].includes(f.type)) {
+    colorError('Choose a non-empty JPG, PNG, WebP or GIF image under 25 MB.'); return;
   }
-  setColor(d[0],d[1],d[2],'sample');
+  colorURL=URL.createObjectURL(f);
+  const img=new Image();
+  img.onload=()=>{
+    if(revision!==colorRevision) return;
+    if(!img.naturalWidth || !img.naturalHeight || img.naturalWidth*img.naturalHeight>40000000) {
+      colorError('Use an image with no more than 40 million pixels.'); return;
+    }
+    try {
+      const max=900,scale=Math.min(1,max/img.naturalWidth,max/img.naturalHeight);
+      colorCanvas.width=Math.max(1,Math.round(img.naturalWidth*scale));
+      colorCanvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
+      const context=colorCanvas.getContext('2d',{willReadFrequently:true});
+      if(!context) throw new Error('Canvas unavailable');
+      context.drawImage(img,0,0,colorCanvas.width,colorCanvas.height);
+      const x=document.getElementById('colorX'),y=document.getElementById('colorY');
+      x.max=colorCanvas.width-1;y.max=colorCanvas.height-1;x.value='0';y.value='0';
+      document.getElementById('colorCanvasWrap').hidden=false;
+      document.getElementById('colorCoordinates').hidden=false;
+      colorStatus.textContent='Image ready. Tap it or enter preview pixel coordinates.';
+    } catch (_) { colorError('This image could not be drawn. Choose a smaller image.','image_processing'); }
+  };
+  img.onerror=()=>{if(revision===colorRevision) colorError('This image could not be opened. Choose another file.','image_decode');};
+  img.src=colorURL;
+});
+function sampleColor(x,y) {
+  if(document.getElementById('colorCanvasWrap').hidden || !Number.isInteger(x) || !Number.isInteger(y) || x<0 || y<0 || x>=colorCanvas.width || y>=colorCanvas.height) {
+    colorStatus.textContent='Enter pixel coordinates within the image preview.'; return;
+  }
+  try {
+    const d=colorCanvas.getContext('2d').getImageData(x,y,1,1).data;
+    document.getElementById('colorX').value=x;
+    document.getElementById('colorY').value=y;
+    setColor(d[0],d[1],d[2],'sample');
+    colorStatus.textContent=`Selected preview pixel ${x}, ${y}.`;
+  } catch (_) { colorError('This pixel could not be sampled.','image_processing'); }
+}
+colorCanvas.addEventListener('click',e=>{
+  const rect=colorCanvas.getBoundingClientRect();
+  sampleColor(Math.min(colorCanvas.width-1,Math.floor((e.clientX-rect.left)*colorCanvas.width/rect.width)),Math.min(colorCanvas.height-1,Math.floor((e.clientY-rect.top)*colorCanvas.height/rect.height)));
+});
+document.getElementById('colorSample').addEventListener('click',()=>{
+  const x=document.getElementById('colorX').value,y=document.getElementById('colorY').value;
+  sampleColor(x === '' ? NaN : Number(x),y === '' ? NaN : Number(y));
 });
 </script>
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
-<script data-utivaro-measurement="2026-09-19.1" src="/assets/utivaro-analytics.js?v=2026-09-19.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
 </html>

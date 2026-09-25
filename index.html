@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://utivaro.com/og-image.png"><meta name="theme-color" content="#2563eb">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Utivaro","url":"https://utivaro.com/","description":"Free online utility tools for everyday tasks."}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Utivaro","url":"https://utivaro.com/","logo":"https://utivaro.com/favicon.svg"}</script>
-  <link rel="stylesheet" href="/styles.css?v=20260919-1">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
 
 <style id="utivaro-home-v2-critical">
 /* ===== Utivaro Navigation Redesign V2 ===== */
@@ -102,8 +102,7 @@
   .category-list-grid { grid-template-columns:1fr; gap:9px; }
   .category-panel { padding:14px 15px; }
   .category-title { border:0; padding:0; }
-  .category-links { display:flex; gap:7px; overflow-x:auto; margin:10px 0 0 55px; padding-bottom:2px; scrollbar-width:none; }
-  .category-links::-webkit-scrollbar { display:none; }
+  .category-links { display:flex; gap:7px; overflow-x:auto; margin:10px 0 0 55px; padding-bottom:8px; scrollbar-width:thin; scrollbar-color:#94a3b8 #e2e8f0; }
   .category-links a, .coming-soon { flex:0 0 auto; border:1px solid #e4e9f0; border-radius:9px; padding:6px 9px; font-size:12px; background:#fafcff; }
   .compact-tools-grid { grid-template-columns:repeat(2,1fr); gap:8px; }
   .compact-tool { min-height:58px; padding:10px; font-size:12px; }
@@ -114,7 +113,7 @@
   .related-tools-v2 { width:calc(100% - 24px); margin:16px auto 88px; padding:15px; }
   .related-tools-grid { grid-template-columns:repeat(2,1fr); }
   .mobile-tool-nav { position:fixed; z-index:999; left:10px; right:10px; bottom:9px; display:grid; grid-template-columns:repeat(4,1fr); padding:7px 5px calc(7px + env(safe-area-inset-bottom)); background:rgba(255,255,255,.96); border:1px solid #dbe3ef; border-radius:18px; box-shadow:0 10px 35px rgba(15,23,42,.18); backdrop-filter:blur(12px); }
-  .mobile-tool-nav a { text-align:center; color:#526079; font-size:10px; font-weight:800; line-height:1.15; }
+  .mobile-tool-nav a { min-height:44px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#526079; font-size:11px; font-weight:800; line-height:1.15; }
   .mobile-tool-nav a span { display:block; margin-bottom:3px; font-size:17px; }
   .mobile-tool-nav a.active { color:var(--primary); }
 }
@@ -180,7 +179,7 @@
       <div class="compact-tools-grid" id="toolsGrid">
         <a href="/tools/webp-to-jpg" class="compact-tool searchable-tool" data-search="webp jpg image converter photo"><span>🖼️</span><strong>WebP to JPG</strong></a>
         <a href="/tools/heic-to-jpg" class="compact-tool searchable-tool" data-search="heic heif jpg iphone image converter"><span>📸</span><strong>HEIC to JPG</strong></a>
-        <a href="/tools/image-resizer" class="compact-tool searchable-tool" data-search="image resize resizer photo width height"><span>↔️</span><strong>Image Resizer</strong></a>
+        <a href="/tools/image-resizer" class="compact-tool searchable-tool" data-search="image resize resizer picture photo shrink smaller width height dimensions"><span>↔️</span><strong>Image Resizer</strong></a>
         <a href="/tools/jpg-to-webp" class="compact-tool searchable-tool" data-search="jpg webp image converter"><span>🗜️</span><strong>JPG to WebP</strong></a>
         <a href="/tools/color-picker" class="compact-tool searchable-tool" data-search="color picker hex rgb hsl image"><span>🎨</span><strong>Color Picker</strong></a>
         <a href="/tools/unit-converter" class="compact-tool searchable-tool" data-search="unit converter length weight temperature storage"><span>⇄</span><strong>Unit Converter</strong></a>
@@ -209,13 +208,13 @@
   <section class="more-tools-strip"><div class="container"><div><strong>✨ More tools are coming soon!</strong><p>We’re continuously adding useful tools to help you work smarter.</p></div><a class="btn btn-primary" href="#categories">Browse Categories</a></div></section>
 </main>
 <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="#categories">Categories</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
-<script src="/script.js?v=20260919-1"></script>
+<script src="/script.js?v=20260925-1"></script>
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
-<script data-utivaro-measurement="2026-09-19.1" src="/assets/utivaro-analytics.js?v=2026-09-19.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
 </html>

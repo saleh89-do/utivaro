@@ -1,10 +1,10 @@
-/* Utivaro usage measurement 2026-09-19.1. Uses the consent-gated Google tag.
+/* Utivaro usage measurement 2026-09-25.1. Uses the consent-gated Google tag.
    Only fixed identifiers, bounded counts and fixed categories are forwarded.
    Inputs, search terms, filenames, result values and raw errors stay local. */
 (function () {
   'use strict';
   if (window.UtivaroAnalytics) return;
-  const VERSION = '2026-09-19.1', ID = 'G-QEJKW6BQMH';
+  const VERSION = '2026-09-25.1', ID = 'G-QEJKW6BQMH';
   const groups = {
     'age-calculator':'calculators', 'percentage-calculator':'calculators',
     'days-between-dates':'calculators', 'tip-calculator':'calculators',
@@ -18,7 +18,7 @@
   const slug = path.startsWith('/tools/') ? path.slice(7) : '';
   const tool = Object.prototype.hasOwnProperty.call(groups, slug) ? slug : '';
   const home = path === '/' || path === '/index';
-  const names = new Set(['tool_start','tool_success','tool_error','tool_cancel']);
+  const names = new Set(['tool_start','tool_success','tool_error','tool_cancel','tool_link_copy']);
   const categories = new Set(['validation','file_validation','image_decode','image_processing','processing']);
   const reasons = new Set(['cleared','file_changed','settings_changed','superseded']);
   const continuous = new Set(['tip-calculator','unit-converter','word-counter','character-counter','color-picker']);
@@ -63,6 +63,9 @@
     if (!names.has(name)) return;
     detail = detail && typeof detail === 'object' ? detail : {};
     if (!enabled()) { reset(); activeOperation = false; return; }
+    if (name === 'tool_link_copy') {
+      send('tool_link_copy', {tool_name:tool,tool_group:groups[tool]}); return;
+    }
     const phase = detail.phase === 'file_selection' ? 'file_selection' : 'operation';
     if (asynchronous.has(tool) && phase === 'operation') {
       if (name === 'tool_start') activeOperation = true;

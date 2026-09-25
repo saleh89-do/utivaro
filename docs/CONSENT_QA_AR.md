@@ -51,6 +51,6 @@ node --test tests/*.test.mjs
 
 في DevTools افحص طلبات `googletagmanager.com/gtag/js` و`google-analytics.com/g/collect` ونطاقاته الإقليمية، وقيم Consent Mode والكوكيز قبل الاختيار وبعده. الطلبات الخاصة بالرسالة أو AdSense ليست دليلًا على تشغيل GA4.
 
-بعد الموافقة، استخدم رابط أداة مع `?utivaro_debug=1` ثم افحص **GA4 → DebugView** للتحقق من الأسماء: `tool_start`، `tool_success`، `tool_error`، `tool_cancel`، `tool_search`، `result_download_click`. تأكد من أن `measurement_version` تساوي `2026-09-19.1`. لا تسجل أحداث الاختبار كمستخدمين حقيقيين في تقييم الزيارات.
+بعد الموافقة، استخدم رابط أداة مع `?utivaro_debug=1` ثم افحص **GA4 → DebugView** للتحقق من الأسماء: `tool_start`، `tool_success`، `tool_error`، `tool_cancel`، `tool_search`، `result_download_click`. تأكد من أن `measurement_version` تساوي `2026-09-25.1`. لا تسجل أحداث الاختبار كمستخدمين حقيقيين في تقييم الزيارات.
 
 تبقى حالة النشر الفعلي للرسالة، وخيارات الحساب، واختبار حركة الشبكة الحقيقية ووصول الأحداث إلى GA4 مفتوحة إلى أن تتاح جلسة الحساب وتُنشر هذه النسخة. اجتياز المحاكاة ليس إثباتًا لقبول AdSense أو امتثال قانوني كامل.

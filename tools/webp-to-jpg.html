@@ -68,7 +68,7 @@
 >
 <meta name="twitter:image" content="https://utivaro.com/og-image.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles.css?v=20260919-1">
+  <link rel="stylesheet" href="../styles.css?v=20260925-1">
 
 
   <script type="application/ld+json">
@@ -213,10 +213,12 @@
           class="input"
           id="imageInput"
           type="file"
-          accept="image/webp,image/*"
+          accept="image/webp,.webp"
         >
 
       </div>
+
+      <p id="webpStatus" class="status" role="status" aria-live="polite"></p>
 
 
       <div
@@ -635,7 +637,7 @@
 <div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
 
 
-<script src="/script.js?v=20260919-1"></script>
+<script src="/script.js?v=20260925-1"></script>
 
 <script>
 
@@ -650,6 +652,7 @@ const qualityValue = document.getElementById('qualityValue');
 const imageActions = document.getElementById('imageActions');
 const conversionResult = document.getElementById('conversionResult');
 const jpgDownload = document.getElementById('downloadJPG');
+const webpStatus = document.getElementById('webpStatus');
 function webpMetric(name, category, phase = 'operation') {
   window.UtivaroAnalytics?.track(name, {category,phase});
 }
@@ -668,10 +671,11 @@ imageInput.addEventListener('change', function () {
   invalidateWebP('file_changed');
   if (selectedImageURL) URL.revokeObjectURL(selectedImageURL);
   selectedImageURL = null; selectedImageFile = null;
-  if (!file.size || (file.type !== 'image/webp' && !/\.webp$/i.test(file.name))) {
+  if (!file.size || file.size > 25 * 1024 * 1024 ||
+      (file.type !== 'image/webp' && !/\.webp$/i.test(file.name))) {
     clearImageTool();
     webpMetric('tool_error', 'file_validation', 'file_selection');
-    alert('Choose a non-empty WebP image.'); return;
+    webpStatus.textContent = 'Choose a non-empty WebP image under 25 MB.'; return;
   }
   selectedImageFile = file;
   selectedImageURL = URL.createObjectURL(file);
@@ -679,10 +683,12 @@ imageInput.addEventListener('change', function () {
   previewWrap.style.display = 'block';
   qualityWrap.style.display = 'block';
   imageActions.style.display = 'flex';
+  webpStatus.textContent = 'Image selected. Choose Convert to JPG.';
 });
 qualityRange.addEventListener('input', function () {
   qualityValue.textContent = qualityRange.value;
   invalidateWebP('settings_changed');
+  webpStatus.textContent = 'Quality changed. Convert again to update the result.';
 });
 function formatFileSize(bytes) {
   if (!bytes) return '0 B';
@@ -701,7 +707,7 @@ function convertWebPToJPG() {
     if (revision !== webpRevision) return;
     webpRunning = false;
     webpMetric('tool_error', 'image_processing');
-    alert('This image could not be processed. Try a smaller WebP image.');
+    webpStatus.textContent = 'This image could not be processed. Try a smaller WebP image.';
   };
   const image = new Image();
   image.onload = function () {
@@ -731,6 +737,7 @@ function convertWebPToJPG() {
           conversionResult.style.display = 'block';
           webpRunning = false;
           webpMetric('tool_success');
+          webpStatus.textContent = 'JPG ready to download.';
         } catch (_) {
           if (convertedImageURL) URL.revokeObjectURL(convertedImageURL);
           convertedImageURL = null; jpgDownload.removeAttribute('href');
@@ -754,6 +761,7 @@ function clearImageTool() {
   previewWrap.style.display = 'none'; qualityWrap.style.display = 'none';
   imageActions.style.display = 'none';
   qualityRange.value = '92'; qualityValue.textContent = '92';
+  webpStatus.textContent = '';
 }
 
 </script>
@@ -761,9 +769,9 @@ function clearImageTool() {
 
 <!-- Utivaro verified fixes 2026-09-11.2 -->
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
-<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-14.1"></script>
-<script data-utivaro-measurement="2026-09-19.1" src="/assets/utivaro-analytics.js?v=2026-09-19.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
 </html>
