@@ -15,7 +15,7 @@
     pre{direction:ltr;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f7fa;border-radius:8px;padding:12px;font-size:13px;line-height:1.6}
     code{direction:ltr;unicode-bidi:isolate}small{font-size:14px}.actions{display:flex;gap:12px;flex-wrap:wrap}
   </style>
-  <script type="module" src="/diagnostics/consent-check.mjs?v=2026-09-21.1"></script>
+  <script type="module" src="/diagnostics/consent-check.mjs?v=2026-09-28.1"></script>
 </head>
 <body>
 <main>
@@ -35,6 +35,8 @@
       <dt>سياسة إرسال المصدر للصفحة الرئيسية</dt><dd id="home-policy">لم تُقرأ</dd>
       <dt>سياسة إرسال المصدر لصفحة الفحص</dt><dd id="check-policy">لم تُقرأ</dd>
       <dt>وسم AdSense في الصفحة الرئيسية</dt><dd id="publisher-status">لم يُفحص</dd>
+      <dt>رقم الناشر في وسم الفحص أثناء التشغيل</dt><dd id="runtime-publisher-status">لم يُضف الوسم بعد</dd>
+      <dt>أمر الموافقة الافتراضية</dt><dd id="defaults-status">لم يُرسل الأمر بعد</dd>
       <dt>تحميل ملف AdSense في هذا الاختبار</dt><dd id="tag-status">لم يبدأ</dd>
       <dt>جاهزية واجهة رسالة Google</dt><dd id="api-status">لم تصل إشارة الجاهزية</dd>
       <dt>وصول بيانات Consent mode</dt><dd id="mode-status">لم تصل البيانات</dd>
@@ -43,6 +45,7 @@
   </section>
   <section>
     <h2>التقرير القابل للنسخ</h2>
+    <p>غياب وسم AdSense من HTML الأولي لصفحة الفحص مقصود؛ نضيفه عند بدء الفحص فقط. لذلك تعني <code>check.publisherMatches: null</code> أن المقارنة مؤجلة، ويظهر تطابق الوسم الفعلي في <code>runtimeAdSense.publisherMatches</code>.</p>
     <p>بعد الانتظار 30 ثانية، انسخ التقرير وأرسله في المحادثة. إذا ظهرت رسالة Google، يمكنك اختيار تفضيلاتك ثم نسخ التقرير. اختيارك قد يُحفظ ويؤثر في زيارات الموقع التالية.</p>
     <pre id="report" tabindex="0">لم يبدأ الفحص.</pre>
     <p id="copy-status" role="status"></p>
