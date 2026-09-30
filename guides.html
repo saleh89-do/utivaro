@@ -1,117 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guides: Practical How-Tos for Images, Text and Data | Utivaro</title>
   <meta name="description" content="Practical guides that explain image sizes, file formats, calculations and text limits, each linked to a free Utivaro tool.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
   <link rel="canonical" href="https://utivaro.com/guides">
-
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Utivaro">
-  <meta property="og:title" content="Utivaro Guides">
-  <meta property="og:description" content="Practical guides linked to free Utivaro tools.">
-  <meta property="og:url" content="https://utivaro.com/guides">
-  <meta property="og:image" content="https://utivaro.com/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Utivaro Guides">
-  <meta name="twitter:description" content="Practical guides linked to free Utivaro tools.">
-  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
-
-  <!-- ===== ADS & CONSENT =====
-       If your other pages load a shared head snippet (consent defaults + AdSense),
-       replace this block with exactly the same snippet so every page behaves the same. -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied'
-    });
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
-  <!-- ===== END ADS & CONSENT ===== -->
-
-  
-  <style>
-    :root{--blue:#2563eb;--blue-dark:#1d4ed8;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--soft:#f8fafc;--tint:#eff6ff}
-    *{box-sizing:border-box}
-    html{-webkit-text-size-adjust:100%}
-    body{margin:0;background:#fff;color:var(--ink);font:17px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-    a{color:var(--blue)}
-    a:hover{color:var(--blue-dark)}
-    .site-header{border-bottom:1px solid var(--line);background:#fff}
-    .site-header .inner,.site-footer .inner{max-width:1100px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .logo{font-weight:800;letter-spacing:.04em;color:var(--ink);text-decoration:none;font-size:20px}
-    .logo span{color:var(--blue)}
-    .site-nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-size:15px}
-    .site-nav a:first-child{margin-left:0}
-    .site-nav a:hover{color:var(--blue)}
-    main{max-width:760px;margin:0 auto;padding:28px 16px 56px}
-    .breadcrumb{font-size:14px;color:var(--muted);margin:0 0 8px}
-    .breadcrumb a{color:var(--muted)}
-    h1{font-size:clamp(28px,5vw,40px);line-height:1.2;margin:4px 0 10px}
-    h2{font-size:26px;line-height:1.3;margin:44px 0 12px}
-    h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
-    .byline{color:var(--muted);font-size:14px;margin:0 0 24px}
-    .lead{font-size:19px;background:var(--tint);border-left:4px solid var(--blue);padding:16px 18px;border-radius:8px}
-    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:16px 0}
-    table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
-    th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-    th{background:var(--soft);font-weight:700}
-    td[rowspan]{font-weight:600;background:#fcfdff}
-    tbody tr:last-child td{border-bottom:0}
-    .note{font-size:14px;color:var(--muted)}
-    ul{padding-left:22px}
-    li{margin:6px 0}
-    .sources{font-size:14px}
-    .site-footer{border-top:1px solid var(--line);background:var(--soft);font-size:14px;color:var(--muted)}
-    .site-footer a{color:var(--muted);margin-right:16px;text-decoration:none}
-    .site-footer a:hover{color:var(--blue)}
-    .cookie-btn{background:none;border:0;padding:0;color:var(--muted);font:inherit;text-decoration:underline;cursor:pointer}
+  <meta property="og:type" content="website"><meta property="og:title" content="Utivaro Guides"><meta property="og:description" content="Practical guides linked to free Utivaro tools."><meta property="og:url" content="https://utivaro.com/guides"><meta property="og:site_name" content="Utivaro"><meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://utivaro.com/og-image.png"><meta name="theme-color" content="#2563eb">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Utivaro Guides","url":"https://utivaro.com/guides","hasPart":[{"@type":"Article","headline":"Image Sizes for Every Platform: Social Media, Email and Websites","url":"https://utivaro.com/guides/image-sizes-for-every-platform"}]}</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){.guide-wrap{padding:20px 16px 90px}.guide{font-size:16px}.guide h2{font-size:22px}}
   </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
 </head>
-<body>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<section class="guide">
+  <p class="breadcrumb"><a href="/">Home</a> → Guides</p>
+  <h1>Guides</h1>
+  <p class="lead">Practical answers to everyday questions about images, text and data. Each guide explains the idea, works through a real example, and links to the free tool that does the job in your browser.</p>
 
-  <header class="site-header">
-    <div class="inner">
-      <a class="logo" href="https://utivaro.com/">UTIVARO<span>.</span></a>
-      <nav class="site-nav" aria-label="Main">
-        <a href="https://utivaro.com/">Home</a>
-        <a href="https://utivaro.com/#all-tools">Tools</a>
-        <a href="https://utivaro.com/guides">Guides</a>
-      </nav>
-    </div>
-  </header>
+  <h2>🖼️ Image guides</h2>
+  <div class="guide-list">
+    <a class="popular-card" href="/guides/image-sizes-for-every-platform" style="text-decoration:none"><span>📐</span><div><strong>Image Sizes for Every Platform: Social Media, Email and Websites</strong><small>Exact pixel sizes and aspect ratios for every major platform, with a worked example. Tool: Image Resizer</small></div></a>
+  </div>
+</section>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
 
-  <main>
-    <p class="breadcrumb"><a href="https://utivaro.com/">Home</a> → Guides</p>
-    <h1>Guides</h1>
-    <p class="lead">Practical answers to everyday questions about images, text and data. Each guide explains the idea, works through a real example, and links to the free tool that does the job in your browser.</p>
-
-    <h2>Image guides</h2>
-    <ul>
-      <li><a href="https://utivaro.com/guides/image-sizes-for-every-platform"><strong>Image Sizes for Every Platform: Social Media, Email and Websites</strong></a><br>Exact pixel sizes and aspect ratios for every major platform, with a worked example. Tool: <a href="https://utivaro.com/tools/image-resizer">Image Resizer</a></li>
-    </ul>
-  </main>
-
-  <footer class="site-footer">
-    <div class="inner">
-      <div>
-        <a href="https://utivaro.com/about">About</a>
-        <a href="https://utivaro.com/privacy">Privacy</a>
-        <a href="https://utivaro.com/terms">Terms</a>
-        <a href="https://utivaro.com/contact">Contact</a>
-        <button type="button" class="cookie-btn" onclick="(window.googlefc=window.googlefc||{}).callbackQueue=(window.googlefc.callbackQueue||[]);window.googlefc.callbackQueue.push({CONSENT_DATA_READY:function(){window.googlefc.showRevocationMessage();}});">Privacy &amp; cookie settings</button>
-      </div>
-      <div>© <span id="yr">2026</span> Utivaro</div>
-    </div>
-  </footer>
-  <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
 </html>
