@@ -21,4 +21,13 @@
   <url><loc>https://utivaro.com/tools/json-formatter</loc></url>
   <url><loc>https://utivaro.com/tools/password-generator</loc></url>
   <url><loc>https://utivaro.com/tools/random-number-generator</loc></url>
-<url><loc>https://utivaro.com/contact</loc></url></urlset>
+<url><loc>https://utivaro.com/contact</loc></url>
+  <url>
+    <loc>https://utivaro.com/guides</loc>
+    <lastmod>2026-09-29</lastmod>
+  </url>
+  <url>
+    <loc>https://utivaro.com/guides/image-sizes-for-every-platform</loc>
+    <lastmod>2026-09-29</lastmod>
+  </url>
+</urlset>
