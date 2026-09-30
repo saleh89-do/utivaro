@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counting Days Between Dates: Inclusive vs Exclusive | Utivaro</title>
+  <meta name="description" content="Why date counts differ by one, when to include the end date, how to work out deadlines, leap years and business days.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/count-days-between-dates">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="Counting Days Between Dates: Inclusive, Exclusive and Deadlines">
+  <meta property="og:description" content="Why date counts differ by one, when to include the end date, how to work out deadlines, leap years and business days.">
+  <meta property="og:url" content="https://utivaro.com/guides/count-days-between-dates">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Counting Days Between Dates: Inclusive, Exclusive and Deadlines">
+  <meta name="twitter:description" content="Why date counts differ by one, when to include the end date, how to work out deadlines, leap years and business days.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Counting Days Between Dates: Inclusive, Exclusive and Deadlines",
+   "description": "Why date counts differ by one, when to include the end date, how to work out deadlines, leap years and business days.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/count-days-between-dates",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Days between dates",
+     "item": "https://utivaro.com/guides/count-days-between-dates"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Does the calculator include the end date?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. It returns the difference between the dates. Add 1 if you want both the start and end dates counted."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What if I enter the dates the wrong way round?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The calculator still gives the number of days and indicates that the end date is before the start date."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many days are there in a year?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "365 in a common year and 366 in a leap year. Over a long period the average is 365.2425 days."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I count only weekdays?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Count full weeks as 5 weekdays each, add the weekdays in the remaining partial week, then subtract public holidays."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → Days between dates</p>
+  <h1>Counting Days Between Dates: Inclusive, Exclusive and Deadlines</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">The number of days between two dates depends on whether you count both ends. October 1 to October 31 is <strong>30 days apart</strong> but <strong>31 days</strong> if both days count. Countdowns use the first number; stays, courses and leave periods often use the second.</p>
+
+<h2>The question behind every date count</h2>
+<p>
+  "How many days from October 1 to October 31?" has two correct answers: <strong>30</strong> or
+  <strong>31</strong>. The first counts the days <em>between</em> the dates, the way a calendar difference or
+  elapsed time works. The second counts <em>both</em> the first and last day, the way you'd count days of a
+  hotel stay, a festival or a work assignment. Most mistakes with deadlines come from mixing the two.
+</p>
+<p>
+  The <a href="/tools/days-between-dates">Days Between Dates</a> calculator gives the difference: the number of
+  days you'd move forward on a calendar to get from the start date to the end date. It also shows weeks,
+  approximate months and hours.
+</p>
+
+<h2>Exclusive vs inclusive counting</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Start</th><th>End</th><th>Difference (calculator)</th><th>Inclusive (both days counted)</th></tr></thead>
+  <tbody>
+    <tr><td>Oct 1, 2026</td><td>Oct 31, 2026</td><td>30 days</td><td>31 days</td></tr>
+    <tr><td>Jan 1, 2026</td><td>Dec 31, 2026</td><td>364 days</td><td>365 days</td></tr>
+    <tr><td>Sep 30, 2026</td><td>Dec 25, 2026</td><td>86 days</td><td>87 days</td></tr>
+    <tr><td>Feb 1, 2026</td><td>Mar 1, 2026</td><td>28 days</td><td>29 days</td></tr>
+    <tr><td>Feb 1, 2028</td><td>Mar 1, 2028</td><td>29 days (leap year)</td><td>30 days</td></tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Rule:</strong> if both the start day and the end day "count" as days of the period, add 1 to the calculator's result.</p>
+
+<h2>Which one to use</h2>
+<ul>
+  <li><strong>Countdowns and elapsed time</strong> ("how many days until my trip?"): use the difference. On the day before, the answer is 1.</li>
+  <li><strong>Durations where both ends are working or active days</strong> (a project running Monday to Friday, a 7-day course, a leave request): use inclusive counting. Monday to Friday is 4 days apart but 5 days of work.</li>
+  <li><strong>Hotel and rental stays:</strong> count nights, which equals the difference. Check-in October 10, check-out October 13 is 3 nights.</li>
+  <li><strong>Age and anniversaries:</strong> use the difference. See <a href="/guides/calculate-exact-age">How to Calculate Your Exact Age</a>.</li>
+</ul>
+
+<h2>Deadlines: "within 30 days"</h2>
+<p>
+  If a notice dated September 30, 2026 says you must respond within 30 days, adding 30 to the date gives
+  <strong>Friday, October 30, 2026</strong>. Within 90 days gives <strong>Tuesday, December 29, 2026</strong>.
+</p>
+<p>But legal and official deadlines often have their own rules:</p>
+<ul>
+  <li>Whether the day of the notice counts as day 0 or day 1.</li>
+  <li>Whether a deadline that lands on a weekend or public holiday moves to the next working day.</li>
+  <li>Whether "30 days" means calendar days or business days.</li>
+</ul>
+<p>When the stakes are high, read the rule in the document itself, and don't wait for the last day.</p>
+
+<h2>Business days</h2>
+<p>
+  The calculator counts calendar days, including weekends and holidays; it isn't a working-days calculator.
+  To estimate business days, count full weeks as 5 days each and check the remaining days by hand. October 2026
+  has 31 days and <strong>22 weekdays</strong>. Then subtract any public holidays that apply to you, which vary
+  by country and region.
+</p>
+
+<h2>Leap years</h2>
+<p>
+  A year has 366 days if it's divisible by 4, except century years not divisible by 400. So 2028 is a leap year,
+  2100 won't be, and 2000 was. That's why September 30, 2026 to September 30, 2027 is 365 days, but September 30,
+  2027 to September 30, 2028 is 366: the second span includes February 29, 2028.
+</p>
+
+<h2>Why the hours can surprise you</h2>
+<p>
+  The calculator's hours are days × 24. In places that use daylight saving time, the real clock time across a
+  clock change is one hour more or less. For example, a period that includes the last Sunday of October in the
+  EU, October 25, 2026, has one extra hour. For flights, shifts and billing by the hour, count actual clock
+  times rather than days.
+</p>
+
+<h2>Weeks and months</h2>
+<p>
+  Weeks are days ÷ 7, so 86 days is 12.29 weeks, or 12 weeks and 2 days. Months are shown as approximate because
+  months differ in length: 28 days is a whole month from February 1 to March 1, but not from March 1 to March 29.
+  When a contract says "3 months", it normally means the same date three months later, not a fixed number of days.
+</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Does the calculator include the end date?</h3>
+<p>No. It returns the difference between the dates. Add 1 if you want both the start and end dates counted.</p>
+<h3>What if I enter the dates the wrong way round?</h3>
+<p>The calculator still gives the number of days and indicates that the end date is before the start date.</p>
+<h3>How many days are there in a year?</h3>
+<p>365 in a common year and 366 in a leap year. Over a long period the average is 365.2425 days.</p>
+<h3>How do I count only weekdays?</h3>
+<p>Count full weeks as 5 weekdays each, add the weekdays in the remaining partial week, then subtract public holidays.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/days-between-dates">Days Between Dates</a></li>
+    <li><a href="/tools/age-calculator">Age Calculator</a></li>
+    <li><a href="/guides/calculate-exact-age">How to Calculate Your Exact Age in Years, Months and Days</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

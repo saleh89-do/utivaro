@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEX, RGB and HSL Color Codes Explained | Utivaro</title>
+  <meta name="description" content="How HEX, RGB and HSL color codes work, how to convert between them by hand, and which format to use in CSS and design tools.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/hex-rgb-hsl-color-codes">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="HEX, RGB and HSL Color Codes Explained with Examples">
+  <meta property="og:description" content="How HEX, RGB and HSL color codes work, how to convert between them by hand, and which format to use in CSS and design tools.">
+  <meta property="og:url" content="https://utivaro.com/guides/hex-rgb-hsl-color-codes">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HEX, RGB and HSL Color Codes Explained with Examples">
+  <meta name="twitter:description" content="How HEX, RGB and HSL color codes work, how to convert between them by hand, and which format to use in CSS and design tools.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "HEX, RGB and HSL Color Codes Explained with Examples",
+   "description": "How HEX, RGB and HSL color codes work, how to convert between them by hand, and which format to use in CSS and design tools.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/hex-rgb-hsl-color-codes",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "HEX, RGB and HSL",
+     "item": "https://utivaro.com/guides/hex-rgb-hsl-color-codes"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Are HEX codes case-sensitive?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. #2563eb and #2563EB are the same color."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does the same HEX color look different on two screens?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Screens differ in calibration, brightness and color gamut. The code is identical; the display is not. Printed colors can differ even more."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does RGBA mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "RGB plus an alpha channel for opacity, from 0 (transparent) to 1 (opaque). Modern CSS also accepts the alpha inside rgb()."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I convert HEX to Pantone?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only approximately. Pantone is a physical ink system, and many screen colors have no exact ink match."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → HEX, RGB and HSL</p>
+  <h1>HEX, RGB and HSL Color Codes Explained with Examples</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">HEX, RGB and HSL are three ways to write the same color. RGB gives amounts of red, green and blue from 0 to 255, HEX writes those same numbers in base 16, and HSL describes hue, saturation and lightness, which makes it easiest to create lighter and darker shades.</p>
+
+<h2>Three ways to write the same color</h2>
+<p>
+  HEX, RGB and HSL are different notations for the same thing. The blue used in Utivaro's buttons can be
+  written as <code>#2563EB</code>, <code>rgb(37, 99, 235)</code> or <code>hsl(221, 83%, 53%)</code>, and a browser
+  draws exactly the same color from all three. Which one to use depends on what you're doing with it.
+</p>
+
+<h2>RGB: the amounts of red, green and blue</h2>
+<p>
+  Screens make every color by mixing red, green and blue light. RGB gives each channel a value from 0 (off)
+  to 255 (full). <code>rgb(255, 0, 0)</code> is pure red, <code>rgb(0, 0, 0)</code> is black and
+  <code>rgb(255, 255, 255)</code> is white. Equal values on all three channels give a gray.
+</p>
+<p>That makes 256 × 256 × 256 = 16,777,216 possible colors in the standard 8-bit range.</p>
+
+<h2>HEX: RGB in a compact form</h2>
+<p>
+  A HEX code is the same three numbers written in base 16, two digits each: <code>#RRGGBB</code>. Base 16 uses
+  the digits 0–9 and letters A–F, so each pair runs from 00 (0) to FF (255).
+</p>
+<p>To read <code>#2563EB</code>:</p>
+<ul>
+  <li><strong>25</strong> = 2 × 16 + 5 = <strong>37</strong> red</li>
+  <li><strong>63</strong> = 6 × 16 + 3 = <strong>99</strong> green</li>
+  <li><strong>EB</strong> = 14 × 16 + 11 = <strong>235</strong> blue</li>
+</ul>
+<p>
+  So <code>#2563EB</code> = <code>rgb(37, 99, 235)</code>. HEX codes are case-insensitive, and a three-digit short
+  form doubles each digit: <code>#F60</code> means <code>#FF6600</code>. An eight-digit form adds transparency:
+  <code>#2563EB80</code> is the same blue at about 50% opacity.
+</p>
+
+<h2>HSL: hue, saturation and lightness</h2>
+<p>HSL describes a color the way people think about it:</p>
+<ul>
+  <li><strong>Hue</strong> (0–360°) is the position on the color wheel: 0 red, 120 green, 240 blue.</li>
+  <li><strong>Saturation</strong> (0–100%) is how vivid it is: 0% is gray, 100% is fully colored.</li>
+  <li><strong>Lightness</strong> (0–100%) runs from black (0%) through the pure color (50%) to white (100%).</li>
+</ul>
+<p>
+  HSL is the easiest format for making variations. Keep the hue and saturation, change the lightness, and you
+  get a matching lighter or darker shade: <code>hsl(221, 83%, 53%)</code> for a button,
+  <code>hsl(221, 83%, 43%)</code> for its hover state, <code>hsl(221, 83%, 95%)</code> for a pale background.
+</p>
+
+<h2>The same colors in all three formats</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Color</th><th>HEX</th><th>RGB</th><th>HSL</th></tr></thead>
+  <tbody>
+    <tr><td>Black</td><td>#000000</td><td>rgb(0, 0, 0)</td><td>hsl(0, 0%, 0%)</td></tr>
+    <tr><td>White</td><td>#FFFFFF</td><td>rgb(255, 255, 255)</td><td>hsl(0, 0%, 100%)</td></tr>
+    <tr><td>Middle gray</td><td>#808080</td><td>rgb(128, 128, 128)</td><td>hsl(0, 0%, 50%)</td></tr>
+    <tr><td>Pure red</td><td>#FF0000</td><td>rgb(255, 0, 0)</td><td>hsl(0, 100%, 50%)</td></tr>
+    <tr><td>Utivaro blue</td><td>#2563EB</td><td>rgb(37, 99, 235)</td><td>hsl(221, 83%, 53%)</td></tr>
+    <tr><td>Dark navy</td><td>#0F172A</td><td>rgb(15, 23, 42)</td><td>hsl(222, 47%, 11%)</td></tr>
+    <tr><td>Green</td><td>#16A34A</td><td>rgb(22, 163, 74)</td><td>hsl(142, 76%, 36%)</td></tr>
+    <tr><td>Amber</td><td>#F59E0B</td><td>rgb(245, 158, 11)</td><td>hsl(38, 92%, 50%)</td></tr>
+    <tr><td>Slate gray</td><td>#64748B</td><td>rgb(100, 116, 139)</td><td>hsl(215, 16%, 47%)</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">HSL values are rounded to whole numbers, so converting them back can shift a HEX code by one step.</p>
+
+<h2>Which format to use</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Task</th><th>Use</th></tr></thead>
+  <tbody>
+    <tr><td>Copying a brand color into a design tool or CSS</td><td>HEX: short and universal</td></tr>
+    <tr><td>Adding transparency in CSS</td><td>RGB with alpha: <code>rgb(37 99 235 / 50%)</code>, or 8-digit HEX</td></tr>
+    <tr><td>Building lighter and darker shades</td><td>HSL: change only the lightness</td></tr>
+    <tr><td>Working with code that manipulates channels</td><td>RGB</td></tr>
+    <tr><td>Print design</td><td>None of these; print uses CMYK, so ask your printer</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Getting a color's code</h2>
+<ol>
+  <li>Open the <a href="/tools/color-picker">Color Picker</a>.</li>
+  <li>Pick a color visually, type a HEX value, or upload a JPG, PNG, WebP or GIF and tap any pixel to sample it.</li>
+  <li>Copy the HEX, RGB or HSL value you need.</li>
+</ol>
+<p>
+  When sampling from a photo, tap several nearby pixels. Photos contain noise and shading, so neighboring
+  pixels often differ slightly; a logo on a flat background gives a more reliable single value.
+</p>
+
+<h2>Picking readable color pairs</h2>
+<p>
+  Converting colors doesn't tell you whether text will be readable on them. Blue <code>#2563EB</code> with white
+  text passes accessibility guidelines; amber <code>#F59E0B</code> with white text doesn't. See
+  <a href="/guides/color-contrast-accessibility">Accessible Text Colors: Contrast Ratios Explained</a>.
+</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Are HEX codes case-sensitive?</h3>
+<p>No. #2563eb and #2563EB are the same color.</p>
+<h3>Why does the same HEX color look different on two screens?</h3>
+<p>Screens differ in calibration, brightness and color gamut. The code is identical; the display is not. Printed colors can differ even more.</p>
+<h3>What does RGBA mean?</h3>
+<p>RGB plus an alpha channel for opacity, from 0 (transparent) to 1 (opaque). Modern CSS also accepts the alpha inside rgb().</p>
+<h3>Can I convert HEX to Pantone?</h3>
+<p>Only approximately. Pantone is a physical ink system, and many screen colors have no exact ink match.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/color-picker">Color Picker</a></li>
+    <li><a href="/guides/color-contrast-accessibility">Accessible Text Colors: Contrast Ratios Explained</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

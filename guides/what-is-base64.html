@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Is Base64? Uses, Size and Why It's Not Encryption | Utivaro</title>
+  <meta name="description" content="How Base64 encoding works step by step, why it makes data about 33% larger, where it&#x27;s used, and why it provides no security.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/what-is-base64">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="What Is Base64? Uses, Size Overhead and Why It Isn&#x27;t Encryption">
+  <meta property="og:description" content="How Base64 encoding works step by step, why it makes data about 33% larger, where it&#x27;s used, and why it provides no security.">
+  <meta property="og:url" content="https://utivaro.com/guides/what-is-base64">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is Base64? Uses, Size Overhead and Why It Isn&#x27;t Encryption">
+  <meta name="twitter:description" content="How Base64 encoding works step by step, why it makes data about 33% larger, where it&#x27;s used, and why it provides no security.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "What Is Base64? Uses, Size Overhead and Why It Isn't Encryption",
+   "description": "How Base64 encoding works step by step, why it makes data about 33% larger, where it's used, and why it provides no security.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/what-is-base64",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "What is Base64",
+     "item": "https://utivaro.com/guides/what-is-base64"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Why does Base64 end with = or ==?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Padding. One = means the last group had 2 bytes of input; == means it had 1. Some systems omit padding."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can Base64 be decoded without a key?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. There is no key. Anyone can decode Base64, so it offers no protection."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my decoded text garbled?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The text was probably encoded in a different character set than UTF-8, or the string is Base64URL rather than standard Base64."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the Utivaro tool send my data anywhere?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Encoding and decoding run in your browser."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → What is Base64</p>
+  <h1>What Is Base64? Uses, Size Overhead and Why It Isn't Encryption</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">Base64 turns any data into 64 safe text characters so it can travel through email, JSON and URLs. Every 3 bytes become 4 characters, so the result is about <strong>33% larger</strong>. It has no key: anyone can decode it, so it is never a way to protect data.</p>
+
+<h2>What Base64 is</h2>
+<p>
+  Base64 is a way to write any data, including text, images or files, using only 64 safe characters:
+  <code>A–Z</code>, <code>a–z</code>, <code>0–9</code>, <code>+</code> and <code>/</code>, with <code>=</code> for padding.
+  It exists because many systems were built to carry text, not raw bytes. Email, JSON, URLs, HTML attributes and
+  configuration files can all break on binary data or unusual characters. Base64 turns that data into plain
+  characters that travel safely, and the receiver decodes it back to the exact original bytes.
+</p>
+
+<h2>How it works</h2>
+<p>
+  Base64 takes the input 3 bytes (24 bits) at a time and splits them into four 6-bit groups. Each 6-bit group is a
+  number from 0 to 63, which maps to one character. So every 3 bytes of input become 4 characters of output.
+</p>
+<p>Encoding the word <strong>Hi!</strong>:</p>
+<ol>
+  <li>Bytes: H = 72, i = 105, ! = 33.</li>
+  <li>In binary: 01001000 01101001 00100001.</li>
+  <li>Regrouped into 6 bits: 010010 000110 100100 100001 = 18, 6, 36, 33.</li>
+  <li>Looked up in the alphabet: 18 = S, 6 = G, 36 = k, 33 = h.</li>
+</ol>
+<p>Result: <code>SGkh</code>.</p>
+<p>
+  When the input isn't a multiple of 3 bytes, the output is padded with <code>=</code>. "Hi" (2 bytes) becomes
+  <code>SGk=</code>; "Hello" (5 bytes) becomes <code>SGVsbG8=</code>.
+</p>
+
+<h2>Examples</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Text</th><th>UTF-8 bytes</th><th>Base64</th><th>Characters</th></tr></thead>
+  <tbody>
+    <tr><td>Hi</td><td>2</td><td><code>SGk=</code></td><td>4</td></tr>
+    <tr><td>Hi!</td><td>3</td><td><code>SGkh</code></td><td>4</td></tr>
+    <tr><td>Hello</td><td>5</td><td><code>SGVsbG8=</code></td><td>8</td></tr>
+    <tr><td>Hello, world!</td><td>13</td><td><code>SGVsbG8sIHdvcmxkIQ==</code></td><td>20</td></tr>
+    <tr><td>café</td><td>5</td><td><code>Y2Fmw6k=</code></td><td>8</td></tr>
+    <tr><td>مرحبا</td><td>10</td><td><code>2YXYsdit2KjYpw==</code></td><td>16</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Notice that "café" is 4 letters but 5 bytes, because é takes 2 bytes in UTF-8, and the Arabic word takes 10
+  bytes for 5 letters. Base64 encodes bytes, so the text is first converted to UTF-8. The
+  <a href="/tools/base64">Base64 Encoder / Decoder</a> does this automatically, which is why it handles non-English
+  text correctly; some older tools produce garbled output for anything beyond basic English.
+</p>
+
+<h2>The size cost: about 33%</h2>
+<p>Because 3 bytes become 4 characters, Base64 output is always about 4/3 the size of the input:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Original</th><th>Base64 length</th><th>Increase</th></tr></thead>
+  <tbody>
+    <tr><td>1 KB (1,024 bytes)</td><td>1,368 characters</td><td>+33.6%</td></tr>
+    <tr><td>100 KB</td><td>136,536 characters</td><td>+33.3%</td></tr>
+    <tr><td>1 MB</td><td>1,398,104 characters</td><td>+33.3%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Email attachments add a little more: MIME wraps Base64 into lines of 76 characters, and the line breaks bring
+  the total to about 37% larger than the file. That's why a 10 MB attachment can hit a 13–14 MB email limit.
+</p>
+<p>
+  The formula: output length = 4 × ⌈input bytes ÷ 3⌉, where ⌈ ⌉ means round up.
+</p>
+
+<h2>Where you'll meet Base64</h2>
+<ul>
+  <li><strong>Email attachments</strong>, encoded automatically by your mail program.</li>
+  <li><strong>Data URLs</strong> in HTML and CSS, such as <code>data:image/png;base64,iVBOR...</code>, which embed a small image directly in the page.</li>
+  <li><strong>APIs</strong> that send files or images inside JSON.</li>
+  <li><strong>HTTP Basic authentication</strong>, which sends <code>username:password</code> in Base64.</li>
+  <li><strong>JSON Web Tokens (JWTs)</strong>, which use a URL-safe variant called Base64URL.</li>
+  <li><strong>Configuration files and keys</strong>, such as certificates in PEM format.</li>
+</ul>
+
+<h2>Base64 is not encryption</h2>
+<p>
+  This is the most important point. Base64 has no key and no secret; anyone can decode it instantly. Seeing
+  <code>dXNlcjpwYXNzd29yZA==</code> in a header or config file is the same as seeing <code>user:password</code> in
+  plain text. That's why HTTP Basic authentication must only be used over HTTPS, and why passwords, API keys and
+  personal data should never be "hidden" with Base64. Use real encryption, or keep secrets out of the data entirely.
+</p>
+
+<h2>When to use Base64, and when not to</h2>
+<ul>
+  <li><strong>Use it</strong> to put small binary data, like icons or short files, into text formats such as JSON, XML or HTML.</li>
+  <li><strong>Avoid it</strong> for large images on websites. A Base64 image is a third larger and can't be cached separately from the page. Serve a normal image file instead, ideally in WebP.</li>
+  <li><strong>Avoid it</strong> as security, obfuscation or compression. It makes data bigger, not smaller.</li>
+</ul>
+
+<h2>Base64 vs Base64URL</h2>
+<p>
+  Standard Base64 uses <code>+</code> and <code>/</code>, which have special meanings in URLs. Base64URL replaces them
+  with <code>-</code> and <code>_</code> and usually drops the <code>=</code> padding. JWTs and many web APIs use
+  Base64URL. The Utivaro tool uses standard Base64; to decode Base64URL, swap <code>-</code> back to <code>+</code>
+  and <code>_</code> to <code>/</code>, and add <code>=</code> until the length is a multiple of 4.
+</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Why does Base64 end with = or ==?</h3>
+<p>Padding. One = means the last group had 2 bytes of input; == means it had 1. Some systems omit padding.</p>
+<h3>Can Base64 be decoded without a key?</h3>
+<p>Yes. There is no key. Anyone can decode Base64, so it offers no protection.</p>
+<h3>Why is my decoded text garbled?</h3>
+<p>The text was probably encoded in a different character set than UTF-8, or the string is Base64URL rather than standard Base64.</p>
+<h3>Does the Utivaro tool send my data anywhere?</h3>
+<p>No. Encoding and decoding run in your browser.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/base64">Base64 Encoder / Decoder</a></li>
+    <li><a href="/tools/json-formatter">JSON Formatter</a></li>
+    <li><a href="/guides/common-json-errors">Common JSON Errors and How to Fix Them</a></li>
+    <li><a href="/guides/uuid-versions-explained">UUID Versions Explained: What They Are and When to Use Each</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

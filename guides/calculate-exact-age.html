@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Calculate Your Exact Age (Years, Months, Days) | Utivaro</title>
+  <meta name="description" content="How to calculate age in years, months and days by hand, including month-end and February 29 birthdays, with worked examples.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/calculate-exact-age">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="How to Calculate Your Exact Age in Years, Months and Days">
+  <meta property="og:description" content="How to calculate age in years, months and days by hand, including month-end and February 29 birthdays, with worked examples.">
+  <meta property="og:url" content="https://utivaro.com/guides/calculate-exact-age">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Calculate Your Exact Age in Years, Months and Days">
+  <meta name="twitter:description" content="How to calculate age in years, months and days by hand, including month-end and February 29 birthdays, with worked examples.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "How to Calculate Your Exact Age in Years, Months and Days",
+   "description": "How to calculate age in years, months and days by hand, including month-end and February 29 birthdays, with worked examples.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/calculate-exact-age",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Calculate exact age",
+     "item": "https://utivaro.com/guides/calculate-exact-age"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate my exact age?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Count the birthdays that have passed, then the monthly anniversaries since the last birthday, then the days since the last anniversary. The Age Calculator does all three at once."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "When does someone born on February 29 turn a year older?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Age Calculator uses February 28 in non-leap years. Some legal systems use March 1, so check local rules for official purposes."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my age in months called approximate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Months have different lengths, so converting days to months can't be exact. Years, months and days, or total days, are exact."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does the calculator store my birth date?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The calculation runs in your browser."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → Calculate exact age</p>
+  <h1>How to Calculate Your Exact Age in Years, Months and Days</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">Count the birthdays that have passed, then the monthly anniversaries since the last birthday, then the remaining days. The tricky cases are birthdays on the 29th, 30th or 31st and on February 29, where calculators can differ by a day.</p>
+
+<h2>Why age is harder to calculate than it looks</h2>
+<p>
+  Counting whole years is easy: subtract the birth year, then subtract one more if this year's birthday hasn't
+  happened yet. The difficulty is the months and days, because months have 28, 29, 30 or 31 days. "One month
+  after January 31" has no obvious answer, and people born on February 29 have a birthday only every four years.
+</p>
+<p>
+  The <a href="/tools/age-calculator">Age Calculator</a> handles these cases and also gives your age in total
+  months, weeks and days, plus your next birthday. Here's how the calculation works so you can check it by hand.
+</p>
+
+<h2>The method, step by step</h2>
+<ol>
+  <li><strong>Years:</strong> count how many birthdays have passed.</li>
+  <li><strong>Months:</strong> from the last birthday, count how many monthly anniversaries have passed. An anniversary on a day the month doesn't have (the 31st in April, say) falls on that month's last day.</li>
+  <li><strong>Days:</strong> count the days from the last monthly anniversary to today.</li>
+</ol>
+
+<h3>Worked example: an ordinary birthday</h3>
+<p>Born August 15, 1995; today is September 30, 2026.</p>
+<ul>
+  <li>Birthdays passed: 1996 to 2026 = <strong>31 years</strong> (August 15, 2026 has passed).</li>
+  <li>Monthly anniversary: September 15, 2026 = <strong>1 month</strong>.</li>
+  <li>September 15 to September 30 = <strong>15 days</strong>.</li>
+</ul>
+<p>Age: <strong>31 years, 1 month, 15 days</strong>, or 11,369 days in total.</p>
+
+<h3>Worked example: the day before a birthday</h3>
+<p>
+  Born May 20, 2008; today is May 19, 2026. The 18th birthday is tomorrow, so the age is
+  <strong>17 years, 11 months, 29 days</strong>. This matters for anything with an age limit: a person is not
+  18 until the birthday itself.
+</p>
+
+<h2>Month-end birthdays</h2>
+<p>Take someone born January 31, 1990:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Date</th><th>Age</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>February 28, 2026</td><td>36 years, 1 month, 0 days</td><td>February has no 31st, so the monthly anniversary is February 28</td></tr>
+    <tr><td>March 1, 2026</td><td>36 years, 1 month, 1 day</td><td>One day after that anniversary</td></tr>
+    <tr><td>March 30, 2026</td><td>36 years, 1 month, 30 days</td><td>The next anniversary is March 31</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Different calculators may disagree by a day or two in these cases, because there's no single agreed rule
+  for "one month after the 31st". Totals in days are never ambiguous: if a result has to be exact, for example
+  in a contract or an official form, use the total number of days.
+</p>
+
+<h2>Leap-day birthdays (February 29)</h2>
+<p>
+  In years without a February 29, the Age Calculator treats <strong>February 28</strong> as the birthday.
+  Someone born February 29, 2000 is therefore 26 on February 28, 2026.
+</p>
+<p>
+  Not every system agrees. Some treat March 1 as the birthday in non-leap years, and legal rules differ by
+  country. For a legal age threshold, such as a driving licence, voting or a contract, check the rule that
+  applies where you live.
+</p>
+
+<h2>Age in total days, weeks and months</h2>
+<p>
+  Total days are simply the number of days between the two dates. Weeks are days ÷ 7. Total months are
+  approximate, because months differ in length; that's why the calculator labels them that way. Some uses
+  for these totals:
+</p>
+<ul>
+  <li><strong>Babies:</strong> doctors track age in weeks and months during the first two years.</li>
+  <li><strong>Milestones:</strong> a 10,000-day birthday falls at about 27 years and 4 months.</li>
+  <li><strong>Eligibility rules</strong> that count days, such as some visa and insurance terms.</li>
+</ul>
+
+<h2>Checking an age on a specific date</h2>
+<p>
+  The Age Calculator lets you change the calculation date. Use it to answer questions like "How old will I be
+  on the application deadline?" or "How old was my grandmother when my mother was born?" Enter the birth date,
+  set the calculation date, and read the result.
+</p>
+
+<h2>Common mistakes</h2>
+<ul>
+  <li><strong>Subtracting years only.</strong> 2026 − 2008 = 18, but a person born in December 2008 is still 17 in September 2026.</li>
+  <li><strong>Counting months as 30 days.</strong> Over a year, this drifts by five or six days.</li>
+  <li><strong>Ignoring time zones.</strong> Someone born just after midnight in one country may be recorded with the previous day's date elsewhere. The date on the birth certificate is the one that counts.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I calculate my exact age?</h3>
+<p>Count the birthdays that have passed, then the monthly anniversaries since the last birthday, then the days since the last anniversary. The Age Calculator does all three at once.</p>
+<h3>When does someone born on February 29 turn a year older?</h3>
+<p>The Age Calculator uses February 28 in non-leap years. Some legal systems use March 1, so check local rules for official purposes.</p>
+<h3>Why is my age in months called approximate?</h3>
+<p>Months have different lengths, so converting days to months can't be exact. Years, months and days, or total days, are exact.</p>
+<h3>Does the calculator store my birth date?</h3>
+<p>No. The calculation runs in your browser.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/age-calculator">Age Calculator</a></li>
+    <li><a href="/tools/days-between-dates">Days Between Dates</a></li>
+    <li><a href="/guides/count-days-between-dates">Counting Days Between Dates: Inclusive, Exclusive and Deadlines</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

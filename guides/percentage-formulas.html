@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Formulas: Increase, Discounts, VAT | Utivaro</title>
+  <meta name="description" content="The three percentage formulas with worked examples, plus the traps: stacked discounts, removing VAT, and percent vs percentage points.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/percentage-formulas">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="Percentage Formulas: Increase, Decrease, Discounts and Percentage Points">
+  <meta property="og:description" content="The three percentage formulas with worked examples, plus the traps: stacked discounts, removing VAT, and percent vs percentage points.">
+  <meta property="og:url" content="https://utivaro.com/guides/percentage-formulas">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Percentage Formulas: Increase, Decrease, Discounts and Percentage Points">
+  <meta name="twitter:description" content="The three percentage formulas with worked examples, plus the traps: stacked discounts, removing VAT, and percent vs percentage points.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Percentage Formulas: Increase, Decrease, Discounts and Percentage Points",
+   "description": "The three percentage formulas with worked examples, plus the traps: stacked discounts, removing VAT, and percent vs percentage points.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/percentage-formulas",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Percentage formulas",
+     "item": "https://utivaro.com/guides/percentage-formulas"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I calculate a percentage increase?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Subtract the old value from the new one, divide by the old value, and multiply by 100. From 80 to 100: 20 ÷ 80 × 100 = 25%."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can a percentage be more than 100%?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. A value that goes from 50 to 150 has increased by 200%. A share of a whole, like marks on a test, can't exceed 100%."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I find the original price before a discount?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Divide the sale price by the remaining fraction. If 60 is the price after 25% off, the original was 60 ÷ 0.75 = 80."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my percentage change negative?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A negative result means the value went down. −20% is a 20% decrease."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → Percentage formulas</p>
+  <h1>Percentage Formulas: Increase, Decrease, Discounts and Percentage Points</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">Almost every percentage problem is one of three questions: what is X% of Y, what percent is X of Y, and how much did something change. Each has one formula. The mistakes come from stacked discounts, removing tax, and confusing percent with percentage points.</p>
+
+<h2>The three questions every percentage problem asks</h2>
+<p>
+  "Percent" means "per hundred", so 15% is 15 ÷ 100 = 0.15. Almost every percentage problem is one of three
+  questions, and each has one formula. These are the three modes in the
+  <a href="/tools/percentage-calculator">Percentage Calculator</a>.
+</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Question</th><th>Formula</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>What is X% of Y?</td><td>X ÷ 100 × Y</td><td>15% of 240 = 0.15 × 240 = <strong>36</strong></td></tr>
+    <tr><td>X is what percent of Y?</td><td>X ÷ Y × 100</td><td>30 of 120 = 30 ÷ 120 × 100 = <strong>25%</strong></td></tr>
+    <tr><td>Percentage change from old to new</td><td>(new − old) ÷ old × 100</td><td>80 → 100 = 20 ÷ 80 × 100 = <strong>+25%</strong></td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  A fourth question is the first one backwards: "45 is 15% of what?" Divide the part by the percentage as a
+  decimal: 45 ÷ 0.15 = <strong>300</strong>.
+</p>
+
+<h2>Increase and decrease aren't mirror images</h2>
+<p>
+  The base of a percentage change is always the <em>starting</em> value. That's why going up and coming back
+  down use different percentages:
+</p>
+<ul>
+  <li>80 → 100 is an increase of 20 ÷ 80 = <strong>25%</strong>.</li>
+  <li>100 → 80 is a decrease of 20 ÷ 100 = <strong>20%</strong>.</li>
+</ul>
+<p>
+  The same trap catches investors and shoppers: a price that rises 50% and then falls 50% does not return
+  to where it started. 100 × 1.5 = 150, then 150 × 0.5 = <strong>75</strong>, a net loss of 25%.
+</p>
+
+<h2>Stacked discounts don't add up</h2>
+<p>
+  "20% off, plus an extra 10% at checkout" is not 30% off. The second discount applies to the already-reduced price:
+</p>
+<ol>
+  <li>100 × 0.80 = 80 after the first discount.</li>
+  <li>80 × 0.90 = 72 after the second.</li>
+</ol>
+<p>
+  You pay <strong>72</strong>, a total discount of <strong>28%</strong>. The shortcut: multiply the "remaining"
+  fractions (0.80 × 0.90 = 0.72) and subtract from 1.
+</p>
+
+<h2>Removing tax or VAT from a price</h2>
+<p>
+  If a price of 115 includes 15% VAT, the pre-tax price is <strong>115 ÷ 1.15 = 100</strong>, and the tax is 15.
+  A common mistake is to take 15% off the total instead: 115 × 0.85 = 97.75, which is wrong by 2.25. The tax
+  was 15% of the pre-tax price, not of the total, so you divide rather than subtract.
+</p>
+<p>Adding tax is the easy direction: 100 × 1.15 = 115.</p>
+
+<h2>Percent vs percentage points</h2>
+<p>
+  When a rate moves from 4% to 5%, it has risen by <strong>1 percentage point</strong> but by
+  <strong>25 percent</strong> (1 ÷ 4 × 100). News reports, loan offers and exam statistics often mix the two up.
+  Use "percentage points" for the difference between two percentages, and "percent" for relative change.
+</p>
+
+<h2>Quick mental shortcuts</h2>
+<ul>
+  <li><strong>10%:</strong> move the decimal point one place left. 10% of 86 = 8.6.</li>
+  <li><strong>5%:</strong> half of 10%. 5% of 86 = 4.3.</li>
+  <li><strong>15%:</strong> 10% plus 5%. 15% of 86 = 12.9.</li>
+  <li><strong>1%:</strong> move the decimal point two places. 1% of 86 = 0.86.</li>
+  <li><strong>Swap trick:</strong> X% of Y equals Y% of X. 8% of 50 is the same as 50% of 8, which is 4.</li>
+</ul>
+
+<h2>Everyday examples</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Situation</th><th>Calculation</th><th>Answer</th></tr></thead>
+  <tbody>
+    <tr><td>Exam: 42 of 60 correct</td><td>42 ÷ 60 × 100</td><td>70%</td></tr>
+    <tr><td>Salary 3,000 → 3,240</td><td>240 ÷ 3,000 × 100</td><td>+8%</td></tr>
+    <tr><td>Phone 899 with 12% off</td><td>899 × 0.88</td><td>791.12</td></tr>
+    <tr><td>Savings goal: 1,350 of 5,000</td><td>1,350 ÷ 5,000 × 100</td><td>27%</td></tr>
+    <tr><td>Bill 64 plus 18% tip</td><td>64 × 1.18</td><td>75.52</td></tr>
+  </tbody>
+</table>
+</div>
+<p>For tips and bill splitting, see <a href="/guides/how-much-to-tip">How Much to Tip and How to Split a Bill Fairly</a>.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+  <li><strong>Using the wrong base.</strong> "Sales fell from 500 to 400": the base is 500, so it's a 20% fall, not 25%.</li>
+  <li><strong>Averaging percentages.</strong> 50% of 10 people and 100% of 2 people is not a 75% average; it's 7 of 12, or 58%.</li>
+  <li><strong>Rounding too early.</strong> Keep full precision until the last step, especially with money.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>How do I calculate a percentage increase?</h3>
+<p>Subtract the old value from the new one, divide by the old value, and multiply by 100. From 80 to 100: 20 ÷ 80 × 100 = 25%.</p>
+<h3>Can a percentage be more than 100%?</h3>
+<p>Yes. A value that goes from 50 to 150 has increased by 200%. A share of a whole, like marks on a test, can't exceed 100%.</p>
+<h3>How do I find the original price before a discount?</h3>
+<p>Divide the sale price by the remaining fraction. If 60 is the price after 25% off, the original was 60 ÷ 0.75 = 80.</p>
+<h3>Why is my percentage change negative?</h3>
+<p>A negative result means the value went down. −20% is a 20% decrease.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/percentage-calculator">Percentage Calculator</a></li>
+    <li><a href="/guides/how-much-to-tip">How Much to Tip and How to Split a Bill Fairly</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common JSON Errors and How to Fix Them | Utivaro</title>
+  <meta name="description" content="Real JSON.parse error messages for trailing commas, quotes, comments and more, what &quot;at position N&quot; means, and how to fix each one.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/common-json-errors">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="Common JSON Errors and How to Fix Them">
+  <meta property="og:description" content="Real JSON.parse error messages for trailing commas, quotes, comments and more, what &quot;at position N&quot; means, and how to fix each one.">
+  <meta property="og:url" content="https://utivaro.com/guides/common-json-errors">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Common JSON Errors and How to Fix Them">
+  <meta name="twitter:description" content="Real JSON.parse error messages for trailing commas, quotes, comments and more, what &quot;at position N&quot; means, and how to fix each one.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Common JSON Errors and How to Fix Them",
+   "description": "Real JSON.parse error messages for trailing commas, quotes, comments and more, what \"at position N\" means, and how to fix each one.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/common-json-errors",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "JSON errors",
+     "item": "https://utivaro.com/guides/common-json-errors"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Can JSON have comments?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Standard JSON has no comments. Some config formats such as JSONC or JSON5 allow them, but a normal JSON parser will reject them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is a trailing comma allowed in JSON?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. JavaScript accepts trailing commas in objects and arrays, but JSON does not."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does my JSON work in JavaScript but fail in JSON.parse?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "JavaScript object syntax is more relaxed: it allows single quotes, unquoted keys, comments and trailing commas. JSON allows none of them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does \"Unexpected end of JSON input\" mean?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The text ended before the JSON was complete, or was empty. Often an API returned an empty response."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → JSON errors</p>
+  <h1>Common JSON Errors and How to Fix Them</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">Most JSON errors come from trailing commas, single quotes, unquoted keys, comments or missing brackets. Below are the exact messages Chrome and Node.js show for each, what they mean, and how to fix them. Paste your data into the <a href="/tools/json-formatter">JSON Formatter</a> to validate it.</p>
+
+<h2>Why JSON is so strict</h2>
+<p>
+  JSON looks like JavaScript, but its rules are much tighter: keys must be in double quotes, strings must use
+  double quotes, and there are no comments or trailing commas. One misplaced character makes the whole document
+  invalid, and the error message often points somewhere unexpected. This guide lists the errors you'll see most,
+  with the exact message and the fix.
+</p>
+<p>
+  The messages below are what <code>JSON.parse</code> reports in Chrome, Edge and Node.js (the V8 engine). Firefox,
+  Safari and other languages word them differently, but the causes are the same.
+</p>
+
+<h2>The errors, with real messages</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Problem</th><th>Invalid JSON</th><th>Error message</th></tr></thead>
+  <tbody>
+    <tr><td>Trailing comma</td><td><code>{"name": "Ana", "age": 30,}</code></td><td>Expected double-quoted property name in JSON at position 26</td></tr>
+    <tr><td>Single quotes</td><td><code>{'name': 'Ana'}</code></td><td>Expected property name or '}' in JSON at position 1</td></tr>
+    <tr><td>Unquoted key</td><td><code>{name: "Ana"}</code></td><td>Expected property name or '}' in JSON at position 1</td></tr>
+    <tr><td>Missing comma</td><td><code>{"name": "Ana" "age": 30}</code></td><td>Expected ',' or '}' after property value in JSON at position 15</td></tr>
+    <tr><td>Comment</td><td><code>{"name": "Ana" // user}</code></td><td>Expected ',' or '}' after property value in JSON at position 15</td></tr>
+    <tr><td>Unclosed brace</td><td><code>{"name": "Ana"</code></td><td>Expected ',' or '}' after property value in JSON at position 14</td></tr>
+    <tr><td>NaN or undefined</td><td><code>{"score": NaN}</code></td><td>Unexpected token 'N', "{"score": NaN}" is not valid JSON</td></tr>
+    <tr><td>Leading zero</td><td><code>{"id": 007}</code></td><td>Unexpected number in JSON at position 8</td></tr>
+    <tr><td>Line break inside a string</td><td>a string with a real line break</td><td>Bad control character in string literal in JSON at position 15</td></tr>
+    <tr><td>Two root values</td><td><code>{"a":1}{"b":2}</code></td><td>Unexpected non-whitespace character after JSON at position 7</td></tr>
+    <tr><td>Empty input</td><td>(nothing)</td><td>Unexpected end of JSON input</td></tr>
+    <tr><td>Smart quotes</td><td><code>{“name”: “Ana”}</code></td><td>Expected property name or '}' in JSON at position 1</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">Newer V8 versions also add the line and column, for example "(line 1 column 27)".</p>
+
+<h2>How to read "at position N"</h2>
+<p>
+  Position counts characters from zero, starting at the very first character of the input. Position 26 in
+  <code>{"name": "Ana", "age": 30,}</code> is the closing <code>}</code>: the parser saw the comma, expected another
+  key, and found the end of the object instead. So the character at the reported position is often <em>after</em>
+  the real mistake. Look just before it.
+</p>
+
+<h2>Fixes for each error</h2>
+<ul>
+  <li><strong>Trailing comma:</strong> delete the comma after the last item in an object or array.</li>
+  <li><strong>Single quotes or unquoted keys:</strong> put every key and every string in double quotes. <code>{"name": "Ana"}</code></li>
+  <li><strong>Missing comma:</strong> add a comma between items. Missing commas usually happen when lines are copied from different places.</li>
+  <li><strong>Comments:</strong> remove them. JSON has no comment syntax. If you need notes, add a regular field such as <code>"_note": "..."</code>.</li>
+  <li><strong>Unclosed braces or brackets:</strong> every <code>{</code> needs a <code>}</code> and every <code>[</code> a <code>]</code>. Formatting the text with indentation makes a missing one easy to spot.</li>
+  <li><strong>NaN, Infinity, undefined:</strong> not allowed. Use <code>null</code>, or a number, or a string.</li>
+  <li><strong>Leading zeros:</strong> write <code>7</code>, or a string <code>"007"</code> if the zeros matter, as with IDs and postcodes.</li>
+  <li><strong>Line breaks and tabs in strings:</strong> escape them as <code>\n</code> and <code>\t</code>.</li>
+  <li><strong>Two root values:</strong> a JSON document has exactly one top-level value. Wrap several objects in an array: <code>[{"a":1},{"b":2}]</code>. (Files with one object per line are "JSON Lines", a different format.)</li>
+  <li><strong>Empty input:</strong> the request or file was empty. Check that the data actually arrived, for example that an API returned a body.</li>
+  <li><strong>Smart quotes:</strong> word processors and chat apps turn <code>"</code> into “ and ”. Paste code through a plain text editor, or retype the quotes.</li>
+</ul>
+
+<h2>"Unexpected token &lt;" when calling an API</h2>
+<p>
+  If the message mentions <code>&lt;</code>, such as <em>Unexpected token '&lt;', "&lt;!DOCTYPE "... is not valid JSON</em>,
+  you didn't receive JSON at all. The server sent an HTML page, usually an error page, a login redirect or a 404.
+  Check the URL, the status code and the response body before looking at your parsing code.
+</p>
+
+<h2>A quick way to find the problem</h2>
+<ol>
+  <li>Paste the text into the <a href="/tools/json-formatter">JSON Formatter</a> and select <strong>Validate</strong>.</li>
+  <li>If it's invalid, look at the reported position and the character just before it.</li>
+  <li>If it's valid, select <strong>Format</strong> with 2 spaces, 4 spaces or tabs to read the structure, or <strong>Minify</strong> to compact it.</li>
+</ol>
+<p>
+  The formatter doesn't repair or reorder your data, so what you see is exactly what you pasted. It runs in your
+  browser, which matters when the JSON contains API keys or personal data.
+</p>
+
+<h2>Valid JSON checklist</h2>
+<ul>
+  <li>Keys and strings in double quotes</li>
+  <li>Commas between items, none after the last</li>
+  <li>Values only: string, number, true, false, null, object, array</li>
+  <li>No comments, no functions, no dates as objects (use ISO strings like <code>"2026-09-30"</code>)</li>
+  <li>One top-level value</li>
+  <li>UTF-8 text</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>Can JSON have comments?</h3>
+<p>No. Standard JSON has no comments. Some config formats such as JSONC or JSON5 allow them, but a normal JSON parser will reject them.</p>
+<h3>Is a trailing comma allowed in JSON?</h3>
+<p>No. JavaScript accepts trailing commas in objects and arrays, but JSON does not.</p>
+<h3>Why does my JSON work in JavaScript but fail in JSON.parse?</h3>
+<p>JavaScript object syntax is more relaxed: it allows single quotes, unquoted keys, comments and trailing commas. JSON allows none of them.</p>
+<h3>What does "Unexpected end of JSON input" mean?</h3>
+<p>The text ended before the JSON was complete, or was empty. Often an API returned an empty response.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/json-formatter">JSON Formatter</a></li>
+    <li><a href="/tools/base64">Base64 Encoder / Decoder</a></li>
+    <li><a href="/guides/what-is-base64">What Is Base64? Uses, Size Overhead and Why It Isn't Encryption</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

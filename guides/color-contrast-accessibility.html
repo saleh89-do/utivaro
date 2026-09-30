@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Text Colors: Contrast Ratios Explained | Utivaro</title>
+  <meta name="description" content="WCAG contrast ratio thresholds, measured ratios for common color pairs, how the ratio is calculated, and how to fix colors that fail.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/color-contrast-accessibility">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="Accessible Text Colors: Contrast Ratios Explained">
+  <meta property="og:description" content="WCAG contrast ratio thresholds, measured ratios for common color pairs, how the ratio is calculated, and how to fix colors that fail.">
+  <meta property="og:url" content="https://utivaro.com/guides/color-contrast-accessibility">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accessible Text Colors: Contrast Ratios Explained">
+  <meta name="twitter:description" content="WCAG contrast ratio thresholds, measured ratios for common color pairs, how the ratio is calculated, and how to fix colors that fail.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Accessible Text Colors: Contrast Ratios Explained",
+   "description": "WCAG contrast ratio thresholds, measured ratios for common color pairs, how the ratio is calculated, and how to fix colors that fail.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/color-contrast-accessibility",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Color contrast",
+     "item": "https://utivaro.com/guides/color-contrast-accessibility"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is 4.5:1 required by law?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Many accessibility laws and public-sector rules reference WCAG level AA, which includes 4.5:1 for normal text. Requirements depend on your country and sector."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does font weight change the ratio?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The ratio depends only on the two colors. Weight and size decide which threshold applies."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why does light gray text look fine to me but fail?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your screen, eyesight and lighting may be ideal. The thresholds are set so text stays readable for people with low vision and on poor screens."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What about dark mode?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The same thresholds apply. Very bright white on pure black can feel harsh, so many dark themes use off-white on dark gray while staying well above 4.5:1."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → Color contrast</p>
+  <h1>Accessible Text Colors: Contrast Ratios Explained</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">Normal text needs a contrast ratio of at least <strong>4.5:1</strong> against its background to meet WCAG level AA, and large text needs <strong>3:1</strong>. The table below shows real color pairs that pass and fail, including some that look strong but don't qualify.</p>
+
+<h2>What contrast ratio measures</h2>
+<p>
+  Contrast ratio compares the brightness of two colors, usually text and its background. It runs from
+  <strong>1:1</strong> (identical colors, invisible text) to <strong>21:1</strong> (black on white). The Web Content
+  Accessibility Guidelines (WCAG) use it to decide whether text is readable for people with low vision, color
+  blindness, or simply a phone screen in sunlight.
+</p>
+
+<h2>The thresholds to remember</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>What</th><th>Level AA (the usual target)</th><th>Level AAA (enhanced)</th></tr></thead>
+  <tbody>
+    <tr><td>Normal text</td><td>4.5:1</td><td>7:1</td></tr>
+    <tr><td>Large text: 24 px regular, or about 18.7 px bold and up</td><td>3:1</td><td>4.5:1</td></tr>
+    <tr><td>Icons, input borders, focus rings and other interface parts</td><td>3:1</td><td>–</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  AA is what most laws, policies and audits refer to. Logos and purely decorative text are exempt, and so is
+  text in disabled controls.
+</p>
+
+<h2>Real color pairs, measured</h2>
+<p>We calculated these ratios with the WCAG formula. The first color is the text, the second the background.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Text</th><th>Background</th><th>Ratio</th><th>Normal text (AA)</th><th>Large text (AA)</th></tr></thead>
+  <tbody>
+    <tr><td>#000000 black</td><td>#FFFFFF white</td><td>21.0:1</td><td>Pass</td><td>Pass</td></tr>
+    <tr><td>#0F172A navy</td><td>#FFFFFF white</td><td>17.85:1</td><td>Pass</td><td>Pass</td></tr>
+    <tr><td>#000000 black</td><td>#F59E0B amber</td><td>9.78:1</td><td>Pass</td><td>Pass</td></tr>
+    <tr><td>#2563EB blue</td><td>#FFFFFF white</td><td>5.17:1</td><td>Pass</td><td>Pass</td></tr>
+    <tr><td>#FFFFFF white</td><td>#DC2626 red</td><td>4.83:1</td><td>Pass</td><td>Pass</td></tr>
+    <tr><td>#64748B slate</td><td>#FFFFFF white</td><td>4.76:1</td><td>Pass</td><td>Pass</td></tr>
+    <tr><td>#767676 gray</td><td>#FFFFFF white</td><td>4.54:1</td><td>Pass (just)</td><td>Pass</td></tr>
+    <tr><td>#777777 gray</td><td>#FFFFFF white</td><td>4.48:1</td><td>Fail</td><td>Pass</td></tr>
+    <tr><td>#FF0000 red</td><td>#FFFFFF white</td><td>4.00:1</td><td>Fail</td><td>Pass</td></tr>
+    <tr><td>#FFFFFF white</td><td>#EF4444 red</td><td>3.76:1</td><td>Fail</td><td>Pass</td></tr>
+    <tr><td>#FFFFFF white</td><td>#16A34A green</td><td>3.30:1</td><td>Fail</td><td>Pass</td></tr>
+    <tr><td>#94A3B8 light slate</td><td>#FFFFFF white</td><td>2.56:1</td><td>Fail</td><td>Fail</td></tr>
+    <tr><td>#FFFFFF white</td><td>#F59E0B amber</td><td>2.15:1</td><td>Fail</td><td>Fail</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Lessons from the table:</p>
+<ul>
+  <li><strong>#767676 is the lightest gray that passes on white.</strong> One step lighter, #777777, fails.</li>
+  <li><strong>Pure red on white fails</strong> for normal text, even though it looks strong.</li>
+  <li><strong>Bright yellows, oranges and greens need dark text,</strong> not white. Amber with black text scores 9.78:1; with white, 2.15:1.</li>
+  <li><strong>Ratio is symmetric.</strong> White on blue and blue on white give the same number.</li>
+</ul>
+
+<h2>How the ratio is calculated</h2>
+<ol>
+  <li>Convert each color's red, green and blue values from 0–255 to 0–1.</li>
+  <li>Linearize each channel: if the value is 0.04045 or less, divide by 12.92; otherwise compute ((value + 0.055) ÷ 1.055)<sup>2.4</sup>.</li>
+  <li>Relative luminance L = 0.2126 × R + 0.7152 × G + 0.0722 × B. Green counts most because the eye is most sensitive to it.</li>
+  <li>Contrast ratio = (L of the lighter color + 0.05) ÷ (L of the darker color + 0.05).</li>
+</ol>
+<p>
+  The heavy weight on green explains some surprises: a green and a blue can look equally strong but have very
+  different luminance, so white text passes on one and fails on the other.
+</p>
+
+<h2>How to check your own colors</h2>
+<ol>
+  <li>Get the exact HEX codes. The <a href="/tools/color-picker">Color Picker</a> converts between HEX, RGB and HSL and can sample a color from a screenshot. It doesn't measure contrast itself.</li>
+  <li>Measure the pair. In Chrome or Edge, right-click the text, choose Inspect, and click the color swatch in the Styles panel: it shows the contrast ratio and whether it passes AA and AAA.</li>
+  <li>Check every state: normal, hover, focus, disabled placeholders, and text over images.</li>
+</ol>
+
+<h2>Fixing a failing pair</h2>
+<ul>
+  <li><strong>Darken the text or lighten the background.</strong> In HSL, lower the lightness of the text color a few points at a time until it passes. The hue stays the same, so the brand still looks right. See <a href="/guides/hex-rgb-hsl-color-codes">HEX, RGB and HSL explained</a>.</li>
+  <li><strong>Switch text color.</strong> On mid-bright backgrounds, black often passes where white fails.</li>
+  <li><strong>Make the text large and bold</strong> only if the design allows; the 3:1 threshold for large text is not a loophole for body copy.</li>
+  <li><strong>Put text on a solid panel</strong> instead of directly over a photo, where contrast changes from pixel to pixel.</li>
+</ul>
+
+<h2>Don't rely on color alone</h2>
+<p>
+  Contrast is only part of accessibility. Links should be distinguishable without color (for example,
+  underlined), and error messages should say what's wrong in words, not just turn a field red.
+</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Is 4.5:1 required by law?</h3>
+<p>Many accessibility laws and public-sector rules reference WCAG level AA, which includes 4.5:1 for normal text. Requirements depend on your country and sector.</p>
+<h3>Does font weight change the ratio?</h3>
+<p>No. The ratio depends only on the two colors. Weight and size decide which threshold applies.</p>
+<h3>Why does light gray text look fine to me but fail?</h3>
+<p>Your screen, eyesight and lighting may be ideal. The thresholds are set so text stays readable for people with low vision and on poor screens.</p>
+<h3>What about dark mode?</h3>
+<p>The same thresholds apply. Very bright white on pure black can feel harsh, so many dark themes use off-white on dark gray while staying well above 4.5:1.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/color-picker">Color Picker</a></li>
+    <li><a href="/guides/hex-rgb-hsl-color-codes">HEX, RGB and HSL Color Codes Explained with Examples</a></li>
+  </ul>
+  <h2 id="sources">Sources</h2>
+  <ul class="sources">
+    <li><a href="https://www.w3.org/TR/WCAG22/" rel="nofollow">W3C: Web Content Accessibility Guidelines (WCAG) 2.2</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

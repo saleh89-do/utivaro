@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspect Ratio Explained: Resize Without Stretching | Utivaro</title>
+  <meta name="description" content="What aspect ratio means, the formula to calculate the missing side, common ratios like 16:9 and 4:5, and how to change shape without distortion.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/aspect-ratio-explained">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="Aspect Ratio Explained: Resize Without Stretching or Cropping">
+  <meta property="og:description" content="What aspect ratio means, the formula to calculate the missing side, common ratios like 16:9 and 4:5, and how to change shape without distortion.">
+  <meta property="og:url" content="https://utivaro.com/guides/aspect-ratio-explained">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aspect Ratio Explained: Resize Without Stretching or Cropping">
+  <meta name="twitter:description" content="What aspect ratio means, the formula to calculate the missing side, common ratios like 16:9 and 4:5, and how to change shape without distortion.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Aspect Ratio Explained: Resize Without Stretching or Cropping",
+   "description": "What aspect ratio means, the formula to calculate the missing side, common ratios like 16:9 and 4:5, and how to change shape without distortion.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/aspect-ratio-explained",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Aspect ratio",
+     "item": "https://utivaro.com/guides/aspect-ratio-explained"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is 1920 × 1080 the same as 16:9?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. 1920 ÷ 1080 = 1.78, which is 16 ÷ 9. So are 1280 × 720, 2560 × 1440 and 3840 × 2160."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What aspect ratio is a phone photo?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most phone cameras shoot 4:3 by default (4032 × 3024 on many iPhones). Some offer 16:9 or 1:1 modes, which crop the sensor image."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Why is my resized image slightly off by one pixel?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Many ratios don't divide into whole pixels, so the result is rounded. A one-pixel difference is invisible and won't cause cropping."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does DPI change the aspect ratio?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. DPI only affects print size. The ratio depends only on the pixel width and height."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → Aspect ratio</p>
+  <h1>Aspect Ratio Explained: Resize Without Stretching or Cropping</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">Aspect ratio is an image's shape: width divided by height. Keep it the same and you can resize freely without distortion, using one formula: <strong>new height = new width × original height ÷ original width</strong>. Changing the shape needs a crop or padding, never a stretch.</p>
+
+<h2>What aspect ratio means</h2>
+<p>
+  An image's aspect ratio is its width divided by its height, written as two numbers such as 16:9 or 4:5.
+  A 1920 × 1080 image and a 1280 × 720 image are different sizes but the same shape, because both are 16:9.
+  The ratio describes the shape; the pixel dimensions describe the size.
+</p>
+<p>
+  When you resize an image and keep the ratio, the picture gets bigger or smaller without distortion. When
+  you change the ratio, something has to give: the picture is stretched, squashed, cropped or padded with bars.
+</p>
+
+<h2>The one formula you need</h2>
+<p>If you know the original size and one new side, the other side is:</p>
+<ul>
+  <li><strong>New height = new width × original height ÷ original width</strong></li>
+  <li><strong>New width = new height × original width ÷ original height</strong></li>
+</ul>
+<p>This is exactly what the <strong>Keep aspect ratio</strong> option in the <a href="/tools/image-resizer">Image Resizer</a> does: type one side and the other is filled in for you.</p>
+
+<h3>Worked example 1: shrink a phone photo for a blog</h3>
+<p>A photo is 4032 × 3024 and the blog column is 1200 px wide. New height = 1200 × 3024 ÷ 4032 = <strong>900 px</strong>. Result: 1200 × 900, still 4:3.</p>
+
+<h3>Worked example 2: a banner that must be 400 px tall</h3>
+<p>A 1920 × 1080 image needs to be 400 px tall. New width = 400 × 1920 ÷ 1080 = 711.1, so <strong>711 px</strong>. Round to the nearest whole pixel; the tiny error is invisible.</p>
+
+<h3>Worked example 3: a portrait photo to a fixed width</h3>
+<p>A 3000 × 4000 portrait needs to be 800 px wide. New height = 800 × 4000 ÷ 3000 = <strong>1067 px</strong>.</p>
+
+<h2>Common ratios and where they're used</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Ratio</th><th>Decimal</th><th>Typical sizes (px)</th><th>Used for</th></tr></thead>
+  <tbody>
+    <tr><td>1:1</td><td>1.00</td><td>1080 × 1080</td><td>Profile photos, square posts</td></tr>
+    <tr><td>4:5</td><td>0.80</td><td>1080 × 1350</td><td>Portrait social posts</td></tr>
+    <tr><td>2:3</td><td>0.67</td><td>1000 × 1500</td><td>Pinterest pins, 4×6 in prints (portrait)</td></tr>
+    <tr><td>3:4</td><td>0.75</td><td>3024 × 4032</td><td>Phone photos held upright</td></tr>
+    <tr><td>4:3</td><td>1.33</td><td>4032 × 3024</td><td>Phone photos, tablets, older screens</td></tr>
+    <tr><td>3:2</td><td>1.50</td><td>6000 × 4000</td><td>DSLR and mirrorless cameras, 6×4 in prints</td></tr>
+    <tr><td>16:9</td><td>1.78</td><td>1920 × 1080</td><td>Video, YouTube thumbnails, presentations</td></tr>
+    <tr><td>1.91:1</td><td>1.91</td><td>1200 × 630</td><td>Link previews (Open Graph)</td></tr>
+    <tr><td>9:16</td><td>0.56</td><td>1080 × 1920</td><td>Stories, Reels, Shorts, TikTok</td></tr>
+  </tbody>
+</table>
+</div>
+<p>For exact sizes per platform, see <a href="/guides/image-sizes-for-every-platform">Image Sizes for Every Platform</a>.</p>
+
+<h2>How to find an image's ratio</h2>
+<p>
+  Divide width by height and compare the decimal with the table. For 1600 × 900: 1600 ÷ 900 = 1.78, so 16:9.
+  To write it as whole numbers, divide both sides by their greatest common divisor: for 1600 and 900 it's 100,
+  giving 16:9. For 1080 × 1350 it's 270, giving 4:5.
+</p>
+
+<h2>Changing the ratio without stretching</h2>
+<p>If you need a different shape, you have three honest options:</p>
+<ol>
+  <li><strong>Crop.</strong> Cut away part of the image so the rest has the new shape. Best when the subject is in the middle. To turn a 4:3 photo (4032 × 3024) into 16:9, keep the full width and crop the height to 4032 × 9 ÷ 16 = 2268 px, trimming 378 px from the top and bottom.</li>
+  <li><strong>Pad.</strong> Place the image on a larger canvas with bars or a blurred background. Nothing is cut off, but the picture appears smaller.</li>
+  <li><strong>Recompose.</strong> Use a different photo that was shot in the right orientation. Often the best result, and worth planning when you take the picture.</li>
+</ol>
+<p>
+  What you should not do is type a new width and height with the aspect ratio lock turned off. The
+  <a href="/tools/image-resizer">Image Resizer</a> allows it for cases where you've already cropped, but on an
+  uncropped photo it squashes faces and makes circles into ovals.
+</p>
+
+<h2>Crop first, then resize</h2>
+<p>
+  Order matters. Crop to the ratio you need at full resolution, then resize down to the pixel size. If you
+  shrink first and crop afterwards, you throw away pixels you'd already paid for, and may end up below the
+  size the platform needs.
+</p>
+
+<h2>Why a platform crops your image anyway</h2>
+<p>
+  Even with the right ratio, some places show a different crop in previews: a 4:5 post appears 3:4 on an
+  Instagram profile grid, and a wide header is trimmed on phones. Keep important content away from the
+  edges, roughly in the central 80% of the frame.
+</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Is 1920 × 1080 the same as 16:9?</h3>
+<p>Yes. 1920 ÷ 1080 = 1.78, which is 16 ÷ 9. So are 1280 × 720, 2560 × 1440 and 3840 × 2160.</p>
+<h3>What aspect ratio is a phone photo?</h3>
+<p>Most phone cameras shoot 4:3 by default (4032 × 3024 on many iPhones). Some offer 16:9 or 1:1 modes, which crop the sensor image.</p>
+<h3>Why is my resized image slightly off by one pixel?</h3>
+<p>Many ratios don't divide into whole pixels, so the result is rounded. A one-pixel difference is invisible and won't cause cropping.</p>
+<h3>Does DPI change the aspect ratio?</h3>
+<p>No. DPI only affects print size. The ratio depends only on the pixel width and height.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/image-resizer">Image Resizer</a></li>
+    <li><a href="/guides/image-sizes-for-every-platform">Image Sizes for Every Platform: Social Media, Email and Websites</a></li>
+    <li><a href="/guides/reduce-photo-size-under-100kb">How to Reduce a Photo to Under 100 KB or 200 KB</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>

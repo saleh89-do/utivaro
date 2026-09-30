@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- Load consent defaults before Google CMP and any Analytics configuration. -->
+  <script src="/assets/utivaro-consent.js?v=2026-09-19.1"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7526430511237750" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UUID Versions Explained: v4 vs v7 and More | Utivaro</title>
+  <meta name="description" content="What UUID versions 1 to 8 mean, the real chance of a v4 collision, when to use v7 for database keys, and formatting options.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="google-adsense-account" content="ca-pub-7526430511237750">
+  <link rel="canonical" href="https://utivaro.com/guides/uuid-versions-explained">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Utivaro">
+  <meta property="og:title" content="UUID Versions Explained: What They Are and When to Use Each">
+  <meta property="og:description" content="What UUID versions 1 to 8 mean, the real chance of a v4 collision, when to use v7 for database keys, and formatting options.">
+  <meta property="og:url" content="https://utivaro.com/guides/uuid-versions-explained">
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UUID Versions Explained: What They Are and When to Use Each">
+  <meta name="twitter:description" content="What UUID versions 1 to 8 mean, the real chance of a v4 collision, when to use v7 for database keys, and formatting options.">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
+
+  <script type="application/ld+json">
+  {
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "UUID Versions Explained: What They Are and When to Use Each",
+   "description": "What UUID versions 1 to 8 mean, the real chance of a v4 collision, when to use v7 for database keys, and formatting options.",
+   "datePublished": "2026-09-30",
+   "dateModified": "2026-09-30",
+   "author": {
+    "@type": "Organization",
+    "name": "Utivaro Team",
+    "url": "https://utivaro.com/about"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Utivaro",
+    "url": "https://utivaro.com/"
+   },
+   "mainEntityOfPage": "https://utivaro.com/guides/uuid-versions-explained",
+   "image": "https://utivaro.com/og-image.png"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://utivaro.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Guides",
+     "item": "https://utivaro.com/guides"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "UUID versions",
+     "item": "https://utivaro.com/guides/uuid-versions-explained"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Is a GUID the same as a UUID?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. GUID is Microsoft's name for the same 128-bit identifier format."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How can I tell which version a UUID is?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Look at the first character of the third group. In f47ac10b-58cc-4372-a567-0e02b2c3d479 it's 4, so it's version 4."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can two computers generate the same v4 UUID?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In theory yes, in practice no: with a proper random source the probability is too small to matter for any real system."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Should I use UUIDs or auto-increment numbers?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Auto-increment numbers are small and simple but reveal how many records exist and need one central database. UUIDs can be created anywhere without coordination."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260925-1">
+  <style id="utivaro-guide-css">
+  .guide-wrap{max-width:780px;margin:0 auto;padding:28px 20px 64px}
+  .guide{font-size:17px;line-height:1.75}
+  .guide .breadcrumb{font-size:14px;color:var(--muted,#64748b);margin:0 0 8px}
+  .guide .breadcrumb a{color:inherit;text-decoration:underline}
+  .guide h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-1px;margin:4px 0 10px}
+  .guide h2{font-size:26px;line-height:1.3;letter-spacing:-.4px;margin:44px 0 12px}
+  .guide h3{font-size:20px;line-height:1.35;margin:28px 0 8px}
+  .guide p,.guide li{color:var(--text,#0f172a)}
+  .guide a{color:var(--primary,#2563eb);text-decoration:underline}
+  .guide .byline{font-size:14px;color:var(--muted,#64748b);margin:0 0 24px}
+  .guide .lead{font-size:18px;background:#eff6ff;border-left:4px solid var(--primary,#2563eb);padding:16px 18px;border-radius:10px}
+  .guide .table-wrap{overflow-x:auto;border:1px solid var(--border,#e2e8f0);border-radius:12px;margin:16px 0;background:#fff}
+  .guide table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+  .guide th,.guide td{padding:10px 12px;border-bottom:1px solid var(--border,#e2e8f0);text-align:left;vertical-align:top}
+  .guide th{background:#f8fafc;font-weight:800}
+  .guide td[rowspan]{font-weight:700;background:#fbfdff}
+  .guide tbody tr:last-child td{border-bottom:0}
+  .guide .note,.guide .sources{font-size:14px;color:var(--muted,#64748b)}
+  .guide ul{padding-left:22px}
+  .guide li{margin:6px 0}
+  .guide-list .popular-card{margin-bottom:12px}
+  @media (max-width:860px){body.guide-page{padding-bottom:70px}.guide-wrap{padding:20px 16px 40px}.guide{font-size:16px}.guide h2{font-size:22px}}
+  </style>
+<meta name="google-adsense-account" content="ca-pub-7526430511237750">
+</head>
+<body class="guide-page">
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="logo" aria-label="Utivaro Home">UTIVARO<span>.</span></a>
+    <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+    <a class="nav-badge" href="/#categories">All Tools</a>
+  </nav>
+</header>
+<main>
+<div class="guide-wrap">
+<article class="guide">
+
+  <p class="breadcrumb"><a href="/">Home</a> → <a href="/guides">Guides</a> → UUID versions</p>
+  <h1>UUID Versions Explained: What They Are and When to Use Each</h1>
+  <p class="byline">By Utivaro Team · Last updated September 30, 2026</p>
+
+  <p class="lead">A UUID is a 128-bit ID you can create anywhere without clashing with anyone else's. <strong>Version 4</strong>, built from random bits, is the right default. <strong>Version 7</strong> adds a timestamp so IDs sort by creation time, which suits database keys.</p>
+
+<h2>What a UUID is</h2>
+<p>
+  A UUID (Universally Unique Identifier), also called a GUID in Microsoft systems, is a 128-bit number used as an
+  ID that won't clash with anyone else's, without a central authority handing numbers out. It's written as 32
+  hexadecimal digits in five groups:
+</p>
+<p><code>f47ac10b-58cc-4372-a567-0e02b2c3d479</code></p>
+<p>
+  Two positions tell you what kind of UUID it is. The first digit of the third group is the
+  <strong>version</strong> (here <code>4</code>). The first digit of the fourth group is the <strong>variant</strong>,
+  which for standard UUIDs is 8, 9, a or b (here <code>a</code>).
+</p>
+
+<h2>The versions</h2>
+<p>UUIDs are defined in RFC 9562 (2024), which replaced the original RFC 4122. The versions you'll meet:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Version</th><th>Built from</th><th>Sortable by time</th><th>Use today</th></tr></thead>
+  <tbody>
+    <tr><td>v1</td><td>Timestamp + device's MAC address</td><td>Not directly</td><td>Legacy; can reveal the machine and time</td></tr>
+    <tr><td>v3</td><td>MD5 hash of a namespace + name</td><td>No</td><td>Same input always gives the same UUID; prefer v5</td></tr>
+    <tr><td>v4</td><td>122 random bits</td><td>No</td><td>The default choice for most purposes</td></tr>
+    <tr><td>v5</td><td>SHA-1 hash of a namespace + name</td><td>No</td><td>Stable IDs derived from names, like URLs</td></tr>
+    <tr><td>v6</td><td>Reordered v1 timestamp</td><td>Yes</td><td>For systems migrating from v1</td></tr>
+    <tr><td>v7</td><td>Unix time in milliseconds + random bits</td><td>Yes</td><td>Database keys that should sort by creation time</td></tr>
+    <tr><td>v8</td><td>Custom layout</td><td>Depends</td><td>Experimental or vendor-specific formats</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Will two random UUIDs ever collide?</h2>
+<p>
+  A version 4 UUID has 122 random bits, so there are 2<sup>122</sup>, about 5.3 × 10<sup>36</sup>, possible values.
+  Using the birthday-problem formula, the chance that at least two UUIDs in a set are identical is:
+</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>UUIDs generated</th><th>Chance of any duplicate</th></tr></thead>
+  <tbody>
+    <tr><td>1 million (10<sup>6</sup>)</td><td>about 1 in 10<sup>25</sup></td></tr>
+    <tr><td>1 billion (10<sup>9</sup>)</td><td>about 1 in 10<sup>19</sup></td></tr>
+    <tr><td>1 trillion (10<sup>12</sup>)</td><td>about 1 in 10 trillion</td></tr>
+    <tr><td>1 quadrillion (10<sup>15</sup>)</td><td>about 1 in 10 million</td></tr>
+    <tr><td>2.7 × 10<sup>18</sup></td><td>50%</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Generating a billion UUIDs every second, it would take about 86 years to reach a 50% chance of a single duplicate.
+  In practice, bugs such as a poor random number generator or copying the same ID twice are far more likely than a
+  true collision. That's why the random source matters: the <a href="/tools/uuid-generator">UUID Generator</a> uses
+  the browser's Web Crypto API, a cryptographically secure generator.
+</p>
+
+<h2>v4 or v7?</h2>
+<p><strong>Use v4</strong> when you just need a unique, unguessable ID: request IDs, file names, public identifiers in URLs, test data.</p>
+<p>
+  <strong>Consider v7</strong> for primary keys in large databases. Because v7 starts with a timestamp, new IDs sort
+  after older ones. Databases store rows in index order, so inserting random v4 keys scatters writes across the
+  index, while v7 keys append near the end, which is usually faster and keeps indexes smaller. The trade-off: a v7
+  ID reveals roughly when it was created. Its 48-bit millisecond timestamp won't run out until the year 10889.
+</p>
+
+<h2>Formatting options</h2>
+<ul>
+  <li><strong>Hyphens:</strong> the standard form has 36 characters including 4 hyphens. Removing them leaves 32 hexadecimal characters, which some systems prefer. Both represent the same value.</li>
+  <li><strong>Case:</strong> UUIDs are case-insensitive. Lowercase is the standard output; some Microsoft tools display uppercase.</li>
+  <li><strong>Storage:</strong> in a database, store UUIDs in a native UUID type or as 16 bytes, not as a 36-character string, to save space and speed up comparisons.</li>
+</ul>
+
+<h2>Generating UUIDs</h2>
+<ol>
+  <li>Open the <a href="/tools/uuid-generator">UUID Generator</a>.</li>
+  <li>Choose how many you need, up to 100 at a time.</li>
+  <li>Optionally switch to uppercase or remove hyphens.</li>
+  <li>Copy the list. The IDs are generated in your browser and not sent anywhere.</li>
+</ol>
+<p>The tool generates version 4 UUIDs, the right default for most uses.</p>
+
+<h2>What UUIDs are not</h2>
+<ul>
+  <li><strong>Not secret tokens by design.</strong> A v4 UUID is hard to guess, but for password reset links or API keys, use a purpose-built token with more randomness and an expiry.</li>
+  <li><strong>Not meaningful.</strong> Don't parse information out of v4 UUIDs; there isn't any.</li>
+  <li><strong>Not short.</strong> For human-facing codes, like order numbers people read over the phone, use something shorter.</li>
+</ul>
+
+<h2>Frequently asked questions</h2>
+<h3>Is a GUID the same as a UUID?</h3>
+<p>Yes. GUID is Microsoft's name for the same 128-bit identifier format.</p>
+<h3>How can I tell which version a UUID is?</h3>
+<p>Look at the first character of the third group. In f47ac10b-58cc-4372-a567-0e02b2c3d479 it's 4, so it's version 4.</p>
+<h3>Can two computers generate the same v4 UUID?</h3>
+<p>In theory yes, in practice no: with a proper random source the probability is too small to matter for any real system.</p>
+<h3>Should I use UUIDs or auto-increment numbers?</h3>
+<p>Auto-increment numbers are small and simple but reveal how many records exist and need one central database. UUIDs can be created anywhere without coordination.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tools/uuid-generator">UUID Generator</a></li>
+    <li><a href="/tools/password-generator">Password Generator</a></li>
+    <li><a href="/guides/what-is-base64">What Is Base64? Uses, Size Overhead and Why It Isn't Encryption</a></li>
+    <li><a href="/guides/password-strength-entropy">How Strong Is Your Password? Length, Entropy and Passphrases</a></li>
+  </ul>
+  <h2 id="sources">Sources</h2>
+  <ul class="sources">
+    <li><a href="https://www.rfc-editor.org/rfc/rfc9562" rel="nofollow">RFC 9562: Universally Unique IDentifiers (UUIDs)</a></li>
+  </ul>
+
+</article>
+</div>
+</main>
+<footer><div class="container"><div class="footer-grid"><div class="footer-brand"><strong>UTIVARO.</strong><p>Free online tools for everyday needs.</p></div><div class="footer-links"><a href="/">Home</a><a href="/#categories">Categories</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div></div><div class="copyright">© <span id="currentYear"></span> Utivaro. All rights reserved.</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<script src="/script.js?v=20260925-1"></script>
+
+<!-- Utivaro verified fixes 2026-09-11.2 -->
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-core.js?v=2026-09-11.2"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-tools.js?v=2026-09-25.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-images.js?v=2026-09-14.1"></script>
+<script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
+<script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
+</body>
+</html>
