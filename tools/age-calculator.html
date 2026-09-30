@@ -22,7 +22,7 @@
 
   <meta
     name="robots"
-    content="index,follow"
+    content="index,follow,max-image-preview:large"
   >
 
   <link
@@ -55,10 +55,9 @@
     content="Utivaro"
   >
 
-  <meta
-    name="twitter:card"
-    content="summary"
-  >
+  <meta property="og:image" content="https://utivaro.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://utivaro.com/og-image.png">
 
   <meta
     name="twitter:title"
@@ -153,9 +152,8 @@
         UTIVARO<span>.</span>
       </a>
 
-      <div class="nav-badge">
-        Free Online Tools
-      </div>
+      <div class="nav-links"><a href="/#popular">Popular</a><a href="/#categories">Categories</a><a href="/#all-tools">All Tools</a><a href="/guides">Guides</a></div>
+      <a class="nav-badge" href="/#categories">All Tools</a>
     </div>
   </header>
 
@@ -165,7 +163,7 @@
       <div class="breadcrumb">
         <a href="/">Home</a>
         <span>→</span>
-        <span>Calculators</span>
+        <a href="/#categories">Calculators</a>
         <span>→</span>
         <span>Age Calculator</span>
       </div>
@@ -319,6 +317,20 @@
 <p>Calendar months have different lengths, so dividing total days by 30 does not give an exact calendar age. Years, months and days use calendar dates. The total-months figure uses an average month length and is approximate.</p>
 <p>This tool uses dates, not birth times. It clamps month-end and leap-day anniversaries to valid dates, which may differ from a particular eligibility rule. For an interval without a birth-date interpretation, use <a href="/tools/days-between-dates">Days Between Dates</a>.</p>
 </div>
+<h2>Worked examples, including tricky dates</h2>
+<p>These results follow the calendar rule above. Try any of them in the calculator by setting both dates.</p>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:15px;min-width:460px">
+<thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Date of birth</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Calculate on</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Exact age</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">What it shows</th></tr></thead>
+<tbody>
+<tr><td style="padding:8px;border-bottom:1px solid #f1f5f9">15 Aug 1995</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">30 Sep 2026</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">31 y, 1 m, 15 d</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">An ordinary case; 11,369 days in total</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #f1f5f9">20 May 2008</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">19 May 2026</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">17 y, 11 m, 29 d</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">The day before an 18th birthday is still 17</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #f1f5f9">31 Jan 1990</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">28 Feb 2026</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">36 y, 1 m, 0 d</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">February has no 31st, so the month anniversary is 28 Feb</td></tr>
+<tr><td style="padding:8px;border-bottom:1px solid #f1f5f9">29 Feb 2000</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">28 Feb 2026</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">26 y, 0 m, 0 d</td><td style="padding:8px;border-bottom:1px solid #f1f5f9">A leap-day birthday falls on 28 Feb in non-leap years</td></tr>
+</tbody>
+</table>
+</div>
+<p>Other calculators and some legal rules treat month-end and leap-day birthdays differently, so results can differ by a day. For an official deadline or age limit, check the rule that applies to you. Our guide <a href="/guides/calculate-exact-age">How to Calculate Your Exact Age</a> explains the method step by step.</p>
 <h2>Frequently asked questions</h2>
 
           <h3>How do I calculate my exact age?</h3>
@@ -346,6 +358,29 @@
             Yes. The tool is free and does not require an account.
           </p>
 
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Related guides</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/guides/calculate-exact-age">
+            <div class="tool-icon">🎂</div>
+            <h3>How to Calculate Your Exact Age</h3>
+            <p>The method by hand, with month-end and February 29 birthdays explained.</p>
+          </a>
+          <a class="tool-card" href="/guides/count-days-between-dates">
+            <div class="tool-icon">📅</div>
+            <h3>Counting Days Between Dates</h3>
+            <p>Inclusive vs exclusive counting, deadlines, leap years and business days.</p>
+          </a>
+          <a class="tool-card" href="/guides">
+            <div class="tool-icon">📘</div>
+            <h3>All guides</h3>
+            <p>Practical guides for images, text, numbers and data.</p>
+          </a>
         </div>
       </section>
 
@@ -415,6 +450,7 @@
       </div>
 
       <div class="footer-links">
+        <a href="/guides">Guides</a>
         <a href="../about">About</a>
         <a href="../privacy">Privacy</a>
         <a href="../terms">Terms</a>
