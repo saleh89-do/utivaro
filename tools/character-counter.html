@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "Character Counter", "item": "https://utivaro.com/tools/character-counter"}]}</script>
 </head>
 <body>
-<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a><a href="/guides">Guides</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
 <main class="tool-page"><div class="container">
 <div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Text Tools</a> → Character Counter</div>
 <section class="tool-title"><h1>Character Counter</h1><p>Count characters, words, lines and bytes in real time. Add an optional limit to see how many characters remain.</p></section>
@@ -49,9 +49,36 @@
 <h3>Can I set a character limit?</h3><p>Yes. Enter any positive limit and the tool will show the number of characters remaining.</p>
 <h3>Does it count emoji?</h3><p>The tool uses browser text segmentation when available so emoji and combined characters are counted more naturally.</p>
 <h3>Is my text uploaded?</h3><p>No. The counting happens locally in your browser.</p></section>
-<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/word-counter"><div class="tool-icon">📝</div><h3>Word Counter</h3><p>Count words and reading time.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/json-formatter"><div class="tool-icon">{}</div><h3>JSON Formatter</h3><p>Format and validate JSON.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode text.</p><span class="tool-link">Open tool →</span></a></div></section>
+<section class="section"><div class="content-card" data-utivaro-guide-block="2026-10-02"><h2>Common character limits</h2>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:320px"><thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Where</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Maximum</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">X (Twitter) post, standard account</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">280</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Instagram caption</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">2,200</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">LinkedIn post</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">3,000</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">YouTube title</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">100</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">SMS, plain Latin text</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">160 per message (153 per part if longer)</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">SMS with Arabic, emoji or other special characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">70 per message (67 per part)</td></tr></tbody></table></div>
+<p>One emoji or Arabic letter switches an SMS to a 2-byte encoding, cutting the limit from 160 to 70. That's also why the UTF-8 byte count here can be larger than the character count. Details are in <a href="/guides/character-limits-social-media-sms-seo">Character Limits for Social Posts, SMS and SEO Titles</a>.</p></div></section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Related guides</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/guides/character-limits-social-media-sms-seo">
+            <div class="tool-icon">🔤</div>
+            <h3>Character Limits</h3>
+            <p>Social posts, SMS 160 vs 70, and SEO titles.</p>
+          </a>
+          <a class="tool-card" href="/guides/word-count-limits">
+            <div class="tool-icon">📝</div>
+            <h3>Word Count Limits</h3>
+            <p>Typical limits, reading time and how to cut.</p>
+          </a>
+          <a class="tool-card" href="/guides">
+            <div class="tool-icon">📘</div>
+            <h3>All guides</h3>
+            <p>Practical guides for images, text, numbers and data.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/word-counter"><div class="tool-icon">📝</div><h3>Word Counter</h3><p>Count words and reading time.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/json-formatter"><div class="tool-icon">{}</div><h3>JSON Formatter</h3><p>Format and validate JSON.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode text.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
-<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
 <script src="/script.js?v=20260925-1"></script>
 <script>
 function graphemeCount(text){if(Intl.Segmenter){return Array.from(new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(text)).length;}return Array.from(text).length;}

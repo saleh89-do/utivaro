@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "UUID Generator", "item": "https://utivaro.com/tools/uuid-generator"}]}</script>
 </head>
 <body>
-<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a><a href="/guides">Guides</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
 <main class="tool-page"><div class="container">
 <div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Developer Tools</a> → UUID Generator</div>
 <section class="tool-title"><h1>UUID Generator</h1><p>Generate secure UUID version 4 identifiers instantly for development, databases, testing and more.</p></section>
@@ -48,9 +48,37 @@
 <h3>How many UUIDs can I generate?</h3><p>You can generate up to 100 UUIDs at a time.</p>
 <h3>Can I remove UUID hyphens?</h3><p>Yes. Enable the remove-hyphens option for a compact 32-character hexadecimal output.</p>
 <h3>Are UUIDs generated locally?</h3><p>Yes. The tool uses browser cryptographic randomness and runs on your device.</p></section>
-<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/json-formatter"><div class="tool-icon">{}</div><h3>JSON Formatter</h3><p>Format and validate JSON.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode Base64.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/password-generator"><div class="tool-icon">🔐</div><h3>Password Generator</h3><p>Create secure random passwords.</p><span class="tool-link">Open tool →</span></a></div></section>
+<section class="section"><div class="content-card" data-utivaro-guide-block="2026-10-02"><h2>How likely is a duplicate?</h2>
+<p>A version 4 UUID has 122 random bits. Using the birthday-problem formula:</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:320px"><thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">UUIDs generated</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Chance of any duplicate</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1 billion</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">about 1 in 10<sup>19</sup></td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1 trillion</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">about 1 in 10 trillion</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">2.7 × 10<sup>18</sup></td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">50%</td></tr></tbody></table></div>
+<p>At a billion UUIDs per second, reaching a 50% chance would take about 86 years. For database keys that should sort by creation time, version 7 is worth considering. See <a href="/guides/uuid-versions-explained">UUID Versions Explained</a>.</p></div></section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Related guides</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/guides/uuid-versions-explained">
+            <div class="tool-icon">🆔</div>
+            <h3>UUID Versions Explained</h3>
+            <p>v4 vs v7 and the real collision odds.</p>
+          </a>
+          <a class="tool-card" href="/guides/password-strength-entropy">
+            <div class="tool-icon">🔐</div>
+            <h3>How Strong Is Your Password?</h3>
+            <p>Entropy tables and why length wins.</p>
+          </a>
+          <a class="tool-card" href="/guides">
+            <div class="tool-icon">📘</div>
+            <h3>All guides</h3>
+            <p>Practical guides for images, text, numbers and data.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/json-formatter"><div class="tool-icon">{}</div><h3>JSON Formatter</h3><p>Format and validate JSON.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode Base64.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/password-generator"><div class="tool-icon">🔐</div><h3>Password Generator</h3><p>Create secure random passwords.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
-<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
 <script src="/script.js?v=20260925-1"></script>
 <!-- Tool logic is maintained in /assets/utivaro-tools.js and utivaro-images.js. -->
 

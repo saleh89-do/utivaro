@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "JSON Formatter & Validator", "item": "https://utivaro.com/tools/json-formatter"}]}</script>
 </head>
 <body>
-<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a><a href="/guides">Guides</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
 <main class="tool-page"><div class="container">
 <div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Developer Tools</a> → JSON Formatter & Validator</div>
 <section class="tool-title"><h1>JSON Formatter & Validator</h1><p>Format, minify and validate JSON instantly with a fast, private browser-based developer tool.</p></section>
@@ -50,9 +50,37 @@
 <h3>Can this tool validate JSON?</h3><p>Yes. Select Validate to check whether the input can be parsed as valid JSON.</p>
 <h3>Can I minify JSON?</h3><p>Yes. The Minify action removes unnecessary whitespace from valid JSON.</p>
 <h3>Is my JSON uploaded to a server?</h3><p>No. Formatting and validation are performed locally in your browser.</p></section>
-<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/uuid-generator"><div class="tool-icon">🆔</div><h3>UUID Generator</h3><p>Generate UUID v4 values.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode Base64 text.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/character-counter"><div class="tool-icon">🔤</div><h3>Character Counter</h3><p>Count characters and bytes.</p><span class="tool-link">Open tool →</span></a></div></section>
+<section class="section"><div class="content-card" data-utivaro-guide-block="2026-10-02"><h2>Common errors and what causes them</h2>
+<p>These are the messages Chrome and Node.js show for typical mistakes.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:520px"><thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Invalid JSON</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Error message</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Fix</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top"><code>{"a": 1,}</code></td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Expected double-quoted property name</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Remove the trailing comma</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top"><code>{'a': 1}</code></td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Expected property name or '}'</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Use double quotes</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top"><code>{"a": 1 "b": 2}</code></td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Expected ',' or '}' after property value</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Add the missing comma</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top"><code>{"a": NaN}</code></td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Unexpected token 'N'</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Use null or a number</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">An HTML page instead of JSON</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Unexpected token '&lt;'</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Check the API URL and status code</td></tr></tbody></table></div>
+<p>The reported position often points just after the real mistake, so look at the character before it. All twelve common errors are in <a href="/guides/common-json-errors">Common JSON Errors and How to Fix Them</a>.</p></div></section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Related guides</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/guides/common-json-errors">
+            <div class="tool-icon">{ }</div>
+            <h3>Common JSON Errors</h3>
+            <p>Real error messages and how to fix them.</p>
+          </a>
+          <a class="tool-card" href="/guides/what-is-base64">
+            <div class="tool-icon">&lt;/&gt;</div>
+            <h3>What Is Base64?</h3>
+            <p>How it works, the 33% size cost, and security.</p>
+          </a>
+          <a class="tool-card" href="/guides">
+            <div class="tool-icon">📘</div>
+            <h3>All guides</h3>
+            <p>Practical guides for images, text, numbers and data.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/uuid-generator"><div class="tool-icon">🆔</div><h3>UUID Generator</h3><p>Generate UUID v4 values.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/base64"><div class="tool-icon">&lt;/&gt;</div><h3>Base64 Encoder & Decoder</h3><p>Encode or decode Base64 text.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/character-counter"><div class="tool-icon">🔤</div><h3>Character Counter</h3><p>Count characters and bytes.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
-<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
 <script src="/script.js?v=20260925-1"></script>
 <!-- Tool logic is maintained in /assets/utivaro-tools.js and utivaro-images.js. -->
 

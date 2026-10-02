@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utivaro.com/"}, {"@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://utivaro.com/#categories"}, {"@type": "ListItem", "position": 3, "name": "Color Picker & Converter", "item": "https://utivaro.com/tools/color-picker"}]}</script>
 </head>
 <body>
-<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
+<header class="site-header"><nav class="nav"><a href="/" class="logo">UTIVARO<span>.</span></a><div class="nav-links"><a href="/">Home</a><a href="/#all-tools">Tools</a><a href="/#categories">Categories</a><a href="/guides">Guides</a></div><div class="nav-badge">Free Online Tools</div></nav></header>
 <main class="tool-page"><div class="container">
 <div class="breadcrumb"><a href="/">Home</a> → <a href="/#categories">Image Tools</a> → Color Picker & Converter</div>
 <section class="tool-title"><h1>Color Picker & Converter</h1><p>Pick a color, convert HEX, RGB and HSL values, or sample a color directly from an image.</p></section>
@@ -53,9 +53,37 @@
 <h3>Can I pick a color from an image?</h3><p>Yes. Upload a supported image and tap or click a pixel to sample its color.</p>
 <h3>What image formats can I use?</h3><p>The image picker supports common browser-readable formats such as JPG, PNG, WebP and GIF.</p>
 <h3>Is my image uploaded?</h3><p>No. The image is read and sampled locally in your browser.</p></section>
-<section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/image-resizer"><div class="tool-icon">↔️</div><h3>Image Resizer</h3><p>Resize images by dimensions.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/jpg-to-webp"><div class="tool-icon">🗜️</div><h3>JPG to WebP</h3><p>Convert JPG to WebP.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/webp-to-jpg"><div class="tool-icon">🖼</div><h3>WebP to JPG</h3><p>Convert WebP to JPG.</p><span class="tool-link">Open tool →</span></a></div></section>
+<section class="section"><div class="content-card" data-utivaro-guide-block="2026-10-02"><h2>Will text be readable on your color?</h2>
+<p>This picker converts colors but doesn't measure contrast. As a reference, here are WCAG contrast ratios we calculated for common pairs. Normal text needs at least 4.5:1.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:440px"><thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Text</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Background</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Ratio</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Normal text</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#2563EB blue</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#FFFFFF white</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">5.17:1</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Pass</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#767676 gray</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#FFFFFF white</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">4.54:1</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Pass (lightest gray that does)</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#FF0000 red</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#FFFFFF white</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">4.00:1</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Fail</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#FFFFFF white</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#16A34A green</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">3.30:1</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Fail</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#000000 black</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#F59E0B amber</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">9.78:1</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Pass</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#FFFFFF white</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">#F59E0B amber</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">2.15:1</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Fail</td></tr></tbody></table></div>
+<p>To fix a failing pair, lower the HSL lightness of the text color a few points at a time; the hue stays the same. See <a href="/guides/color-contrast-accessibility">Accessible Text Colors</a> and <a href="/guides/hex-rgb-hsl-color-codes">HEX, RGB and HSL Explained</a>.</p></div></section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Related guides</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/guides/hex-rgb-hsl-color-codes">
+            <div class="tool-icon">🎨</div>
+            <h3>HEX, RGB and HSL Explained</h3>
+            <p>How the three color formats work.</p>
+          </a>
+          <a class="tool-card" href="/guides/color-contrast-accessibility">
+            <div class="tool-icon">👁️</div>
+            <h3>Accessible Text Colors</h3>
+            <p>Contrast ratios that pass and fail WCAG.</p>
+          </a>
+          <a class="tool-card" href="/guides">
+            <div class="tool-icon">📘</div>
+            <h3>All guides</h3>
+            <p>Practical guides for images, text, numbers and data.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section"><div class="section-heading"><h2>More free tools</h2></div><div class="tools-grid"><a class="tool-card" href="/tools/image-resizer"><div class="tool-icon">↔️</div><h3>Image Resizer</h3><p>Resize images by dimensions.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/jpg-to-webp"><div class="tool-icon">🗜️</div><h3>JPG to WebP</h3><p>Convert JPG to WebP.</p><span class="tool-link">Open tool →</span></a><a class="tool-card" href="/tools/webp-to-jpg"><div class="tool-icon">🖼</div><h3>WebP to JPG</h3><p>Convert WebP to JPG.</p><span class="tool-link">Open tool →</span></a></div></section>
 </div></main>
-<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
+<footer class="site-footer"><div class="container footer-content"><div><div class="logo">UTIVARO<span>.</span></div><p>Fast, free and simple online tools for everyday tasks.</p></div><div class="footer-links"><a href="/guides">Guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div class="footer-bottom">© <span id="currentYear"></span> Utivaro</div></div><div class="utivaro-privacy-controls"><button type="button" class="utivaro-privacy-button" data-utivaro-privacy aria-describedby="utivaro-privacy-status">Privacy &amp; cookie settings</button><p id="utivaro-privacy-status" role="status" aria-live="polite"></p></div></footer>
 <script src="/script.js?v=20260925-1"></script>
 <script>
 function hexToRgb(hex){hex=hex.trim().replace('#','');if(/^[0-9a-fA-F]{3}$/.test(hex))hex=hex.split('').map(c=>c+c).join('');if(!/^[0-9a-fA-F]{6}$/.test(hex))return null;return {r:parseInt(hex.slice(0,2),16),g:parseInt(hex.slice(2,4),16),b:parseInt(hex.slice(4,6),16)};}
