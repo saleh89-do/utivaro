@@ -540,7 +540,35 @@
 
     </div>
 
-  </div>
+  <section class="section"><div class="content-card" data-utivaro-guide-block="2026-10-02"><h2>How much bigger Base64 makes data</h2>
+<p>Every 3 bytes become 4 characters, so output is about a third larger than the input.</p>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:360px"><thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Original</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Base64 length</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Increase</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Hello (5 bytes)</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">8 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+60% (padding on short input)</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1 KB</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1,368 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+33.6%</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">100 KB</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">136,536 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+33.3%</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1 MB</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1,398,104 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+33.3%</td></tr></tbody></table></div>
+<p>Email attachments add line breaks on top, so a file grows about 37%. Standard Base64 uses <code>+</code> and <code>/</code>; the URL-safe variant used in JWTs uses <code>-</code> and <code>_</code> instead. More in <a href="/guides/what-is-base64">What Is Base64?</a></p></div></section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Related guides</h2>
+        </div>
+        <div class="tools-grid">
+          <a class="tool-card" href="/guides/what-is-base64">
+            <div class="tool-icon">&lt;/&gt;</div>
+            <h3>What Is Base64?</h3>
+            <p>How it works, the 33% size cost, and security.</p>
+          </a>
+          <a class="tool-card" href="/guides/common-json-errors">
+            <div class="tool-icon">{ }</div>
+            <h3>Common JSON Errors</h3>
+            <p>Real error messages and how to fix them.</p>
+          </a>
+          <a class="tool-card" href="/guides">
+            <div class="tool-icon">📘</div>
+            <h3>All guides</h3>
+            <p>Practical guides for images, text, numbers and data.</p>
+          </a>
+        </div>
+      </section>
+
+      </div>
 
 </main>
 
@@ -859,32 +887,4 @@ document.getElementById('base64Input').addEventListener('input', () => {
 <script data-utivaro-fix="2026-09-11.2" src="/assets/utivaro-site.js?v=2026-09-25.1"></script>
 <script data-utivaro-measurement="2026-09-25.1" src="/assets/utivaro-analytics.js?v=2026-09-25.1"></script>
 </body>
-  </html><section class="section"><div class="content-card" data-utivaro-guide-block="2026-10-02"><h2>How much bigger Base64 makes data</h2>
-<p>Every 3 bytes become 4 characters, so output is about a third larger than the input.</p>
-<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:15px;min-width:360px"><thead><tr><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Original</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Base64 length</th><th style="text-align:left;padding:8px;border-bottom:1px solid #e2e8f0">Increase</th></tr></thead><tbody><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">Hello (5 bytes)</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">8 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+60% (padding on short input)</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1 KB</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1,368 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+33.6%</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">100 KB</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">136,536 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+33.3%</td></tr><tr><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1 MB</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">1,398,104 characters</td><td style="padding:8px;border-bottom:1px solid #f1f5f9;vertical-align:top">+33.3%</td></tr></tbody></table></div>
-<p>Email attachments add line breaks on top, so a file grows about 37%. Standard Base64 uses <code>+</code> and <code>/</code>; the URL-safe variant used in JWTs uses <code>-</code> and <code>_</code> instead. More in <a href="/guides/what-is-base64">What Is Base64?</a></p></div></section>
-
-      <section class="section">
-        <div class="section-heading">
-          <h2>Related guides</h2>
-        </div>
-        <div class="tools-grid">
-          <a class="tool-card" href="/guides/what-is-base64">
-            <div class="tool-icon">&lt;/&gt;</div>
-            <h3>What Is Base64?</h3>
-            <p>How it works, the 33% size cost, and security.</p>
-          </a>
-          <a class="tool-card" href="/guides/common-json-errors">
-            <div class="tool-icon">{ }</div>
-            <h3>Common JSON Errors</h3>
-            <p>Real error messages and how to fix them.</p>
-          </a>
-          <a class="tool-card" href="/guides">
-            <div class="tool-icon">📘</div>
-            <h3>All guides</h3>
-            <p>Practical guides for images, text, numbers and data.</p>
-          </a>
-        </div>
-      </section>
-
-      
+  </html>
