@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://utivaro.com/guides</loc>
-    <lastmod>2026-09-30</lastmod>
+    <lastmod>2026-10-03</lastmod>
   </url>
   <url>
     <loc>https://utivaro.com/guides/image-sizes-for-every-platform</loc>
@@ -149,5 +149,13 @@
   <url>
     <loc>https://utivaro.com/guides/metric-imperial-conversion-cheat-sheet</loc>
     <lastmod>2026-09-30</lastmod>
+  </url>
+  <url>
+    <loc>https://utivaro.com/guides/make-images-load-faster</loc>
+    <lastmod>2026-10-03</lastmod>
+  </url>
+  <url>
+    <loc>https://utivaro.com/guides/resize-photo-for-online-applications</loc>
+    <lastmod>2026-10-03</lastmod>
   </url>
 </urlset>
